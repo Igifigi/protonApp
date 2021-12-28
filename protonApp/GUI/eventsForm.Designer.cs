@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventsForm));
             this.addEventButton = new System.Windows.Forms.Button();
             this.refreshButton = new System.Windows.Forms.Button();
             this.editEventButton = new System.Windows.Forms.Button();
@@ -54,6 +55,7 @@
             this.refreshButton.TabIndex = 2;
             this.refreshButton.Text = "Odśwież";
             this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
             // editEventButton
             // 
@@ -87,6 +89,7 @@
             this.Controls.Add(this.editEventButton);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.addEventButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EventsForm";
             this.Text = "eventsForm";
             this.Load += new System.EventHandler(this.EventsForm_Load);

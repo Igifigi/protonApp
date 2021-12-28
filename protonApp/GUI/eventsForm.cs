@@ -28,6 +28,7 @@ namespace protonApp.GUI
             DatabaseDownloader databaseDownloader = new DatabaseDownloader();
             List<Event> events = databaseDownloader.GetEvents();
             //eventsTextBox.Text = events.Aggregate("", (curr, next) => curr.ToString() + "\n");
+            //eventsTextBox.Text = events.Aggregate((a,b) => a.id.ToString());
             for (int i = 0; i < events.Count; i++)
                 eventsTextBox.AppendText(events[i].id + ". " + events[i].name + ": " + events[i].date + "\r\n");
             //MySqlConnection sqlConnection = DatabaseConnectionData.sqlConnection;
@@ -71,6 +72,11 @@ namespace protonApp.GUI
         private void EventsForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            initializeTextBoxes();
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DirectDatabaseQueryForm));
             this.queryTextbox = new System.Windows.Forms.TextBox();
             this.goButton = new System.Windows.Forms.Button();
             this.chooseQueryMethodComboBox = new System.Windows.Forms.ComboBox();
@@ -72,6 +73,7 @@
             this.Controls.Add(this.chooseQueryMethodComboBox);
             this.Controls.Add(this.goButton);
             this.Controls.Add(this.queryTextbox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DirectDatabaseQueryForm";
             this.Text = "DirectDatabaseQuery";
             this.Load += new System.EventHandler(this.DirectDatabaseQuery_Load);
