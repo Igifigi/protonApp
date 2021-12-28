@@ -50,6 +50,24 @@
   <ItemGroup>
     <Compile Include="Data\DatabaseConnectionData.cs" />
     <Compile Include="Data\SportBonusData.cs" />
+    <Compile Include="GUI\AddStudentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\AddStudentForm.Designer.cs">
+      <DependentUpon>AddStudentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\StudentEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\StudentEditForm.Designer.cs">
+      <DependentUpon>StudentEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\StudentsListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\StudentsListForm.Designer.cs">
+      <DependentUpon>StudentsListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Logic\PointsCalculator.cs" />
     <Compile Include="Logic\TechnicalFunctions.cs" />
     <Compile Include="GUI\AddEventForm.cs">
@@ -87,6 +105,9 @@
     <EmbeddedResource Include="GUI\AddEventForm.resx">
       <DependentUpon>AddEventForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\AddStudentForm.resx">
+      <DependentUpon>AddStudentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\DirectDatabaseQueryForm.resx">
       <DependentUpon>DirectDatabaseQueryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +119,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\StudentEditForm.resx">
+      <DependentUpon>StudentEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\StudentsListForm.resx">
+      <DependentUpon>StudentsListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
