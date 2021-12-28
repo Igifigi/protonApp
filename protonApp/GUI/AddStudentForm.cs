@@ -71,10 +71,11 @@ namespace protonApp.GUI
         private void addStudent_Click(object sender, EventArgs e)
         {
             InsertStudent();
-            Namer.Text = "";
-            Surname.Text = "";
-            radioButton1.Checked = false;
-            radioButton2.Checked = false;
+            nameTextBox.Text = "";
+            surnameTextBox.Text = "";
+            menRadioButton.Checked = false;
+            womenRadioButton.Checked = false;
+
             if (MessageBox.Show("Czy chcesz dodać następnego ucznia?", "Zapytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
                 this.Close();
