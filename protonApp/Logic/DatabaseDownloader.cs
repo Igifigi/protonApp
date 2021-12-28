@@ -182,20 +182,20 @@ namespace protonApp.Logic
             sqlConnection.Close();
         }
 
-        public List<Student> GetStudentsBySurname(string surname)
-        {
-            List<Student> students = new List<Student>();
-            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
-            MySqlCommand sqlCommand = new MySqlCommand("SELECT")
+        //public List<Student> GetStudentsBySurname(string surname)
+        //{
+        //    //List<Student> students = new List<Student>();
+        //    //MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+        //    //MySqlCommand sqlCommand = new MySqlCommand("SELECT")
 
-            try
-            {
+        //    //try
+        //    //{
 
-            }
+        //    //}
 
 
 
-            return students;
-        }
+        //    //return students;
+        //}
     }
 }
