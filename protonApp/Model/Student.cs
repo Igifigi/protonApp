@@ -12,7 +12,7 @@ namespace protonApp.Model
         public readonly string name;
         public readonly string surname;
         public readonly int class_id;
-        public readonly int sex; //1 - chlop, 2 - baba
+        public readonly int sex; //1 - chlop, 0 - baba
 
         public Student(
             int id,

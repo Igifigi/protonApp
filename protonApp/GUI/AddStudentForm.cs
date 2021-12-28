@@ -27,6 +27,14 @@ namespace protonApp.GUI
         private void addStudent_Click(object sender, EventArgs e)
         {
             sendDirectQuerry();
+            Namer.Text = "";
+            Surname.Text = "";
+            radioButton1.Checked = false;
+            radioButton2.Checked = false;
+            if (MessageBox.Show("Czy chcesz dodać następnego ucznia?", "Zapytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            {
+                this.Close();
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -75,7 +83,7 @@ namespace protonApp.GUI
         }
         private void sendDirectQuerry()
         {
-            string text = "INSERT INTO uczniowie(Imie,Nazwisko,Płeć,Klasa_Id) VALUES('"+Namer.Text+"', '"+Surname.Text+"', "+sexCheck()+", "+1+")";
+            string text = "INSERT INTO uczniowie(Imie,Nazwisko,Plec,Klasa_Id) VALUES('"+Namer.Text+"', '"+Surname.Text+"', "+sexCheck()+", "+1+")";
             MySqlConnection sqlConnection = DatabaseConnectionData.sqlConnection;
             MySqlCommand sendQuery = new MySqlCommand(text, sqlConnection);
             //MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter();
@@ -98,11 +106,11 @@ namespace protonApp.GUI
             }
             sqlConnection.Close();
         }
-        private bool sexCheck()
+        private int sexCheck()
         {
-            if (radioButton1.Checked)return true;
-            else if (radioButton2.Checked) return false;
-            else return false;
+            if (radioButton1.Checked)return 1;
+            else if (radioButton2.Checked) return 0;
+            else return 0;
         }
     }
 }

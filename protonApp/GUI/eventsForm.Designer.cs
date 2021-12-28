@@ -79,6 +79,7 @@
             this.eventsTextBox.Size = new System.Drawing.Size(429, 381);
             this.eventsTextBox.TabIndex = 4;
             this.eventsTextBox.TabStop = false;
+            this.eventsTextBox.TextChanged += new System.EventHandler(this.eventsTextBox_TextChanged);
             // 
             // EventsForm
             // 
