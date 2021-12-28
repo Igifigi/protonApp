@@ -115,5 +115,11 @@ namespace protonApp
             SettingsForm settingsForm = new SettingsForm();
             settingsForm.ShowDialog();
         }
+
+        private void studnetsButton_Click(object sender, EventArgs e)
+        {
+            StudentsListForm studentsListForm = new StudentsListForm();
+            studentsListForm.ShowDialog();
+        }
     }
 }

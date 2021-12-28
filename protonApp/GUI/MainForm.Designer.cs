@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.eventsButton = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.studnetsButton = new System.Windows.Forms.Button();
             this.rankingButton = new System.Windows.Forms.Button();
             this.directQueryButton = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
@@ -47,15 +47,16 @@
             this.eventsButton.UseVisualStyleBackColor = true;
             this.eventsButton.Click += new System.EventHandler(this.EventsButton_Click);
             // 
-            // button2
+            // studnetsButton
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Location = new System.Drawing.Point(396, 322);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(186, 54);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "blank";
-            this.button2.UseVisualStyleBackColor = true;
+            this.studnetsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.studnetsButton.Location = new System.Drawing.Point(396, 322);
+            this.studnetsButton.Name = "studnetsButton";
+            this.studnetsButton.Size = new System.Drawing.Size(186, 116);
+            this.studnetsButton.TabIndex = 4;
+            this.studnetsButton.Text = "Uczniowie\r\n";
+            this.studnetsButton.UseVisualStyleBackColor = true;
+            this.studnetsButton.Click += new System.EventHandler(this.studnetsButton_Click);
             // 
             // rankingButton
             // 
@@ -70,9 +71,9 @@
             // directQueryButton
             // 
             this.directQueryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.directQueryButton.Location = new System.Drawing.Point(588, 322);
+            this.directQueryButton.Location = new System.Drawing.Point(588, 382);
             this.directQueryButton.Name = "directQueryButton";
-            this.directQueryButton.Size = new System.Drawing.Size(186, 116);
+            this.directQueryButton.Size = new System.Drawing.Size(186, 56);
             this.directQueryButton.TabIndex = 8;
             this.directQueryButton.Text = "Bezpośrenie zapytanie do bazy";
             this.directQueryButton.UseVisualStyleBackColor = true;
@@ -81,7 +82,7 @@
             // settingsButton
             // 
             this.settingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.settingsButton.Location = new System.Drawing.Point(396, 382);
+            this.settingsButton.Location = new System.Drawing.Point(588, 322);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Size = new System.Drawing.Size(186, 54);
             this.settingsButton.TabIndex = 9;
@@ -98,7 +99,7 @@
             this.Controls.Add(this.settingsButton);
             this.Controls.Add(this.directQueryButton);
             this.Controls.Add(this.rankingButton);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.studnetsButton);
             this.Controls.Add(this.eventsButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -113,7 +114,7 @@
         #endregion
 
         private System.Windows.Forms.Button eventsButton;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button studnetsButton;
         private System.Windows.Forms.Button rankingButton;
         private System.Windows.Forms.Button directQueryButton;
         private System.Windows.Forms.Button settingsButton;
