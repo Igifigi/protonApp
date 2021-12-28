@@ -8,8 +8,8 @@ namespace protonApp.Model
 {
     class Class
     {
-        public readonly int id;
-        public readonly string name;
+        public int id;
+        public string name;
 
         public Class(int id, string name)
         {
