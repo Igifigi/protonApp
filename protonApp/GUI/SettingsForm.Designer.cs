@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.selectKeyComboBox = new System.Windows.Forms.ComboBox();
             this.insertValueTextBox = new System.Windows.Forms.TextBox();
             this.addValueButton = new System.Windows.Forms.Button();
@@ -111,6 +112,7 @@
             this.Controls.Add(this.insertValueTextBox);
             this.Controls.Add(this.selectKeyComboBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SettingsForm";
             this.Text = "SettingsForm";
             this.ResumeLayout(false);
