@@ -1,5 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using protonApp.Data;
+using protonApp.Logic;
+using protonApp.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,19 +16,61 @@ namespace protonApp.GUI
 {
     public partial class AddStudentForm : Form
     {
+        DatabaseDownloader databaseDownloader = new DatabaseDownloader();
         public AddStudentForm()
         {
             InitializeComponent();
+            initializeComboBoxes();
+        }
+
+        private void initializeComboBoxes()
+        {
+            List<Class> classes = databaseDownloader.GetClasses();
+            for(int i = 0; i < classes.Count; i++)
+            {
+                selectClassComboBox.Items.Add(classes[i].name);
+            }
+            //selectClassComboBox.Items.AddRange(databaseDownloader.GetClasses().ToArray());
+        }
+
+        private void InsertStudent()
+        {
+            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            string cmd = 
+                "INSERT INTO uczniowie (Imie, Nazwisko, Plec, Klasa_Id) VALUES ('" + 
+                nameTextBox.Text + 
+                "', '" 
+                + surnameTextBox.Text + 
+                "', " + 
+                getSex() + 
+                ", " + 
+                databaseDownloader.GetClassIdByName(selectClassComboBox.SelectedItem.ToString()) + 
+                ")";
+
+            try
+            {
+                sqlConnection.Open();
+                MySqlCommand sqlCommand = new MySqlCommand(cmd, sqlConnection);
+                sqlCommand.ExecuteNonQuery();
+                sqlConnection.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            sqlConnection.Close();
         }
 
         private void AddStudentForm_Load(object sender, EventArgs e)
         {
+           
+
 
         }
 
         private void addStudent_Click(object sender, EventArgs e)
         {
-            sendDirectQuerry();
+            InsertStudent();
             Namer.Text = "";
             Surname.Text = "";
             radioButton1.Checked = false;
@@ -81,36 +125,36 @@ namespace protonApp.GUI
         {
 
         }
-        private void sendDirectQuerry()
+        //private void sendDirectQuerry()
+        //{
+        //    MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+        //    string cmd = "INSERT INTO uczniowie (Imie, Nazwisko, Plec, Klasa_Id) VALUES ('" + nameTextBox.Text + "', '" + surnameTextBox.Text + "', " + getSex() + ", " + 1 + ")";
+        //    //MySqlCommand sendQuery = new MySqlCommand("INSERT INTO uczniowie(Imie,Nazwisko,Plec,Klasa_Id) VALUES('" + nameTextBox.Text + "', '" + surnameTextBox.Text + "', " + getSex() + ", " + 1 + ")", sqlConnection);
+        //    //MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter();
+
+        //    try
+        //    {
+        //        sqlConnection.Open();
+        //        //Console.WriteLine("connection established");
+        //        //Console.WriteLine(cmd);
+        //        MySqlCommand sqlCommand= new MySqlCommand(cmd, sqlConnection);
+        //        sqlCommand.ExecuteNonQuery();
+        //        sqlConnection.Close();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show(e.Message);
+        //    }
+        //    sqlConnection.Close();
+        //}
+        private bool getSex()
         {
-            string text = "INSERT INTO uczniowie(Imie,Nazwisko,Plec,Klasa_Id) VALUES('"+Namer.Text+"', '"+Surname.Text+"', "+sexCheck()+", "+1+")";
-            MySqlConnection sqlConnection = DatabaseConnectionData.sqlConnection;
-            MySqlCommand sendQuery = new MySqlCommand(text, sqlConnection);
-            //MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter();
-
-            try
-            {
-                sqlConnection.Open();
-                Console.WriteLine("connection established");
-                Console.WriteLine(text);
-                MySqlCommand mySqlCommand= new MySqlCommand(text, sqlConnection);
-                mySqlCommand.ExecuteNonQuery();
-                sqlConnection.Close();
-
-
-
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-            sqlConnection.Close();
-        }
-        private int sexCheck()
-        {
-            if (radioButton1.Checked)return 1;
-            else if (radioButton2.Checked) return 0;
-            else return 0;
+            if (menRadioButton.Checked)
+                return true;
+            else if (womenRadioButton.Checked)
+                return false;
+            else
+                return false;
         }
     }
 }
