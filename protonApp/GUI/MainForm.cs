@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using protonApp.GUI;
 using protonApp.Model;
+using System.Text.RegularExpressions;
 
 // Convert.ToInt32(<stringVal>)
 
@@ -102,6 +103,7 @@ namespace protonApp
 
             PointsCalculator pointsCalculator = new PointsCalculator();
             //pointsCalculator.calculatePoints(
+            //MessageBox.Show(Regex.Split("Sb27243", @"(?=[0-9]{1,4})").Aggregate((a, b) => a + "\n" + b));
 
         }
 

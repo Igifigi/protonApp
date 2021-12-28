@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventsForm));
             this.addEventButton = new System.Windows.Forms.Button();
-            this.displayEventsLabel = new System.Windows.Forms.Label();
             this.refreshButton = new System.Windows.Forms.Button();
             this.editEventButton = new System.Windows.Forms.Button();
+            this.eventsTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // addEventButton
@@ -45,16 +46,6 @@
             this.addEventButton.UseVisualStyleBackColor = true;
             this.addEventButton.Click += new System.EventHandler(this.AddEventButton_Click);
             // 
-            // displayEventsLabel
-            // 
-            this.displayEventsLabel.AutoSize = true;
-            this.displayEventsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.displayEventsLabel.Location = new System.Drawing.Point(12, 53);
-            this.displayEventsLabel.Name = "displayEventsLabel";
-            this.displayEventsLabel.Size = new System.Drawing.Size(51, 20);
-            this.displayEventsLabel.TabIndex = 1;
-            this.displayEventsLabel.Text = "label1";
-            // 
             // refreshButton
             // 
             this.refreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -64,6 +55,7 @@
             this.refreshButton.TabIndex = 2;
             this.refreshButton.Text = "Odśwież";
             this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
             // editEventButton
             // 
@@ -75,17 +67,32 @@
             this.editEventButton.Text = "Edytuj wydarzenie";
             this.editEventButton.UseVisualStyleBackColor = true;
             // 
+            // eventsTextBox
+            // 
+            this.eventsTextBox.Cursor = System.Windows.Forms.Cursors.Default;
+            this.eventsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.eventsTextBox.Location = new System.Drawing.Point(13, 57);
+            this.eventsTextBox.Multiline = true;
+            this.eventsTextBox.Name = "eventsTextBox";
+            this.eventsTextBox.ReadOnly = true;
+            this.eventsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.eventsTextBox.Size = new System.Drawing.Size(429, 381);
+            this.eventsTextBox.TabIndex = 4;
+            this.eventsTextBox.TabStop = false;
+            // 
             // EventsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.eventsTextBox);
             this.Controls.Add(this.editEventButton);
             this.Controls.Add(this.refreshButton);
-            this.Controls.Add(this.displayEventsLabel);
             this.Controls.Add(this.addEventButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EventsForm";
             this.Text = "eventsForm";
+            this.Load += new System.EventHandler(this.EventsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -94,8 +101,8 @@
         #endregion
 
         private System.Windows.Forms.Button addEventButton;
-        private System.Windows.Forms.Label displayEventsLabel;
         private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.Button editEventButton;
+        private System.Windows.Forms.TextBox eventsTextBox;
     }
 }

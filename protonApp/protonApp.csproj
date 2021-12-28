@@ -50,6 +50,9 @@
   <ItemGroup>
     <Compile Include="Data\DatabaseConnectionData.cs" />
     <Compile Include="Data\SportBonusData.cs" />
+
+
+
     <Compile Include="GUI\AddStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +71,7 @@
     <Compile Include="GUI\StudentsListForm.Designer.cs">
       <DependentUpon>StudentsListForm.cs</DependentUpon>
     </Compile>
+
     <Compile Include="Logic\PointsCalculator.cs" />
     <Compile Include="Logic\TechnicalFunctions.cs" />
     <Compile Include="GUI\AddEventForm.cs">
@@ -100,6 +104,11 @@
     <Compile Include="GUI\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Class.cs" />
+    <Compile Include="Model\Database.cs" />
+    <Compile Include="Model\Event.cs" />
+    <Compile Include="Model\Log.cs" />
+    <Compile Include="Model\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\AddEventForm.resx">
@@ -150,7 +159,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
