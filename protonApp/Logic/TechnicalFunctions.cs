@@ -28,5 +28,13 @@ namespace protonApp.Data
         {
             return ConfigurationManager.AppSettings[key];
         }
+        internal static bool HaveSpace(string s)
+        {
+            foreach(char c in s)
+            {
+                if (c == ' ') return true;
+            }
+            return false;
+        }
     }
 }

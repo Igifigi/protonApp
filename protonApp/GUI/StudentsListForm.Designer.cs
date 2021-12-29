@@ -32,6 +32,7 @@
             this.addStudent = new System.Windows.Forms.Button();
             this.editStudent = new System.Windows.Forms.Button();
             this.removeStudent = new System.Windows.Forms.Button();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // checkedListBox1
@@ -41,6 +42,7 @@
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(388, 259);
             this.checkedListBox1.TabIndex = 0;
+            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // addStudent
             // 
@@ -54,6 +56,7 @@
             // 
             // editStudent
             // 
+            this.editStudent.Enabled = false;
             this.editStudent.Location = new System.Drawing.Point(407, 103);
             this.editStudent.Name = "editStudent";
             this.editStudent.Size = new System.Drawing.Size(381, 85);
@@ -64,18 +67,31 @@
             // 
             // removeStudent
             // 
+            this.removeStudent.Enabled = false;
             this.removeStudent.Location = new System.Drawing.Point(407, 194);
             this.removeStudent.Name = "removeStudent";
-            this.removeStudent.Size = new System.Drawing.Size(381, 85);
+            this.removeStudent.Size = new System.Drawing.Size(381, 77);
             this.removeStudent.TabIndex = 3;
             this.removeStudent.Text = "Usuń Ucznia";
             this.removeStudent.UseVisualStyleBackColor = true;
+            this.removeStudent.Click += new System.EventHandler(this.removeStudent_Click);
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.Location = new System.Drawing.Point(12, 277);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(776, 55);
+            this.refreshButton.TabIndex = 4;
+            this.refreshButton.Text = "Odśwież";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
             // StudentsListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 297);
+            this.ClientSize = new System.Drawing.Size(800, 344);
+            this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.removeStudent);
             this.Controls.Add(this.editStudent);
             this.Controls.Add(this.addStudent);
@@ -92,5 +108,6 @@
         private System.Windows.Forms.Button addStudent;
         private System.Windows.Forms.Button editStudent;
         private System.Windows.Forms.Button removeStudent;
+        private System.Windows.Forms.Button refreshButton;
     }
 }

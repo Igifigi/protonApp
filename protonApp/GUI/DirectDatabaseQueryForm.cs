@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using protonApp.Data;
+using protonApp.Logic;
 
 namespace protonApp.GUI
 {
     public partial class DirectDatabaseQueryForm : Form
     {
+        OtherDatabaseModifications md = new OtherDatabaseModifications();
         public DirectDatabaseQueryForm()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace protonApp.GUI
 
         private void GoButton_Click(object sender, EventArgs e)
         {
-            sendDirectQuery();
+            md.sendDirectQuery(queryTextbox.Text);
         }
 
         //private short transfer()
@@ -32,52 +34,7 @@ namespace protonApp.GUI
         //    if(chooseQueryMethodComboBox.SelectedIndex)
         //}
 
-        private void sendDirectQuery()
-        {
-            MySqlConnection sqlConnection = DatabaseConnectionData.sqlConnection;
-            MySqlCommand sendQuery = new MySqlCommand(queryTextbox.Text, sqlConnection);
-            //MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter();
 
-            try
-            {
-                sqlConnection.Open();
-                Console.WriteLine("connection established");
-
-                switch (chooseQueryMethodComboBox.SelectedIndex)
-                {
-                    case 0:
-                        Console.WriteLine("selected 'select' query");
-
-                        List<string> output = new List<string>();
-                
-                        MySqlDataReader sqlDataReader = sendQuery.ExecuteReader();
-                        while (sqlDataReader.Read())
-                        {
-                            //output.Add(sqlDataReader[0].ToString() + " " + s)
-                            //MessageBox.Show((sqlDataReader[0].ToString() + " -- " + sqlDataReader[1].ToString()));
-                        }
-                        break;
-
-                    case 1:
-                        Console.WriteLine("selected 'insert etc.' query");
-                        sendQuery.ExecuteNonQuery();
-                        break;
-                }
-
-                sqlConnection.Close();
-                
-
-
-            } catch(Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-            sqlConnection.Close();
-            
-
-            
-
-        }
 
         private void DirectDatabaseQuery_Load(object sender, EventArgs e)
         {

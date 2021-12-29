@@ -78,5 +78,10 @@ namespace protonApp.GUI
         {
             initializeTextBoxes();
         }
+
+        private void eventsTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

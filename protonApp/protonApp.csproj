@@ -69,6 +69,7 @@
       <DependentUpon>StudentsListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Logic\DatabaseDownloader.cs" />
+    <Compile Include="Logic\OtherDatabaseModifications.cs" />
     <Compile Include="Logic\PointsCalculator.cs" />
     <Compile Include="Logic\TechnicalFunctions.cs" />
     <Compile Include="GUI\AddEventForm.cs">
