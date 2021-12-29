@@ -198,7 +198,7 @@ namespace protonApp.Logic
         public Student GetStudentById(int id)
         {
             MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
-            MySqlCommand sqlCommand = new MySqlCommand("SELECT * FROM uczniowie WHERE id=" + id.ToString(), sqlConnection);
+            MySqlCommand sqlCommand = new MySqlCommand("SELECT * FROM uczniowie WHERE id=" + id, sqlConnection);
             Student student = new Student(0,"","",0,0);
 
             try
@@ -211,8 +211,8 @@ namespace protonApp.Logic
                     student.id = Convert.ToInt32(sqlDataReader["Id"]);
                     student.name = Convert.ToString(sqlDataReader["imie"]);
                     student.surname = Convert.ToString(sqlDataReader["nazwisko"]);
-                    student.class_id = (int)(sqlDataReader["klasa_id"]);
-                    student.sex = (int)sqlDataReader["plec"];
+                    student.class_id = Convert.ToInt32(sqlDataReader["klasa_id"]);
+                    student.sex = Convert.ToInt32(sqlDataReader["plec"]);
                 }
                 sqlDataReader.Close();
             }

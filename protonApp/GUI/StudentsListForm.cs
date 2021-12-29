@@ -17,6 +17,7 @@ namespace protonApp.GUI
 {
     public partial class StudentsListForm : Form
     {
+        public static int id;
         OtherDatabaseModifications md = new OtherDatabaseModifications();
         DatabaseDownloader dl = new DatabaseDownloader();
         public StudentsListForm()
@@ -34,9 +35,14 @@ namespace protonApp.GUI
 
         private void editStudent_Click(object sender, EventArgs e)
         {
- 
-                StudentEditForm studentEditForm =new StudentEditForm();
-                studentEditForm.ShowDialog();
+            string ItemChecked = checkedListBox1.CheckedItems[0].ToString();
+            string name = ItemChecked.ToString().Split(' ')[0];
+            string surname = ItemChecked.ToString().Split(' ')[1];
+            string klasa = ItemChecked.ToString().Split(' ')[2];
+            editStudent.Enabled = false;
+            id = dl.GetStudentIdByParameters(name, surname, dl.GetClassIdByName(klasa));
+            StudentEditForm studentEditForm =new StudentEditForm(id);
+            studentEditForm.ShowDialog();
             
         }
 

@@ -16,12 +16,24 @@ namespace protonApp.GUI
     {
         OtherDatabaseModifications mf = new OtherDatabaseModifications();
         DatabaseDownloader dw = new DatabaseDownloader();
-        Student student = null;
-
-        public StudentEditForm()
+        int id=0;
+        public StudentEditForm(int i)
         {
+            id = i;
             InitializeComponent();
             initializeComboBoxes();
+            initializeStudent();
+        }
+        private void initializeStudent()
+        {
+
+        Student student = dw.GetStudentById(id);
+            textBox1.Text = (string)student.name;
+            textBox2.Text = (string)student.surname;
+            Console.WriteLine(student.sex);
+            if(student.sex == 1)menRadioButton.Checked = true;
+            else womenRadioButton.Checked = true;
+            selectClassComboBox.SelectedIndex = student.class_id-1;
         }
         private void initializeComboBoxes()
         {
@@ -34,7 +46,7 @@ namespace protonApp.GUI
         }
         private void editStudent_Click(object sender, EventArgs e)
         {
-            string text = "Update 'uczniowie' set 'Imie'='" + textBox1.Text + "','nazwisko'='" + textBox2.Text + "','klasa_id'=" + dw.GetClassIdByName(selectClassComboBox.ToString()) + "'plec'=" + getSex() + " where Id=" + dw.GetStudentIdByParameters(student.name, student.surname, student.class_id);
+            string text = "UPDATE `uczniowie` SET `Imie`='" + textBox1.Text + "',`nazwisko`='" + textBox2.Text + "',`klasa_id`=" + dw.GetClassIdByName(selectClassComboBox.SelectedItem.ToString()) + ",`plec`=" + getSex() + " where Id=" + id;
             mf.sendDirectQuery(text);
             this.Close();
         }
