@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddStudentForm));
             this.label1 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.surnameTextBox = new System.Windows.Forms.TextBox();
@@ -108,7 +109,7 @@
             // 
             this.womenRadioButton.AutoSize = true;
             this.womenRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.womenRadioButton.Location = new System.Drawing.Point(94, 106);
+            this.womenRadioButton.Location = new System.Drawing.Point(234, 76);
             this.womenRadioButton.Name = "womenRadioButton";
             this.womenRadioButton.Size = new System.Drawing.Size(81, 24);
             this.womenRadioButton.TabIndex = 6;
@@ -121,7 +122,7 @@
             // 
             this.selectClassComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.selectClassComboBox.FormattingEnabled = true;
-            this.selectClassComboBox.Location = new System.Drawing.Point(94, 136);
+            this.selectClassComboBox.Location = new System.Drawing.Point(94, 106);
             this.selectClassComboBox.Name = "selectClassComboBox";
             this.selectClassComboBox.Size = new System.Drawing.Size(221, 28);
             this.selectClassComboBox.TabIndex = 7;
@@ -131,7 +132,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(12, 136);
+            this.label4.Location = new System.Drawing.Point(12, 106);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 20);
             this.label4.TabIndex = 8;
@@ -141,9 +142,9 @@
             // addStudentButton
             // 
             this.addStudentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.addStudentButton.Location = new System.Drawing.Point(12, 170);
+            this.addStudentButton.Location = new System.Drawing.Point(12, 140);
             this.addStudentButton.Name = "addStudentButton";
-            this.addStudentButton.Size = new System.Drawing.Size(303, 93);
+            this.addStudentButton.Size = new System.Drawing.Size(303, 90);
             this.addStudentButton.TabIndex = 9;
             this.addStudentButton.Text = "DODAJ UCZNIA";
             this.addStudentButton.UseVisualStyleBackColor = true;
@@ -153,7 +154,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 275);
+            this.ClientSize = new System.Drawing.Size(327, 242);
             this.Controls.Add(this.addStudentButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.selectClassComboBox);
@@ -164,8 +165,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.nameTextBox);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "AddStudentForm";
-            this.Text = "AddStudentForm";
+            this.Text = "Dodaj ucznia";
             this.Load += new System.EventHandler(this.AddStudentForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

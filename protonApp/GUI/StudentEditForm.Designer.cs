@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentEditForm));
             this.editStudent = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.selectClassComboBox = new System.Windows.Forms.ComboBox();
@@ -42,38 +43,42 @@
             // 
             // editStudent
             // 
-            this.editStudent.Location = new System.Drawing.Point(15, 212);
+            this.editStudent.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editStudent.Location = new System.Drawing.Point(12, 140);
             this.editStudent.Name = "editStudent";
-            this.editStudent.Size = new System.Drawing.Size(277, 93);
+            this.editStudent.Size = new System.Drawing.Size(303, 90);
             this.editStudent.TabIndex = 19;
-            this.editStudent.Text = "Edytuj Ucznia";
+            this.editStudent.Text = "EDYTUJ UCZNIA";
             this.editStudent.UseVisualStyleBackColor = true;
             this.editStudent.Click += new System.EventHandler(this.editStudent_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 92);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(12, 109);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(33, 13);
+            this.label4.Size = new System.Drawing.Size(48, 20);
             this.label4.TabIndex = 18;
             this.label4.Text = "Klasa";
             // 
             // selectClassComboBox
             // 
+            this.selectClassComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.selectClassComboBox.FormattingEnabled = true;
-            this.selectClassComboBox.Location = new System.Drawing.Point(71, 89);
+            this.selectClassComboBox.Location = new System.Drawing.Point(94, 106);
             this.selectClassComboBox.Name = "selectClassComboBox";
-            this.selectClassComboBox.Size = new System.Drawing.Size(221, 21);
+            this.selectClassComboBox.Size = new System.Drawing.Size(221, 28);
             this.selectClassComboBox.TabIndex = 17;
             this.selectClassComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // womenRadioButton
             // 
             this.womenRadioButton.AutoSize = true;
-            this.womenRadioButton.Location = new System.Drawing.Point(155, 65);
+            this.womenRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.womenRadioButton.Location = new System.Drawing.Point(234, 76);
             this.womenRadioButton.Name = "womenRadioButton";
-            this.womenRadioButton.Size = new System.Drawing.Size(61, 17);
+            this.womenRadioButton.Size = new System.Drawing.Size(81, 24);
             this.womenRadioButton.TabIndex = 16;
             this.womenRadioButton.TabStop = true;
             this.womenRadioButton.Text = "Kobieta";
@@ -83,9 +88,10 @@
             // menRadioButton
             // 
             this.menRadioButton.AutoSize = true;
-            this.menRadioButton.Location = new System.Drawing.Point(71, 65);
+            this.menRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.menRadioButton.Location = new System.Drawing.Point(94, 76);
             this.menRadioButton.Name = "menRadioButton";
-            this.menRadioButton.Size = new System.Drawing.Size(78, 17);
+            this.menRadioButton.Size = new System.Drawing.Size(106, 24);
             this.menRadioButton.TabIndex = 15;
             this.menRadioButton.TabStop = true;
             this.menRadioButton.Text = "Mężczyzna";
@@ -95,43 +101,48 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 67);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(12, 76);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.Size = new System.Drawing.Size(40, 20);
             this.label3.TabIndex = 14;
             this.label3.Text = "Płeć";
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(71, 38);
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox2.Location = new System.Drawing.Point(94, 44);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(221, 20);
+            this.textBox2.Size = new System.Drawing.Size(221, 26);
             this.textBox2.TabIndex = 13;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 41);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Location = new System.Drawing.Point(12, 44);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(76, 20);
             this.label2.TabIndex = 12;
             this.label2.Text = "Nazwisko";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(71, 12);
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBox1.Location = new System.Drawing.Point(94, 12);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(221, 20);
+            this.textBox1.Size = new System.Drawing.Size(221, 26);
             this.textBox1.TabIndex = 11;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 15);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
+            this.label1.Size = new System.Drawing.Size(39, 20);
             this.label1.TabIndex = 10;
             this.label1.Text = "Imię";
             // 
@@ -139,7 +150,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(313, 317);
+            this.ClientSize = new System.Drawing.Size(327, 242);
             this.Controls.Add(this.editStudent);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.selectClassComboBox);
@@ -150,8 +161,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "StudentEditForm";
-            this.Text = "44";
+            this.Text = "Edytuj ucznia";
             this.ResumeLayout(false);
             this.PerformLayout();
 
