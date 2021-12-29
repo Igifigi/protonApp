@@ -155,7 +155,21 @@ namespace protonApp.Logic
             sqlConnection.Close();
             return result;
         }
+//public List<Student> GetStudentsBySurname(string surname)
+        //{
+        //    //List<Student> students = new List<Student>();
+        //    //MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+        //    //MySqlCommand sqlCommand = new MySqlCommand("SELECT")
 
+        //    //try
+        //    //{
+
+        //    //}
+
+
+
+        //    //return students;
+        //}
 
         public void SetEvent(Event e)
         {
@@ -182,20 +196,57 @@ namespace protonApp.Logic
             sqlConnection.Close();
         }
 
-        public List<Student> GetStudentsBySurname(string surname)
+        public Class GetClassById(int id)
         {
-            List<Student> students = new List<Student>();
             MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
-            MySqlCommand sqlCommand = new MySqlCommand("SELECT")
+            MySqlCommand sqlCommand = new MySqlCommand("SELECT * FROM klasy WHERE id=" + id.ToString(), sqlConnection);
+            Class klasa = new Class(0, "");
+            
+            try
+            {
+                sqlConnection.Open();
+                MySqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                
+                while (sqlDataReader.Read())
+                {
+                    klasa.id = Convert.ToInt32(sqlDataReader["Id"]);
+                    klasa.name = Convert.ToString(sqlDataReader["Nazwa"]);
+                }
+                sqlDataReader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            sqlConnection.Close();
+            return klasa;
+        }
+
+        public int GetClassIdByName(string name)
+        {
+
+            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            MySqlCommand sqlCommand = new MySqlCommand("SELECT * FROM klasy WHERE Nazwa='" + name + "'", sqlConnection);
+            int id = 0;
 
             try
             {
+                sqlConnection.Open();
+                MySqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
+                while (sqlDataReader.Read())
+                {
+                    id = Convert.ToInt32(sqlDataReader["Id"]);
+                }
+                sqlDataReader.Close();
             }
-
-
-
-            return students;
+            catch (Exception e)
+            {
+                
+                MessageBox.Show(e.Message);
+            }
+            sqlConnection.Close();
+            return id;
         }
     }
 }

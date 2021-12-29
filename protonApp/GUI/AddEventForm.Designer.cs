@@ -42,11 +42,7 @@
             // eventDateTimePicker
             // 
             this.eventDateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-
             this.eventDateTimePicker.Location = new System.Drawing.Point(12, 112);
-=======
-            //this.eventDateTimePicker.Location = new System.Drawing.Point(12, 80);
-
             this.eventDateTimePicker.Name = "eventDateTimePicker";
             this.eventDateTimePicker.Size = new System.Drawing.Size(391, 26);
             this.eventDateTimePicker.TabIndex = 3;
@@ -126,16 +122,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-            //this.ClientSize = new System.Drawing.Size(800, 450);
-            //this.Controls.Add(this.resultLabel);
-            //this.Controls.Add(this.addEventButton);
-            //this.Controls.Add(this.eventNameTextBox);
-            //this.Controls.Add(this.studentNameComboBox);
-            //this.Controls.Add(this.studentNameTextBox);
-=======
-            this.ClientSize = new System.Drawing.Size(413, 268);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.resultLabel);
+            this.Controls.Add(this.addEventButton);
+            this.Controls.Add(this.eventNameTextBox);
+            this.Controls.Add(this.studentNameComboBox);
+            this.Controls.Add(this.studentNameTextBox);
             this.Controls.Add(this.sportDisciplineComboBox);
             this.Controls.Add(this.eventTypeComboBox);
             this.Controls.Add(this.eventDateTimePicker);
