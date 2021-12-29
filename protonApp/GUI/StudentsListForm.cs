@@ -23,7 +23,7 @@ namespace protonApp.GUI
         public StudentsListForm()
         {
             InitializeComponent();
-            Refresh();
+            RefreshList ();
            
         }
 
@@ -56,13 +56,13 @@ namespace protonApp.GUI
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
-            Refresh();
+            RefreshList();
         }
-        private void Refresh()
+        private void RefreshList()
         {
-          List<Student> Studenci = dl.GetStudents();
+            List<Student> Studenci = dl.GetStudents();
             checkedListBox1.Items.Clear();
-            for(int i = 0; i < Studenci.Count; i++)
+            for (int i = 0; i < Studenci.Count; i++)
             {
                 Student student = Studenci[i];
                 string klasa = dl.GetClassById(student.class_id).name;
