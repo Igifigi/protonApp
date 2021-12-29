@@ -32,20 +32,13 @@ namespace protonApp.GUI
             addStudentForm.ShowDialog();
         }
 
-        //private void editstudent_click(object sender, eventargs e)
-        //{
-        //        string itemchecked = (string)checkedlistbox1.checkeditems[0];
+        private void editStudent_Click(object sender, EventArgs e)
+        {
+ 
+                StudentEditForm studentEditForm =new StudentEditForm();
+                studentEditForm.ShowDialog();
             
-        //        string name = itemchecked.tostring().split(' ')[0];
-        //        string surname = itemchecked.tostring().split(' ')[1];
-        //        string klasa = itemchecked.tostring().split(' ')[2];
-        //        student student = dl.getstudentbyid(dl.getstudentidbyparameters(name,surname, dl.getclassidbyname(klasa)));
-        //        console.write(student.name);
-        //        console.write(name);
-        //        studenteditform editstudentform = new studenteditform(student);
-        //        editstudentform.showdialog();
-            
-        //}
+        }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
