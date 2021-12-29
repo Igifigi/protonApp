@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using protonApp.Data;
+using protonApp.Logic;
 using protonApp.Model;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace protonApp.GUI
 {
     public partial class StudentsListForm : Form
     {
+        OtherDatabaseModifications md = new OtherDatabaseModifications();
+        DatabaseDownloader dl = new DatabaseDownloader();
         public StudentsListForm()
         {
             InitializeComponent();
@@ -29,15 +32,27 @@ namespace protonApp.GUI
             addStudentForm.ShowDialog();
         }
 
-        private void editStudent_Click(object sender, EventArgs e)
-        {
-            StudentEditForm editStudentForm = new StudentEditForm();
-            editStudentForm.ShowDialog();
-        }
+        //private void editstudent_click(object sender, eventargs e)
+        //{
+        //        string itemchecked = (string)checkedlistbox1.checkeditems[0];
+            
+        //        string name = itemchecked.tostring().split(' ')[0];
+        //        string surname = itemchecked.tostring().split(' ')[1];
+        //        string klasa = itemchecked.tostring().split(' ')[2];
+        //        student student = dl.getstudentbyid(dl.getstudentidbyparameters(name,surname, dl.getclassidbyname(klasa)));
+        //        console.write(student.name);
+        //        console.write(name);
+        //        studenteditform editstudentform = new studenteditform(student);
+        //        editstudentform.showdialog();
+            
+        //}
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+                if (checkedListBox1.CheckedItems.Count !=1)editStudent.Enabled = false;
+                else editStudent.Enabled = true;
+                if (checkedListBox1.CheckedItems.Count == 0) removeStudent.Enabled = false;
+                else removeStudent.Enabled = true;
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
@@ -46,25 +61,34 @@ namespace protonApp.GUI
         }
         private void Refresh()
         {
-            MySqlConnection sqlConnection = DatabaseConnectionData.sqlConnection;
-            MySqlCommand getStudents = new MySqlCommand("SELECT * FROM uczniowie", sqlConnection);
-
-            try
+          List<Student> Studenci = dl.GetStudents();
+            checkedListBox1.Items.Clear();
+            for(int i = 0; i < Studenci.Count; i++)
             {
-                sqlConnection.Open();
-                Console.WriteLine("connection established");
-                MySqlDataReader dr = getStudents.ExecuteReader();
-               while (dr.Read())
-                {
-                }
+                Student student = Studenci[i];
+                string klasa = dl.GetClassById(student.class_id).name;
+                string tekst = student.name + " " + student.surname + " " + klasa;
+                checkedListBox1.Items.Add(tekst);
+            }
+        }
 
-                sqlConnection.Close();
-            }
-            catch (Exception e)
+        private void removeStudent_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Czy napewno checesz usunąć uczniów?", "Zapytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                MessageBox.Show(e.Message);
+                deleteCheckedStudents();
             }
-            sqlConnection.Close();
+        }
+        private void deleteCheckedStudents()
+        {
+            foreach(object itemChecked in checkedListBox1.CheckedItems)
+            {
+                string name=itemChecked.ToString().Split(' ')[0];
+                string surname = itemChecked.ToString().Split(' ')[1];
+                string klasa = itemChecked.ToString().Split(' ')[2];
+                string Text= "DELETE FROM uczniowie where id=" + dl.GetStudentIdByParameters(name, surname, dl.GetClassIdByName(klasa));
+                md.sendDirectQuery(Text);
+            }
         }
     }
 }

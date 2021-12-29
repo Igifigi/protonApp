@@ -195,7 +195,35 @@ namespace protonApp.Logic
             }
             sqlConnection.Close();
         }
+        public Student GetStudentById(int id)
+        {
+            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            MySqlCommand sqlCommand = new MySqlCommand("SELECT * FROM uczniowie WHERE id=" + id.ToString(), sqlConnection);
+            Student student = new Student(0,"","",0,0);
 
+            try
+            {
+                sqlConnection.Open();
+                MySqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    student.id = Convert.ToInt32(sqlDataReader["Id"]);
+                    student.name = Convert.ToString(sqlDataReader["imie"]);
+                    student.surname = Convert.ToString(sqlDataReader["nazwisko"]);
+                    student.class_id = (int)(sqlDataReader["klasa_id"]);
+                    student.sex = (int)sqlDataReader["plec"];
+                }
+                sqlDataReader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            sqlConnection.Close();
+            return student;
+        }
+    
         public Class GetClassById(int id)
         {
             MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
@@ -220,6 +248,35 @@ namespace protonApp.Logic
             }
             sqlConnection.Close();
             return klasa;
+        }
+        public int GetStudentIdByParameters(string name, string surname, int Klasa_Id)
+        {
+            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            MySqlCommand sqlCommand = new MySqlCommand
+                ("SELECT * FROM uczniowie WHERE " +
+                "Imie='" + name + "' " +
+                "and nazwisko='"+surname+"'" +
+                " and klasa_id='"+Klasa_Id+"'", sqlConnection);
+            int id = 0;
+
+            try
+            {
+                sqlConnection.Open();
+                MySqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+
+                while (sqlDataReader.Read())
+                {
+                    id = Convert.ToInt32(sqlDataReader["Id"]);
+                }
+                sqlDataReader.Close();
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+            }
+            sqlConnection.Close();
+            return id;
         }
 
         public int GetClassIdByName(string name)

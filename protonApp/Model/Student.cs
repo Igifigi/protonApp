@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace protonApp.Model
 {
-    class Student
+    public class Student
     {
-        public readonly int id;
-        public readonly string name;
-        public readonly string surname;
-        public readonly int class_id;
-        public readonly int sex; //1 - chlop, 0 - baba
+        public int id;
+        public string name;
+        public string surname;
+        public int class_id;
+        public int sex; //1 - chlop, 0 - baba
 
         public Student(
             int id,

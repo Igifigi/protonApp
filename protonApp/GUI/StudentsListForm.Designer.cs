@@ -56,6 +56,7 @@
             // 
             // editStudent
             // 
+            this.editStudent.Enabled = false;
             this.editStudent.Location = new System.Drawing.Point(407, 103);
             this.editStudent.Name = "editStudent";
             this.editStudent.Size = new System.Drawing.Size(381, 85);
@@ -66,12 +67,14 @@
             // 
             // removeStudent
             // 
+            this.removeStudent.Enabled = false;
             this.removeStudent.Location = new System.Drawing.Point(407, 194);
             this.removeStudent.Name = "removeStudent";
             this.removeStudent.Size = new System.Drawing.Size(381, 77);
             this.removeStudent.TabIndex = 3;
             this.removeStudent.Text = "Usuń Ucznia";
             this.removeStudent.UseVisualStyleBackColor = true;
+            this.removeStudent.Click += new System.EventHandler(this.removeStudent_Click);
             // 
             // refreshButton
             // 
