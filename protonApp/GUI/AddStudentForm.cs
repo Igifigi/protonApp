@@ -70,16 +70,25 @@ namespace protonApp.GUI
 
         private void addStudent_Click(object sender, EventArgs e)
         {
-            InsertStudent();
-            nameTextBox.Text = "";
-            surnameTextBox.Text = "";
-            menRadioButton.Checked = false;
-            womenRadioButton.Checked = false;
-
-            if (MessageBox.Show("Czy chcesz dodać następnego ucznia?", "Zapytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+            if (!(nameTextBox.Text == "" ||
+                surnameTextBox.Text == "" || 
+                (menRadioButton.Checked == false && womenRadioButton.Checked == false) || 
+                selectClassComboBox.SelectedItem == null ||
+                TechnicalFunctions.HaveSpace(nameTextBox.Text) ||
+                TechnicalFunctions.HaveSpace(surnameTextBox.Text)))
             {
-                this.Close();
+                InsertStudent();
+                nameTextBox.Text = "";
+                surnameTextBox.Text = "";
+                menRadioButton.Checked = false;
+                womenRadioButton.Checked = false;
+
+                if (MessageBox.Show("Czy chcesz dodać następnego ucznia?", "Zapytanie", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    this.Close();
+                }
             }
+            else MessageBox.Show("Któraś z podanych danych jest nieprawidłowa", "Ostrzeżenie", MessageBoxButtons.OK);
         }
 
         private void label4_Click(object sender, EventArgs e)
