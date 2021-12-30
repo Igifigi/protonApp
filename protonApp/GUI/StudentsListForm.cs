@@ -35,11 +35,11 @@ namespace protonApp.GUI
 
         private void editStudent_Click(object sender, EventArgs e)
         {
-            string ItemChecked = checkedListBox1.CheckedItems[0].ToString();
+            string ItemChecked = StudentsCheckedListBox.CheckedItems[0].ToString();
             string name = ItemChecked.ToString().Split(' ')[0];
             string surname = ItemChecked.ToString().Split(' ')[1];
             string klasa = ItemChecked.ToString().Split(' ')[2];
-            editStudent.Enabled = false;
+            editStudentButton.Enabled = false;
             id = dl.GetStudentIdByParameters(name, surname, dl.GetClassIdByName(klasa));
             StudentEditForm studentEditForm =new StudentEditForm(id);
             studentEditForm.ShowDialog();
@@ -48,10 +48,10 @@ namespace protonApp.GUI
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-                if (checkedListBox1.CheckedItems.Count !=1)editStudent.Enabled = false;
-                else editStudent.Enabled = true;
-                if (checkedListBox1.CheckedItems.Count == 0) removeStudent.Enabled = false;
-                else removeStudent.Enabled = true;
+                if (StudentsCheckedListBox.CheckedItems.Count !=1)editStudentButton.Enabled = false;
+                else editStudentButton.Enabled = true;
+                if (StudentsCheckedListBox.CheckedItems.Count == 0) removeStudentButton.Enabled = false;
+                else removeStudentButton.Enabled = true;
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
@@ -60,14 +60,14 @@ namespace protonApp.GUI
         }
         private void RefreshList()
         {
-            List<Student> Studenci = dl.GetStudents();
-            checkedListBox1.Items.Clear();
-            for (int i = 0; i < Studenci.Count; i++)
+          List<Student> Studenci = dl.GetStudents();
+            StudentsCheckedListBox.Items.Clear();
+            for(int i = 0; i < Studenci.Count; i++)
             {
                 Student student = Studenci[i];
                 string klasa = dl.GetClassById(student.class_id).name;
                 string tekst = student.name + " " + student.surname + " " + klasa;
-                checkedListBox1.Items.Add(tekst);
+                StudentsCheckedListBox.Items.Add(tekst);
             }
         }
 
@@ -80,7 +80,7 @@ namespace protonApp.GUI
         }
         private void deleteCheckedStudents()
         {
-            foreach(object itemChecked in checkedListBox1.CheckedItems)
+            foreach(object itemChecked in StudentsCheckedListBox.CheckedItems)
             {
                 string name=itemChecked.ToString().Split(' ')[0];
                 string surname = itemChecked.ToString().Split(' ')[1];

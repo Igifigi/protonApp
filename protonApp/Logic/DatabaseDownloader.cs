@@ -155,6 +155,63 @@ namespace protonApp.Logic
             sqlConnection.Close();
             return result;
         }
+
+        public List<Student> GetStudentsBySurname(string surname)
+        {
+            var students = new List<Student>();
+            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            MySqlCommand sqlCommand = new MySqlCommand("SELECT * FROM uczniowie WHERE Nazwisko LIKE '%" + surname + "%'", sqlConnection);
+            try
+            {
+                sqlConnection.Open();
+                MySqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                //while (true)
+                while(sqlDataReader.Read()){
+                students.Add(new Student(
+                        Convert.ToInt32(sqlDataReader["Id"]),
+                        sqlDataReader["Imie"].ToString(),
+                        sqlDataReader["Nazwisko"].ToString(),
+                        Convert.ToInt32(sqlDataReader["Klasa_Id"]),
+                        Convert.ToInt32(sqlDataReader["Plec"])
+                        ));
+                }
+                sqlDataReader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            sqlConnection.Close();
+            return students;
+        }
+
+        public Student GetStudentByNameAndSurname(string name, string surname)
+        {
+            Student student = new Student(0, "", "", 0, -1);
+            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            MySqlCommand sqlCommand = new MySqlCommand("SELECT * FROM uczniowie WHERE Nazwisko='" + surname + "' AND Imie='" + name + "'", sqlConnection);
+            try
+            {
+                sqlConnection.Open();
+                MySqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+                while (sqlDataReader.Read())
+                {
+                    student.id = Convert.ToInt32(sqlDataReader["Id"]);
+                    student.name = Convert.ToString(sqlDataReader["imie"]);
+                    student.surname = Convert.ToString(sqlDataReader["nazwisko"]);
+                    student.class_id = Convert.ToInt32(sqlDataReader["klasa_id"]);
+                    student.sex = Convert.ToInt32(sqlDataReader["plec"]);
+                }
+                sqlDataReader.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            sqlConnection.Close();
+            return student;
+        }
+
 //public List<Student> GetStudentsBySurname(string surname)
         //{
         //    //List<Student> students = new List<Student>();
@@ -304,6 +361,33 @@ namespace protonApp.Logic
             }
             sqlConnection.Close();
             return id;
+        }
+
+        public void InsertLog(Log log)
+        {
+            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            try
+            {
+                //int highestID = this.GetHighestId("wydarzenia");
+                string cmd =
+                    "INSERT INTO log (Id, Uczeń_Id, Wydarzenie_Id, liczba_punktow, Przechodnie) VALUES (NULL, '" +
+                    log.student_id.ToString() +
+                    "','" +
+                    log.event_id.ToString() +
+                    "','" +
+                    log.points.ToString() +
+                    "','" +
+                    log.transitive_points.ToString() +
+                    "')";
+                sqlConnection.Open();
+                MySqlCommand sqlCommand = new MySqlCommand(cmd, sqlConnection);
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            sqlConnection.Close();
         }
     }
 }

@@ -73,9 +73,11 @@
             this.Controls.Add(this.chooseQueryMethodComboBox);
             this.Controls.Add(this.goButton);
             this.Controls.Add(this.queryTextbox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "DirectDatabaseQueryForm";
-            this.Text = "DirectDatabaseQuery";
+            this.Text = "Bezpośrednie zapytanie do bazy";
             this.Load += new System.EventHandler(this.DirectDatabaseQuery_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

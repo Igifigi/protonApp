@@ -113,8 +113,9 @@
             this.Controls.Add(this.selectKeyComboBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "SettingsForm";
-            this.Text = "SettingsForm";
+            this.Text = "Ustawienia";
             this.ResumeLayout(false);
             this.PerformLayout();
 

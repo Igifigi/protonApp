@@ -71,7 +71,7 @@
             // 
             // directQueryButton
             // 
-            this.directQueryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.directQueryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.directQueryButton.Location = new System.Drawing.Point(588, 382);
             this.directQueryButton.Name = "directQueryButton";
             this.directQueryButton.Size = new System.Drawing.Size(186, 56);

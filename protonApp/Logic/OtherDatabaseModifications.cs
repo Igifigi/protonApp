@@ -20,8 +20,8 @@ namespace protonApp.Logic
             {
                 sqlConnection.Open();
                 Console.WriteLine("connection established");
-                        Console.WriteLine("selected 'insert etc.' query");
-                        sendQuery.ExecuteNonQuery();
+                Console.WriteLine("selected 'insert etc.' query");
+                sendQuery.ExecuteNonQuery();
 
                 sqlConnection.Close();
 
