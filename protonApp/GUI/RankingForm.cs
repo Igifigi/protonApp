@@ -111,5 +111,17 @@ namespace protonApp.GUI
         {
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            generatePdf();
+        }
+        private void generatePdf()
+        {
+            PdfSharp.Pdf.PdfDocument doc = new PdfSharp.Pdf.PdfDocument();
+            
+            PdfSharp.Pdf.PdfPage pg = doc.AddPage();
+            PdfSharp.Drawing.XGraphics gfx = PdfSharp.Drawing.XGraphics.FromPdfPage(pg);
+        }
     }
 }
