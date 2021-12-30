@@ -99,7 +99,7 @@ namespace protonApp.GUI
             }
             for(int i=0; i<classes.Count();i++)
             {
-                listBox2.Items.Add((i+1) + "." + sortedClasses[i].name + " " + sortedClasses[i].points);
+                listBox2.Items.Add((i+1) + "." + sortedClasses[i].name + " " + sortedClasses[i].points+"pkt");
             }
         }
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -114,14 +114,55 @@ namespace protonApp.GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            generatePdf();
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "pdf files (*.pdf)|*.pdf";
+            sfd.RestoreDirectory = true;
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                PdfSharp.Pdf.PdfDocument doc = new PdfSharp.Pdf.PdfDocument();
+                comboBox1.SelectedItem = "Obie";
+                RefreshLists();
+                generatePdf("Ranking Ogólny", doc, toList(listBox1),sfd,160);
+                comboBox1.SelectedItem = "Chłopcy";
+                RefreshLists();
+                generatePdf("Ranking Męski", doc, toList(listBox1),sfd,170);
+                comboBox1.SelectedItem = "Dziewczyny";
+                RefreshLists();
+                generatePdf("Ranking Żeński", doc, toList(listBox1),sfd,160);
+                comboBox1.SelectedItem = "Obie";
+                RefreshLists();
+                generatePdf("Ranking Klas", doc, toList(listBox2),sfd,180);
+                
+            }
         }
-        private void generatePdf()
+        private List<string> toList(ListBox lb)
         {
-            PdfSharp.Pdf.PdfDocument doc = new PdfSharp.Pdf.PdfDocument();
+
+            List<string> lista = new List<string>();
+            foreach(var item in lb.Items)
+            {
+                lista.Add(item.ToString());
+            }
+            return lista;
+        }
+        private void generatePdf(string text, PdfSharp.Pdf.PdfDocument doc,List<string> list,SaveFileDialog sfd,int x)
+        {
+            string filePath = null;
+
+                filePath = sfd.FileName;
+                PdfSharp.Pdf.PdfPage pg = doc.AddPage();
+                PdfSharp.Drawing.XGraphics gfx = PdfSharp.Drawing.XGraphics.FromPdfPage(pg);
+                gfx.DrawString(text, new PdfSharp.Drawing.XFont("Arial", 35, PdfSharp.Drawing.XFontStyle.Bold), PdfSharp.Drawing.XBrushes.Red, new PdfSharp.Drawing.XPoint(x, 70));
+                gfx.DrawLine(new PdfSharp.Drawing.XPen(PdfSharp.Drawing.XColor.FromArgb(94, 0, 0)), new PdfSharp.Drawing.XPoint(100, 100), new PdfSharp.Drawing.XPoint(500, 100));
+                int n = 0;
+                foreach(string student in list)
+                {
+                    n++;
+                    gfx.DrawString(student, new PdfSharp.Drawing.XFont("Arial", 15), PdfSharp.Drawing.XBrushes.Black, new PdfSharp.Drawing.XPoint(100, 150+n*30));
+                }
+                doc.Save(filePath);
             
-            PdfSharp.Pdf.PdfPage pg = doc.AddPage();
-            PdfSharp.Drawing.XGraphics gfx = PdfSharp.Drawing.XGraphics.FromPdfPage(pg);
+
         }
     }
 }
