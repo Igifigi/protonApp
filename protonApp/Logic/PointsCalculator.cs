@@ -12,16 +12,16 @@ namespace protonApp.Model
         internal int calculatePoints(
             string type,
             bool isRelay = false,
-            short relayCount = 0,
-            short peopleCount = 0,
+            int relayCount = 0,
+            int peopleCount = 0,
             bool isChessOrSwimming = false,
-            short playerCount = 0,
-            short playerPlace = 0,
-            short gradeForOrganization = 0,
+            int playerCount = 0,
+            int playerPlace = 0,
+            int gradeForOrganization = 0,
             bool higherRankEvent = false,
-            short teamCount = 0,
+            int teamCount = 0,
             bool isPingpongOrBadmintonOrRingoOrStreetballOrBridge = false,
-            short matchCount = 0,
+            int matchCount = 0,
             string championsType = ""
         )
         {

@@ -121,5 +121,10 @@ namespace protonApp
             StudentsListForm studentsListForm = new StudentsListForm();
             studentsListForm.ShowDialog();
         }
+
+        private void RankingButton_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

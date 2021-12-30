@@ -17,6 +17,8 @@ namespace protonApp.GUI
     public partial class EventsForm : Form
     {
         DatabaseConnectionData databaseConnectionData = new DatabaseConnectionData();
+        DatabaseDownloader databaseDownloader = new DatabaseDownloader();
+        //SELECT Nazwa FROM `wydarzenia` WHERE Nazwa LIKE '%a%'
         public EventsForm()
         {
             InitializeComponent();
@@ -25,37 +27,11 @@ namespace protonApp.GUI
 
         private void initializeTextBoxes()
         {
-            DatabaseDownloader databaseDownloader = new DatabaseDownloader();
             List<Event> events = databaseDownloader.GetEvents();
-            //eventsTextBox.Text = events.Aggregate("", (curr, next) => curr.ToString() + "\n");
-            //eventsTextBox.Text = events.Aggregate((a,b) => a.id.ToString());
-            for (int i = 0; i < events.Count; i++)
-                eventsTextBox.AppendText(events[i].id + ". " + events[i].name + ": " + events[i].date + "\r\n");
-            //MySqlConnection sqlConnection = DatabaseConnectionData.sqlConnection;
-            //MySqlCommand sqlCommand = new MySqlCommand("SELECT * FROM wydarzenia", sqlConnection);
-            //var events = new List<string>();
-            //Console.WriteLine("TEST");
-            //try
-            //{
-            //    sqlConnection.Open();
-            //    MySqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+            eventsCheckedListBox.Items.Clear();
 
-            //    while (sqlDataReader.Read())
-            //    {
-            //        events.Add(sqlDataReader["Id"] + ". " + sqlDataReader["Nazwa"] + ": " + sqlDataReader["Data"]);
-            //        //TODO usunąć te dziwne zera, czyli godzinę
-            //        //events[events.Count].Remove(events.LastIndexOf(" 0"));
-            //        Console.WriteLine(sqlDataReader["Data"]);
-            //    }
-            //    sqlDataReader.Close();
-
-            //} catch (Exception e)
-            //{
-            //    MessageBox.Show(e.Message);
-            //}
-            //for (int i = 0; i < events.Count; i++)
-            //    eventsTextBox.AppendText(events[i] + "\r\n");
-            ////eventsTextBox.Text = events.Aggregate("", (a, b) => a + "\n");
+            foreach(Event e in events)
+                eventsCheckedListBox.Items.Add(e.name + " " + e.date.Date);
         }
 
         private void downloadData()
@@ -80,6 +56,16 @@ namespace protonApp.GUI
         }
 
         private void eventsTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void EditEventButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DeleteEventButton_Click(object sender, EventArgs e)
         {
 
         }

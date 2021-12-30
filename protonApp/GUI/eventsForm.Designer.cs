@@ -32,15 +32,16 @@
             this.addEventButton = new System.Windows.Forms.Button();
             this.refreshButton = new System.Windows.Forms.Button();
             this.editEventButton = new System.Windows.Forms.Button();
-            this.eventsTextBox = new System.Windows.Forms.TextBox();
+            this.eventsCheckedListBox = new System.Windows.Forms.CheckedListBox();
+            this.deleteEventButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addEventButton
             // 
             this.addEventButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.addEventButton.Location = new System.Drawing.Point(12, 15);
+            this.addEventButton.Location = new System.Drawing.Point(459, 12);
             this.addEventButton.Name = "addEventButton";
-            this.addEventButton.Size = new System.Drawing.Size(212, 35);
+            this.addEventButton.Size = new System.Drawing.Size(165, 102);
             this.addEventButton.TabIndex = 0;
             this.addEventButton.Text = "Dodaj wydarzenie";
             this.addEventButton.UseVisualStyleBackColor = true;
@@ -49,9 +50,9 @@
             // refreshButton
             // 
             this.refreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.refreshButton.Location = new System.Drawing.Point(677, 12);
+            this.refreshButton.Location = new System.Drawing.Point(459, 336);
             this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(111, 35);
+            this.refreshButton.Size = new System.Drawing.Size(165, 102);
             this.refreshButton.TabIndex = 2;
             this.refreshButton.Text = "Odśwież";
             this.refreshButton.UseVisualStyleBackColor = true;
@@ -60,33 +61,41 @@
             // editEventButton
             // 
             this.editEventButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.editEventButton.Location = new System.Drawing.Point(230, 15);
+            this.editEventButton.Location = new System.Drawing.Point(459, 120);
             this.editEventButton.Name = "editEventButton";
-            this.editEventButton.Size = new System.Drawing.Size(212, 35);
+            this.editEventButton.Size = new System.Drawing.Size(165, 102);
             this.editEventButton.TabIndex = 3;
             this.editEventButton.Text = "Edytuj wydarzenie";
             this.editEventButton.UseVisualStyleBackColor = true;
+            this.editEventButton.Click += new System.EventHandler(this.EditEventButton_Click);
             // 
-            // eventsTextBox
+            // eventsCheckedListBox
             // 
-            this.eventsTextBox.Cursor = System.Windows.Forms.Cursors.Default;
-            this.eventsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.eventsTextBox.Location = new System.Drawing.Point(13, 57);
-            this.eventsTextBox.Multiline = true;
-            this.eventsTextBox.Name = "eventsTextBox";
-            this.eventsTextBox.ReadOnly = true;
-            this.eventsTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.eventsTextBox.Size = new System.Drawing.Size(429, 381);
-            this.eventsTextBox.TabIndex = 4;
-            this.eventsTextBox.TabStop = false;
-            this.eventsTextBox.TextChanged += new System.EventHandler(this.eventsTextBox_TextChanged);
+            this.eventsCheckedListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.eventsCheckedListBox.FormattingEnabled = true;
+            this.eventsCheckedListBox.Location = new System.Drawing.Point(12, 12);
+            this.eventsCheckedListBox.Name = "eventsCheckedListBox";
+            this.eventsCheckedListBox.Size = new System.Drawing.Size(441, 424);
+            this.eventsCheckedListBox.TabIndex = 5;
+            // 
+            // deleteEventButton
+            // 
+            this.deleteEventButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.deleteEventButton.Location = new System.Drawing.Point(459, 228);
+            this.deleteEventButton.Name = "deleteEventButton";
+            this.deleteEventButton.Size = new System.Drawing.Size(165, 102);
+            this.deleteEventButton.TabIndex = 6;
+            this.deleteEventButton.Text = "Usuń wydarzenie";
+            this.deleteEventButton.UseVisualStyleBackColor = true;
+            this.deleteEventButton.Click += new System.EventHandler(this.DeleteEventButton_Click);
             // 
             // EventsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.eventsTextBox);
+            this.ClientSize = new System.Drawing.Size(636, 450);
+            this.Controls.Add(this.deleteEventButton);
+            this.Controls.Add(this.eventsCheckedListBox);
             this.Controls.Add(this.editEventButton);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.addEventButton);
@@ -95,7 +104,6 @@
             this.Text = "eventsForm";
             this.Load += new System.EventHandler(this.EventsForm_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -104,6 +112,7 @@
         private System.Windows.Forms.Button addEventButton;
         private System.Windows.Forms.Button refreshButton;
         private System.Windows.Forms.Button editEventButton;
-        private System.Windows.Forms.TextBox eventsTextBox;
+        private System.Windows.Forms.CheckedListBox eventsCheckedListBox;
+        private System.Windows.Forms.Button deleteEventButton;
     }
 }

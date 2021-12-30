@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Configuration;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace protonApp.Data
 {
@@ -35,6 +36,10 @@ namespace protonApp.Data
                 if (c == ' ') return true;
             }
             return false;
+        }
+        internal List<string> SplitStringIntoNameAndSurname(string s)
+        {
+            return Regex.Split(s, @"()\w+").ToList();
         }
     }
 }
