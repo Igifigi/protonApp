@@ -127,9 +127,10 @@ namespace protonApp
             studentsListForm.ShowDialog();
         }
 
-        private void RankingButton_Click(object sender, EventArgs e)
+        private void rankingButton_Click(object sender, EventArgs e)
         {
-            
+            RankingForm rankingForm = new RankingForm();
+            rankingForm.ShowDialog();
         }
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

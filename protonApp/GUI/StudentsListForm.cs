@@ -15,7 +15,7 @@ namespace protonApp.GUI
         {
             InitializeComponent();
             Refresh();
-
+           
         }
 
         private void addStudent_Click(object sender, EventArgs e)
@@ -47,9 +47,9 @@ namespace protonApp.GUI
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
-            Refresh();
+            RefreshList();
         }
-        private void Refresh()
+        private void RefreshList()
         {
             List<Student> Studenci = dl.GetStudents();
             StudentsCheckedListBox.Items.Clear();
