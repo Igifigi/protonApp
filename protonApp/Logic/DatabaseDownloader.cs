@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using protonApp.Model;
+﻿using MySql.Data.MySqlClient;
 using protonApp.Data;
+using protonApp.Model;
+using System;
+using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace protonApp.Logic
 {
@@ -17,12 +14,12 @@ namespace protonApp.Logic
         public int GetHighestId(string table)
         {
             MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
-            
+
             try
             {
                 sqlConnection.Open(); //SELECT MAX(Id) FROM " + table + " LIMIT 1", sqlConnection
                 MySqlCommand sqlCommand = new MySqlCommand("SELECT MAX(Id) FROM wydarzenia LIMIT 1", sqlConnection);
-                
+
                 MySqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
                 int result = 0;
@@ -30,7 +27,8 @@ namespace protonApp.Logic
                     result = Convert.ToInt32(sqlDataReader["MAX(Id)"]);
                 sqlDataReader.Close();
                 return result/*Convert.ToInt32(sqlDataReader["MAX(Id)"])*/;
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
@@ -60,7 +58,8 @@ namespace protonApp.Logic
                         ));
                 }
                 sqlDataReader.Close();
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
@@ -166,14 +165,15 @@ namespace protonApp.Logic
                 sqlConnection.Open();
                 MySqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
                 //while (true)
-                while(sqlDataReader.Read()){
-                students.Add(new Student(
-                        Convert.ToInt32(sqlDataReader["Id"]),
-                        sqlDataReader["Imie"].ToString(),
-                        sqlDataReader["Nazwisko"].ToString(),
-                        Convert.ToInt32(sqlDataReader["Klasa_Id"]),
-                        Convert.ToInt32(sqlDataReader["Plec"])
-                        ));
+                while (sqlDataReader.Read())
+                {
+                    students.Add(new Student(
+                            Convert.ToInt32(sqlDataReader["Id"]),
+                            sqlDataReader["Imie"].ToString(),
+                            sqlDataReader["Nazwisko"].ToString(),
+                            Convert.ToInt32(sqlDataReader["Klasa_Id"]),
+                            Convert.ToInt32(sqlDataReader["Plec"])
+                            ));
                 }
                 sqlDataReader.Close();
             }
@@ -231,7 +231,7 @@ namespace protonApp.Logic
                 MySqlCommand sqlCommand = new MySqlCommand(cmd, sqlConnection);
                 sqlCommand.ExecuteNonQuery();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -241,7 +241,7 @@ namespace protonApp.Logic
         {
             MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
             MySqlCommand sqlCommand = new MySqlCommand("SELECT * FROM uczniowie WHERE id=" + id, sqlConnection);
-            Student student = new Student(0,"","",0,0);
+            Student student = new Student(0, "", "", 0, 0);
 
             try
             {
@@ -265,18 +265,18 @@ namespace protonApp.Logic
             sqlConnection.Close();
             return student;
         }
-    
+
         public Class GetClassById(int id)
         {
             MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
             MySqlCommand sqlCommand = new MySqlCommand("SELECT * FROM klasy WHERE id=" + id.ToString(), sqlConnection);
             Class klasa = new Class(0, "");
-            
+
             try
             {
                 sqlConnection.Open();
                 MySqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-                
+
                 while (sqlDataReader.Read())
                 {
                     klasa.id = Convert.ToInt32(sqlDataReader["Id"]);
@@ -297,8 +297,8 @@ namespace protonApp.Logic
             MySqlCommand sqlCommand = new MySqlCommand
                 ("SELECT * FROM uczniowie WHERE " +
                 "Imie='" + name + "' " +
-                "and nazwisko='"+surname+"'" +
-                " and klasa_id='"+Klasa_Id+"'", sqlConnection);
+                "and nazwisko='" + surname + "'" +
+                " and klasa_id='" + Klasa_Id + "'", sqlConnection);
             int id = 0;
 
             try
@@ -341,7 +341,7 @@ namespace protonApp.Logic
             }
             catch (Exception e)
             {
-                
+
                 MessageBox.Show(e.Message);
             }
             sqlConnection.Close();

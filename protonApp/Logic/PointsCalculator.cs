@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using protonApp.Data;
+﻿using protonApp.Data;
+using System;
 
 namespace protonApp.Model
 {
@@ -53,7 +49,7 @@ namespace protonApp.Model
                         }
                         if (isChessOrSwimming)
                             points -= 1;
-                        
+
                     }
                     switch (playerPlace)
                     {

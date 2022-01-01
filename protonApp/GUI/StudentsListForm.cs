@@ -15,7 +15,7 @@ namespace protonApp.GUI
         {
             InitializeComponent();
             Refresh();
-           
+
         }
 
         private void addStudent_Click(object sender, EventArgs e)

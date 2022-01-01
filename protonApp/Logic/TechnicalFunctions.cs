@@ -1,12 +1,10 @@
-﻿using System;
+﻿using protonApp.Model;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Configuration;
-using System.Windows.Forms;
+using System.Linq;
 using System.Text.RegularExpressions;
-using protonApp.Model;
+using System.Windows.Forms;
 
 namespace protonApp.Data
 {
@@ -24,7 +22,7 @@ namespace protonApp.Data
 
             //ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).AppSettings.Settings[key].Value = value;
             //ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).Save(ConfigurationSaveMode.Full, true);
-            
+
         }
         internal static string getSetting(string key)
         {
@@ -32,7 +30,7 @@ namespace protonApp.Data
         }
         internal static bool HaveSpace(string s)
         {
-            foreach(char c in s)
+            foreach (char c in s)
             {
                 if (c == ' ') return true;
             }
@@ -55,7 +53,7 @@ namespace protonApp.Data
         }
         internal static string GetValueByKey(List<KeyValuePair<string, string>> list, string key)
         {
-            foreach(var o in list)
+            foreach (var o in list)
                 if (o.Key == key)
                     return o.Value;
             return String.Empty;

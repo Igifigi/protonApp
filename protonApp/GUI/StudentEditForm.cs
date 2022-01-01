@@ -2,12 +2,6 @@
 using protonApp.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace protonApp.GUI
@@ -16,7 +10,7 @@ namespace protonApp.GUI
     {
         OtherDatabaseModifications mf = new OtherDatabaseModifications();
         DatabaseDownloader dw = new DatabaseDownloader();
-        int id=0;
+        int id = 0;
         public StudentEditForm(int i)
         {
             id = i;
@@ -27,13 +21,13 @@ namespace protonApp.GUI
         private void initializeStudent()
         {
 
-        Student student = dw.GetStudentById(id);
+            Student student = dw.GetStudentById(id);
             textBox1.Text = (string)student.name;
             textBox2.Text = (string)student.surname;
             Console.WriteLine(student.sex);
-            if(student.sex == 1)menRadioButton.Checked = true;
+            if (student.sex == 1) menRadioButton.Checked = true;
             else womenRadioButton.Checked = true;
-            selectClassComboBox.SelectedIndex = student.class_id-1;
+            selectClassComboBox.SelectedIndex = student.class_id - 1;
         }
         private void initializeComboBoxes()
         {
