@@ -110,18 +110,26 @@ namespace protonApp.Model
                     break;
 
                 case "Dyscypliny indywidualne drużynowe":
-                    switch (championsType)
+                    try
                     {
-                        case "Mistrzostwa województwa":
-                            points = bonus[playerPlace - 1, 1] + 5;
-                            break;
-                        case "Mistrzostwa Wrocławia":
-                            points = bonus[playerPlace - 1, 1];
-                            break;
-                        case "Mistrzostwa dzielnicy":
-                            points = bonus[playerPlace - 1, 3] + 5;
-                            break;
+                        switch (championsType)
+                        {
+                            case "Mistrzostwa województwa":
+                                points = bonus[playerPlace - 1, 1] + 5;
+                                break;
+                            case "Mistrzostwa Wrocławia":
+                                points = bonus[playerPlace - 1, 1];
+                                break;
+                            case "Mistrzostwa dzielnicy":
+                                points = bonus[playerPlace - 1, 3] + 5;
+                                break;
+                        }
                     }
+                    catch (Exception ex)
+                    {
+                        System.Windows.Forms.MessageBox.Show(ex.Message, "FATAL ERROR", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                    }
+
                     if (playerPlace <= 5)
                         points += (6 - playerPlace);
                     break;

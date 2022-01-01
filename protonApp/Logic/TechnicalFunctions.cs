@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using protonApp.Model;
 
 namespace protonApp.Data
 {
@@ -36,6 +37,21 @@ namespace protonApp.Data
                 if (c == ' ') return true;
             }
             return false;
+        }
+        internal static int GetStudentsPlaceByStudent(List<KeyValuePair<Student, int>> list, Student student)
+        {
+            for (int i = 0; i < list.Count; i++)
+                if (list[i].Key.id == student.id)
+                    return list[i].Value;
+            return 0;
+        }
+        internal static List<KeyValuePair<Student, int>> RemoveStudentFromList(List<KeyValuePair<Student, int>> list, Student student)
+        {
+            var result = new List<KeyValuePair<Student, int>>();
+            foreach (KeyValuePair<Student, int> pair in list)
+                if (pair.Key.id != student.id)
+                    result.Add(pair);
+            return result;
         }
         internal List<string> SplitStringIntoNameAndSurname(string s)
         {
