@@ -212,21 +212,6 @@ namespace protonApp.Logic
             return student;
         }
 
-//public List<Student> GetStudentsBySurname(string surname)
-        //{
-        //    //List<Student> students = new List<Student>();
-        //    //MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
-        //    //MySqlCommand sqlCommand = new MySqlCommand("SELECT")
-
-        //    //try
-        //    //{
-
-        //    //}
-
-
-
-        //    //return students;
-        //}
 
         public void SetEvent(Event e)
         {
@@ -388,6 +373,11 @@ namespace protonApp.Logic
                 MessageBox.Show(ex.Message);
             }
             sqlConnection.Close();
+        }
+
+        public int GetEventIdByName(string name)
+        {
+            return 0;
         }
     }
 }

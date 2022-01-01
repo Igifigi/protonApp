@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Data\DatabaseConnectionData.cs" />
     <Compile Include="Data\SportBonusData.cs" />
+    <Compile Include="Data\StaticSettingsData.cs" />
     <Compile Include="GUI\AddStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>

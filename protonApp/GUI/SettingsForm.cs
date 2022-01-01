@@ -52,8 +52,8 @@ namespace protonApp.GUI
 
         private void SelectKeyComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            selectValueComboBox.Items.Clear();
             selectValueComboBox.Items.AddRange(TechnicalFunctions.getSetting(selectKeyComboBox.SelectedItem.ToString()).Split(new char[] { ';' }));
-            //selectValueComboBox.Items.AddRange(ConfigurationManager.AppSettings.Get(s);
         }
 
         //TODO: add, edit i delete
@@ -94,6 +94,20 @@ namespace protonApp.GUI
             string value = accVal.Remove(delCount - 1, toedit.Length);
             //TechnicalFunctions.getSetting(selectKeyComboBox.SelectedItem.ToString()).re selectValueComboBox.SelectedItem.ToString()
             TechnicalFunctions.setSetting(si, value);
+        }
+
+        private void ResetValueButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                TechnicalFunctions.setSetting(selectKeyComboBox.SelectedItem.ToString(), TechnicalFunctions.GetValueByKey(StaticSettingsData.data, selectKeyComboBox.SelectedItem.ToString()));
+                MessageBox.Show("Pomyślnie zresetowano klucz " + selectKeyComboBox.SelectedItem.ToString(), "Proton", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch(Exception ex)
+            {
+                
+            }
+            
         }
     }
 }

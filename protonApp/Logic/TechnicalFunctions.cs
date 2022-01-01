@@ -53,6 +53,13 @@ namespace protonApp.Data
                     result.Add(pair);
             return result;
         }
+        internal static string GetValueByKey(List<KeyValuePair<string, string>> list, string key)
+        {
+            foreach(var o in list)
+                if (o.Key == key)
+                    return o.Value;
+            return String.Empty;
+        }
         internal List<string> SplitStringIntoNameAndSurname(string s)
         {
             return Regex.Split(s, @"()\w+").ToList();

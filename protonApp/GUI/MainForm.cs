@@ -11,14 +11,18 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using protonApp.GUI;
 using protonApp.Model;
+using protonApp.Logic;
 using System.Text.RegularExpressions;
+using protonApp.Data;
 
 // Convert.ToInt32(<stringVal>)
 
 namespace protonApp
 {
+    
     public partial class MainForm : Form
     {
+        TechnicalFunctions technicalFunctions = new TechnicalFunctions();
         public MainForm()
         {
             InitializeComponent();
@@ -34,7 +38,8 @@ namespace protonApp
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            test();
+            //test();
+            versionLabel.Text = "v." + TechnicalFunctions.getSetting("version");
         }
 
         private void EventsButton_Click(object sender, EventArgs e)
@@ -125,6 +130,16 @@ namespace protonApp
         private void RankingButton_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            
+        }
+
+        private void SubmitIssueButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Igifigi/protonApp/issues");
         }
     }
 }

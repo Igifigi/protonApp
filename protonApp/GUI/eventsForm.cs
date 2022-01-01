@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 using MySql.Data.MySqlClient;
 using protonApp.Data;
 using protonApp.Model;
@@ -17,6 +18,7 @@ namespace protonApp.GUI
     public partial class EventsForm : Form
     {
         DatabaseConnectionData databaseConnectionData = new DatabaseConnectionData();
+        OtherDatabaseModifications odm = new OtherDatabaseModifications();
         DatabaseDownloader databaseDownloader = new DatabaseDownloader();
         //SELECT Nazwa FROM `wydarzenia` WHERE Nazwa LIKE '%a%'
         public EventsForm()
@@ -31,7 +33,7 @@ namespace protonApp.GUI
             eventsCheckedListBox.Items.Clear();
 
             foreach(Event e in events)
-                eventsCheckedListBox.Items.Add(e.name + " " + e.date.Date);
+                eventsCheckedListBox.Items.Add(e.id + ": " + e.name + " " + e.date.Date);
         }
 
         private void downloadData()
@@ -67,7 +69,36 @@ namespace protonApp.GUI
 
         private void DeleteEventButton_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Czy na pewno chcesz usunąć zaznaczone wydarzenia?", "Potwierdzenie", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                deleteCheckedEvents();    
+        }
 
+        private void deleteCheckedEvents()
+        {
+            List<string> selected = new List<string>();
+            //string pattern = @"([1-999999999]):+";
+            foreach(object itemChecked in eventsCheckedListBox.CheckedItems)
+            {
+                selected.Add(itemChecked.ToString());
+                string event_id = new string(itemChecked.ToString().TakeWhile(char.IsDigit).ToArray());
+                odm.sendDirectQuery("DELETE FROM log WHERE Wydarzenie_Id=" + event_id);
+                odm.sendDirectQuery("DELETE FROM wydarzenia WHERE id=" + event_id);
+            }
+            initializeTextBoxes();
+            deleteEventButton.Enabled = false;
+        }
+
+        private void EventsCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            int sCount = eventsCheckedListBox.CheckedItems.Count;
+            if (e.NewValue == CheckState.Checked)
+                sCount++;
+            if (e.NewValue == CheckState.Unchecked)
+                sCount--;
+            if (sCount > 0)
+                deleteEventButton.Enabled = true;
+            else
+                deleteEventButton.Enabled = false;
         }
     }
 }

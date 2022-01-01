@@ -1,16 +1,7 @@
-﻿using MySql.Data.MySqlClient;
-using protonApp.Data;
-using protonApp.Logic;
+﻿using protonApp.Logic;
 using protonApp.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace protonApp.GUI
@@ -24,12 +15,12 @@ namespace protonApp.GUI
         {
             InitializeComponent();
             Refresh();
-           
+
         }
 
         private void addStudent_Click(object sender, EventArgs e)
         {
-            AddStudentForm  addStudentForm = new AddStudentForm();
+            AddStudentForm addStudentForm = new AddStudentForm();
             addStudentForm.ShowDialog();
         }
 
@@ -41,17 +32,17 @@ namespace protonApp.GUI
             string klasa = ItemChecked.ToString().Split(' ')[2];
             editStudentButton.Enabled = false;
             id = dl.GetStudentIdByParameters(name, surname, dl.GetClassIdByName(klasa));
-            StudentEditForm studentEditForm =new StudentEditForm(id);
+            StudentEditForm studentEditForm = new StudentEditForm(id);
             studentEditForm.ShowDialog();
-            
+
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-                if (StudentsCheckedListBox.CheckedItems.Count !=1)editStudentButton.Enabled = false;
-                else editStudentButton.Enabled = true;
-                if (StudentsCheckedListBox.CheckedItems.Count == 0) removeStudentButton.Enabled = false;
-                else removeStudentButton.Enabled = true;
+            if (StudentsCheckedListBox.CheckedItems.Count != 1) editStudentButton.Enabled = false;
+            else editStudentButton.Enabled = true;
+            if (StudentsCheckedListBox.CheckedItems.Count == 0) removeStudentButton.Enabled = false;
+            else removeStudentButton.Enabled = true;
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
@@ -60,9 +51,9 @@ namespace protonApp.GUI
         }
         private void Refresh()
         {
-          List<Student> Studenci = dl.GetStudents();
+            List<Student> Studenci = dl.GetStudents();
             StudentsCheckedListBox.Items.Clear();
-            for(int i = 0; i < Studenci.Count; i++)
+            for (int i = 0; i < Studenci.Count; i++)
             {
                 Student student = Studenci[i];
                 string klasa = dl.GetClassById(student.class_id).name;
@@ -80,12 +71,12 @@ namespace protonApp.GUI
         }
         private void deleteCheckedStudents()
         {
-            foreach(object itemChecked in StudentsCheckedListBox.CheckedItems)
+            foreach (object itemChecked in StudentsCheckedListBox.CheckedItems)
             {
-                string name=itemChecked.ToString().Split(' ')[0];
+                string name = itemChecked.ToString().Split(' ')[0];
                 string surname = itemChecked.ToString().Split(' ')[1];
                 string klasa = itemChecked.ToString().Split(' ')[2];
-                string Text= "DELETE FROM uczniowie where id=" + dl.GetStudentIdByParameters(name, surname, dl.GetClassIdByName(klasa));
+                string Text = "DELETE FROM uczniowie where id=" + dl.GetStudentIdByParameters(name, surname, dl.GetClassIdByName(klasa));
                 md.sendDirectQuery(Text);
             }
         }
