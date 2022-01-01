@@ -67,7 +67,7 @@
             this.rankingButton.TabIndex = 6;
             this.rankingButton.Text = "Ranking";
             this.rankingButton.UseVisualStyleBackColor = true;
-            this.rankingButton.Click += new System.EventHandler(this.RankingButton_Click);
+            this.rankingButton.Click += new System.EventHandler(this.rankingButton_Click);
             // 
             // directQueryButton
             // 
