@@ -11,7 +11,7 @@ namespace protonApp.Data
     internal class DatabaseConnectionData
     {
 
-        internal static readonly string connectionData =ConfigurationManager.ConnectionStrings["dbConfig"].ConnectionString;
+        internal static readonly string connectionData = ConfigurationManager.ConnectionStrings["dbConfig"].ConnectionString;
 
         //internal static readonly string connectionData = "server=localhost;user=root;database=protonapp;password=;";
 
