@@ -4,6 +4,12 @@ using protonApp.Logic;
 using protonApp.Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace protonApp.GUI
@@ -20,7 +26,7 @@ namespace protonApp.GUI
         private void initializeComboBoxes()
         {
             List<Class> classes = databaseDownloader.GetClasses();
-            for (int i = 0; i < classes.Count; i++)
+            for(int i = 0; i < classes.Count; i++)
             {
                 selectClassComboBox.Items.Add(classes[i].name);
             }
@@ -30,15 +36,15 @@ namespace protonApp.GUI
         private void InsertStudent()
         {
             MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
-            string cmd =
-                "INSERT INTO uczniowie (Imie, Nazwisko, Plec, Klasa_Id) VALUES ('" +
-                nameTextBox.Text +
-                "', '"
-                + surnameTextBox.Text +
-                "', " +
-                getSex() +
-                ", " +
-                databaseDownloader.GetClassIdByName(selectClassComboBox.SelectedItem.ToString()) +
+            string cmd = 
+                "INSERT INTO uczniowie (Imie, Nazwisko, Plec, Klasa_Id) VALUES ('" + 
+                nameTextBox.Text + 
+                "', '" 
+                + surnameTextBox.Text + 
+                "', " + 
+                getSex() + 
+                ", " + 
+                databaseDownloader.GetClassIdByName(selectClassComboBox.SelectedItem.ToString()) + 
                 ")";
 
             try
@@ -57,7 +63,7 @@ namespace protonApp.GUI
 
         private void AddStudentForm_Load(object sender, EventArgs e)
         {
-
+           
 
 
         }
@@ -65,8 +71,8 @@ namespace protonApp.GUI
         private void addStudent_Click(object sender, EventArgs e)
         {
             if (!(nameTextBox.Text == "" ||
-                surnameTextBox.Text == "" ||
-                (menRadioButton.Checked == false && womenRadioButton.Checked == false) ||
+                surnameTextBox.Text == "" || 
+                (menRadioButton.Checked == false && womenRadioButton.Checked == false) || 
                 selectClassComboBox.SelectedItem == null ||
                 TechnicalFunctions.HaveSpace(nameTextBox.Text) ||
                 TechnicalFunctions.HaveSpace(surnameTextBox.Text)))
