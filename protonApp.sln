@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29009.5
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "protonApp", "protonApp\protonApp.csproj", "{8C50D46D-6BEC-421D-BF71-3C5A479008C5}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{53C783CF-FC18-495D-B885-907E80C6ABBE}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Proton", "Proton\Proton.vdproj", "{CF87FB9C-065B-4C76-AADB-1D42FD3B687D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{8C50D46D-6BEC-421D-BF71-3C5A479008C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C50D46D-6BEC-421D-BF71-3C5A479008C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C50D46D-6BEC-421D-BF71-3C5A479008C5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{53C783CF-FC18-495D-B885-907E80C6ABBE}.Debug|Any CPU.ActiveCfg = Debug
-		{53C783CF-FC18-495D-B885-907E80C6ABBE}.Release|Any CPU.ActiveCfg = Release
+		{CF87FB9C-065B-4C76-AADB-1D42FD3B687D}.Debug|Any CPU.ActiveCfg = Debug
+		{CF87FB9C-065B-4C76-AADB-1D42FD3B687D}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
