@@ -13,6 +13,7 @@ using protonApp.GUI;
 using protonApp.Model;
 using protonApp.Logic;
 using System.Text.RegularExpressions;
+using AutoUpdaterDotNET;
 using protonApp.Data;
 
 // Convert.ToInt32(<stringVal>)
@@ -42,7 +43,11 @@ namespace protonApp
         private void MainForm_Load(object sender, EventArgs e)
         {
             //test();
+            update();
             versionLabel.Text = "v." + TechnicalFunctions.getSetting("version");
+            
+            
+            
         }
 
         private void EventsButton_Click(object sender, EventArgs e)
@@ -50,6 +55,20 @@ namespace protonApp
             EventsForm eventsForm = new EventsForm();
             eventsForm.ShowDialog();
         }
+
+        private void update()
+        {
+            //auto-update
+            AutoUpdater.Start("https://dl.dropbox.com/s/btzc7wau6w7e6ds/update-info.xml");
+            //todo: delete changelog section
+            AutoUpdater.Mandatory = true;
+            AutoUpdater.RunUpdateAsAdmin = false;
+            AutoUpdater.DownloadPath = Application.StartupPath;
+
+        }
+       
+
+        
 
         //private void Button1_Click(object sender, EventArgs e)
         //{
