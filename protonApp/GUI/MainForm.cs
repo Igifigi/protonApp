@@ -1,14 +1,25 @@
-﻿using protonApp.Data;
+﻿using System.Configuration;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 using protonApp.GUI;
 using protonApp.Model;
-using System;
-using System.Windows.Forms;
+using protonApp.Logic;
+using System.Text.RegularExpressions;
+using protonApp.Data;
 
 // Convert.ToInt32(<stringVal>)
 
 namespace protonApp
 {
-
+    
     public partial class MainForm : Form
     {
         TechnicalFunctions technicalFunctions = new TechnicalFunctions();
@@ -25,7 +36,7 @@ namespace protonApp
         {
             DirectDatabaseQueryForm dbq = new DirectDatabaseQueryForm();
             dbq.ShowDialog();
-
+            
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -127,7 +138,7 @@ namespace protonApp
 
         private void LinkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            
         }
 
         private void SubmitIssueButton_Click(object sender, EventArgs e)

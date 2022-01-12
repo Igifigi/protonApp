@@ -3,10 +3,10 @@ using protonApp.Logic;
 using protonApp.Model;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
+using System.Threading;
+using System.Drawing;
 
 namespace protonApp.GUI
 {
@@ -67,8 +67,8 @@ namespace protonApp.GUI
 
         private void AddEventButton_Click(object sender, EventArgs e)
         {
-
-            if (areAllEventFieldsValid() != "0")
+            
+            if(areAllEventFieldsValid() != "0")
             {
                 MessageBox.Show("Błąd w polu " + areAllEventFieldsValid() + "!", "BŁAD KRYTYCZNY", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -96,7 +96,7 @@ namespace protonApp.GUI
 
             var logList = new List<Log>();
             //grade todo
-            foreach (KeyValuePair<Student, int> pair in Students)
+            foreach(KeyValuePair<Student, int> pair in Students)
             {
                 int points = 0;
                 switch (getEventType())
@@ -193,7 +193,7 @@ namespace protonApp.GUI
                 if (getPlayerPlace() == -1)
                     return;
                 List<string> selected = new List<string>();
-                foreach (object itemChecked in studentsToAddCheckedListBox.CheckedItems)
+                foreach(object itemChecked in studentsToAddCheckedListBox.CheckedItems)
                     selected.Add(itemChecked.ToString());
                 string[] separated = selected[0].Split(new char[] { ' ' });
                 Student student = dbD.GetStudentByNameAndSurname(separated[0], separated[1]);
@@ -208,7 +208,7 @@ namespace protonApp.GUI
         }
 
         private void DeleteStudentButton_Click(object sender, EventArgs e)
-        {
+         {
             try
             {
                 List<string> selected = new List<string>();
@@ -222,13 +222,13 @@ namespace protonApp.GUI
                 var _students = new List<KeyValuePair<Student, int>>(Students);
                 Students.Clear();
                 Students = TechnicalFunctions.RemoveStudentFromList(_students, student);
-
+                
                 addedStudentsCheckedListBox.Items.Clear();
-                foreach (KeyValuePair<Student, int> p in Students)
+                foreach(KeyValuePair<Student, int> p in Students)
                     addedStudentsCheckedListBox.Items.Add(p.Key.name + " " + p.Key.surname + " " + dbD.GetClassById(p.Key.class_id).name);
                 //var allItems = addedStudentsCheckedListBox.Items.OfType<string>().ToList();
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -253,7 +253,7 @@ namespace protonApp.GUI
         //getting main event info
         private string getEventName()
         {
-
+            
             if (eventNameTextBox.Text != "Nazwa wydarzenia" && eventNameTextBox.Text != "")
             {
                 return eventNameTextBox.Text.ToString();
@@ -270,7 +270,7 @@ namespace protonApp.GUI
 
         public string getEventType()
         {
-            if (eventTypeComboBox.SelectedIndex > -1)
+            if(eventTypeComboBox.SelectedIndex > -1)
             {
                 return eventTypeComboBox.SelectedItem.ToString();
             }
@@ -314,12 +314,12 @@ namespace protonApp.GUI
             }
         }
 
-
+        
         //getting main student info
-
+        
         private string getSurname()
         {
-            if (studentNameTextBox.Text != "Wprowadź nazwisko")
+            if(studentNameTextBox.Text != "Wprowadź nazwisko")
             {
                 return studentNameTextBox.Text.ToString();
             }
@@ -335,11 +335,11 @@ namespace protonApp.GUI
 
         private int getPlayerPlace()
         {
-            if (getDiscipline() == "Organizacja" || getDiscipline() == "Trening" || getDiscipline() == "Sędziowanie")
+            if(getDiscipline() == "Organizacja" || getDiscipline() == "Trening" || getDiscipline() == "Sędziowanie")
             {
                 return 0;
             }
-            else if (playerPlaceNumericUpDown.Value != 0)
+            else if(playerPlaceNumericUpDown.Value != 0)
             {
                 try
                 {
@@ -398,7 +398,7 @@ namespace protonApp.GUI
 
         private string getChampionsType()
         {
-            if (championsTypeComboBox.SelectedIndex > -1)
+            if(championsTypeComboBox.SelectedIndex > -1)
             {
                 return championsTypeComboBox.SelectedItem.ToString();
             }
@@ -449,7 +449,7 @@ namespace protonApp.GUI
             {
                 Convert.ToInt32(gradeForOrganizationNumericUpDown.Value);
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -480,12 +480,12 @@ namespace protonApp.GUI
                 return "NAZWA WYDARZENIA";
             else
                 if (eventTypeComboBox.SelectedIndex < 0)
-                return "TYP WYDARZENIA";
-            else
+                    return "TYP WYDARZENIA";
+                else
                     if (sportDisciplineComboBox.SelectedIndex < 0)
-                return "DYSCYPLINA";
-            else
-                return "0";
+                        return "DYSCYPLINA";
+                    else
+                        return "0";
         }
 
         private string areAllChampionsFieldsValid()

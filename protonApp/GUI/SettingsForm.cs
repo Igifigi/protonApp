@@ -1,8 +1,14 @@
-﻿using protonApp.Data;
-using System;
-using System.Configuration;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using protonApp.Data;
 
 namespace protonApp.GUI
 {
@@ -42,7 +48,7 @@ namespace protonApp.GUI
         //    return output;
         //}
 
-
+        
 
         private void SelectKeyComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -64,7 +70,7 @@ namespace protonApp.GUI
             //ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).AppSettings.Settings[selectKeyComboBox.SelectedItem.ToString()].Value = ";" + insertValueTextBox.Text;
             //ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).Save(ConfigurationSaveMode.Full, true);
             //ConfigurationManager.RefreshSection("appSettings");
-
+            
             TechnicalFunctions.setSetting(selectKeyComboBox.SelectedItem.ToString(), TechnicalFunctions.getSetting(selectKeyComboBox.SelectedItem.ToString() + ";" + insertValueTextBox.Text));
         }
 
@@ -97,11 +103,11 @@ namespace protonApp.GUI
                 TechnicalFunctions.setSetting(selectKeyComboBox.SelectedItem.ToString(), TechnicalFunctions.GetValueByKey(StaticSettingsData.data, selectKeyComboBox.SelectedItem.ToString()));
                 MessageBox.Show("Pomyślnie zresetowano klucz " + selectKeyComboBox.SelectedItem.ToString(), "Proton", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-
+                
             }
-
+            
         }
 
         private void ConnectionStringsFormButton_Click(object sender, EventArgs e)
