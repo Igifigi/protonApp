@@ -15,6 +15,9 @@ namespace protonApp
         public MainForm()
         {
             InitializeComponent();
+
+            //ConnectionStringsForm csf = new ConnectionStringsForm();
+            //csf.ShowDialog();
         }
 
 

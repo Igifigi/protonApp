@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Text.RegularExpressions;
-using MySql.Data.MySqlClient;
-using protonApp.Data;
-using protonApp.Model;
+﻿using protonApp.Data;
 using protonApp.Logic;
+using protonApp.Model;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace protonApp.GUI
 {
@@ -32,13 +25,13 @@ namespace protonApp.GUI
             List<Event> events = databaseDownloader.GetEvents();
             eventsCheckedListBox.Items.Clear();
 
-            foreach(Event e in events)
+            foreach (Event e in events)
                 eventsCheckedListBox.Items.Add(e.id + ": " + e.name + " " + e.date.Date);
         }
 
         private void downloadData()
         {
-            
+
         }
 
         private void AddEventButton_Click(object sender, EventArgs e)
@@ -70,14 +63,14 @@ namespace protonApp.GUI
         private void DeleteEventButton_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Czy na pewno chcesz usunąć zaznaczone wydarzenia?", "Potwierdzenie", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                deleteCheckedEvents();    
+                deleteCheckedEvents();
         }
 
         private void deleteCheckedEvents()
         {
             List<string> selected = new List<string>();
             //string pattern = @"([1-999999999]):+";
-            foreach(object itemChecked in eventsCheckedListBox.CheckedItems)
+            foreach (object itemChecked in eventsCheckedListBox.CheckedItems)
             {
                 selected.Add(itemChecked.ToString());
                 string event_id = new string(itemChecked.ToString().TakeWhile(char.IsDigit).ToArray());

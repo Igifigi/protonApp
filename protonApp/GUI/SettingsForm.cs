@@ -103,5 +103,11 @@ namespace protonApp.GUI
             }
 
         }
+
+        private void ConnectionStringsFormButton_Click(object sender, EventArgs e)
+        {
+            ConnectionStringsForm csf = new ConnectionStringsForm();
+            csf.ShowDialog();
+        }
     }
 }

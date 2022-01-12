@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
       <HintPath>..\packages\Portable.BouncyCastle.1.8.9\lib\net40\BouncyCastle.Crypto.dll</HintPath>
@@ -109,6 +112,12 @@
     <Compile Include="GUI\AddStudentForm.Designer.cs">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ConnectionStringsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ConnectionStringsForm.Designer.cs">
+      <DependentUpon>ConnectionStringsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\RankingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,6 +185,9 @@
     <EmbeddedResource Include="GUI\AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ConnectionStringsForm.resx">
+      <DependentUpon>ConnectionStringsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\DirectDatabaseQueryForm.resx">
       <DependentUpon>DirectDatabaseQueryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +235,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

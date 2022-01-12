@@ -41,6 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.resetValueButton = new System.Windows.Forms.Button();
             this.resetValueButtonToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.connectionStringsFormButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // selectKeyComboBox
@@ -111,7 +112,7 @@
             this.directDatabaseQueryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.directDatabaseQueryButton.Location = new System.Drawing.Point(12, 200);
             this.directDatabaseQueryButton.Name = "directDatabaseQueryButton";
-            this.directDatabaseQueryButton.Size = new System.Drawing.Size(252, 28);
+            this.directDatabaseQueryButton.Size = new System.Drawing.Size(251, 28);
             this.directDatabaseQueryButton.TabIndex = 6;
             this.directDatabaseQueryButton.Text = "Bezpośrednie zapytanie do bazy";
             this.directDatabaseQueryButton.UseVisualStyleBackColor = true;
@@ -122,7 +123,7 @@
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(363, 35);
+            this.label1.Size = new System.Drawing.Size(251, 35);
             this.label1.TabIndex = 7;
             this.label1.Text = "UWAGA!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -149,11 +150,23 @@
             this.resetValueButton.UseVisualStyleBackColor = true;
             this.resetValueButton.Click += new System.EventHandler(this.ResetValueButton_Click);
             // 
+            // connectionStringsFormButton
+            // 
+            this.connectionStringsFormButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.connectionStringsFormButton.Location = new System.Drawing.Point(269, 12);
+            this.connectionStringsFormButton.Name = "connectionStringsFormButton";
+            this.connectionStringsFormButton.Size = new System.Drawing.Size(105, 28);
+            this.connectionStringsFormButton.TabIndex = 10;
+            this.connectionStringsFormButton.Text = "Serwer";
+            this.connectionStringsFormButton.UseVisualStyleBackColor = true;
+            this.connectionStringsFormButton.Click += new System.EventHandler(this.ConnectionStringsFormButton_Click);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(387, 240);
+            this.Controls.Add(this.connectionStringsFormButton);
             this.Controls.Add(this.resetValueButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -187,5 +200,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button resetValueButton;
         private System.Windows.Forms.ToolTip resetValueButtonToolTip;
+        private System.Windows.Forms.Button connectionStringsFormButton;
     }
 }

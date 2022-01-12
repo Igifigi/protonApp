@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MySql.Data.MySqlClient;
 using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data.MySqlClient;
 
 namespace protonApp.Data
 {
     internal class DatabaseConnectionData
     {
 
-        internal static readonly string connectionData =ConfigurationManager.ConnectionStrings["dbConfig"].ConnectionString;
+        internal static readonly string connectionData = ConfigurationManager.ConnectionStrings["dbConfig"].ConnectionString;
 
         //internal static readonly string connectionData = "server=localhost;user=root;database=protonapp;password=;";
 

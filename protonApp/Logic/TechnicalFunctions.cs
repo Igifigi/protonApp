@@ -28,6 +28,18 @@ namespace protonApp.Data
         {
             return ConfigurationManager.AppSettings[key];
         }
+        internal static string getConnectionString(string key)
+        {
+            return ConfigurationManager.ConnectionStrings[key].ConnectionString;
+        }
+        internal static void setConnectionString(string key, string value)
+        {
+            Configuration config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
+
+            config.ConnectionStrings.ConnectionStrings[key].ConnectionString = value;
+            config.Save(ConfigurationSaveMode.Full, true);
+            ConfigurationManager.RefreshSection("connectionStrings");
+        }
         internal static bool HaveSpace(string s)
         {
             foreach (char c in s)
