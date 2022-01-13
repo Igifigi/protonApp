@@ -355,7 +355,7 @@ namespace protonApp.Logic
             {
                 //int highestID = this.GetHighestId("wydarzenia");
                 string cmd =
-                    "INSERT INTO log (Id, Uczeń_Id, Wydarzenie_Id, liczba_punktow, Przechodnie) VALUES (NULL, '" +
+                    "INSERT INTO log (Id, Uczen_Id, Wydarzenie_Id, liczba_punktow, Przechodnie) VALUES (NULL, '" +
                     log.student_id.ToString() +
                     "','" +
                     log.event_id.ToString() +

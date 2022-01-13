@@ -22,7 +22,8 @@ namespace protonApp.Model
             int teamCount = 0,
             bool isPingpongOrBadmintonOrRingoOrStreetballOrBridge = false,
             int matchCount = 0,
-            string championsType = ""
+            string championsType = "",
+            bool isLogging = false
         )
         {
             int[,] bonus = SportBonusData.bonusByPlace;
@@ -98,7 +99,7 @@ namespace protonApp.Model
                     break;
 
                 case "Sędziowanie":
-                    //TODO
+                    points = gradeForOrganization;
                     break;
 
                 case "Dyscypliny zespołowe":

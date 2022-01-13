@@ -42,6 +42,7 @@ namespace protonApp
         private void MainForm_Load(object sender, EventArgs e)
         {
             //test();
+            update();
             versionLabel.Text = "v." + TechnicalFunctions.getSetting("version");
         }
 

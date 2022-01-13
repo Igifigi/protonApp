@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.organizationGroupBox = new System.Windows.Forms.GroupBox();
+            this.loggingCheckBox = new System.Windows.Forms.CheckBox();
             this.gradeForOrganizationNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.higherRankEventCheckBox = new System.Windows.Forms.CheckBox();
@@ -61,6 +62,7 @@
             this.addedStudentsCheckedListBox = new System.Windows.Forms.CheckedListBox();
             this.deleteStudentButton = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.individualSportsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.peopleCountNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.relayCountNumericUpDown)).BeginInit();
@@ -112,7 +114,7 @@
             this.studentNameTextBox.Size = new System.Drawing.Size(493, 26);
             this.studentNameTextBox.TabIndex = 6;
             this.studentNameTextBox.Text = "Wprowadź nazwisko";
-            this.studentNameTextBox.Click += new System.EventHandler(this.StudentNameTextBox_Click_1);
+            this.studentNameTextBox.Click += new System.EventHandler(this.StudentNameTextBox_Click);
             this.studentNameTextBox.TextChanged += new System.EventHandler(this.StudentNameTextBox_TextChanged);
             // 
             // eventNameTextBox
@@ -216,6 +218,7 @@
             // organizationGroupBox
             // 
             this.organizationGroupBox.AutoSize = true;
+            this.organizationGroupBox.Controls.Add(this.loggingCheckBox);
             this.organizationGroupBox.Controls.Add(this.gradeForOrganizationNumericUpDown);
             this.organizationGroupBox.Controls.Add(this.label5);
             this.organizationGroupBox.Controls.Add(this.higherRankEventCheckBox);
@@ -225,31 +228,33 @@
             this.organizationGroupBox.Size = new System.Drawing.Size(224, 131);
             this.organizationGroupBox.TabIndex = 18;
             this.organizationGroupBox.TabStop = false;
-            this.organizationGroupBox.Text = "Organizacja";
+            this.organizationGroupBox.Text = "Organizacja lub sędziowanie";
+            // 
+            // loggingCheckBox
+            // 
+            this.loggingCheckBox.AutoSize = true;
+            this.loggingCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.loggingCheckBox.Location = new System.Drawing.Point(10, 51);
+            this.loggingCheckBox.Name = "loggingCheckBox";
+            this.loggingCheckBox.Size = new System.Drawing.Size(137, 24);
+            this.loggingCheckBox.TabIndex = 32;
+            this.loggingCheckBox.Text = "Protokołowanie";
+            this.loggingCheckBox.UseVisualStyleBackColor = true;
+            this.loggingCheckBox.CheckedChanged += new System.EventHandler(this.LoggingCheckBox_CheckedChanged);
             // 
             // gradeForOrganizationNumericUpDown
             // 
             this.gradeForOrganizationNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.gradeForOrganizationNumericUpDown.Location = new System.Drawing.Point(68, 52);
-            this.gradeForOrganizationNumericUpDown.Maximum = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
+            this.gradeForOrganizationNumericUpDown.Location = new System.Drawing.Point(68, 81);
             this.gradeForOrganizationNumericUpDown.Name = "gradeForOrganizationNumericUpDown";
             this.gradeForOrganizationNumericUpDown.Size = new System.Drawing.Size(150, 26);
             this.gradeForOrganizationNumericUpDown.TabIndex = 31;
-            this.gradeForOrganizationNumericUpDown.Value = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(6, 54);
+            this.label5.Location = new System.Drawing.Point(6, 83);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 20);
             this.label5.TabIndex = 25;
@@ -265,6 +270,7 @@
             this.higherRankEventCheckBox.TabIndex = 0;
             this.higherRankEventCheckBox.Text = "Wydarzenie wyższej rangi";
             this.higherRankEventCheckBox.UseVisualStyleBackColor = true;
+            this.higherRankEventCheckBox.CheckedChanged += new System.EventHandler(this.HigherRankEventCheckBox_CheckedChanged);
             // 
             // teamSportsGroupBox
             // 
@@ -526,5 +532,7 @@
         private System.Windows.Forms.CheckedListBox addedStudentsCheckedListBox;
         private System.Windows.Forms.Button deleteStudentButton;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.CheckBox loggingCheckBox;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }

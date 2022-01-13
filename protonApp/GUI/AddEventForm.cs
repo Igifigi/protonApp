@@ -43,15 +43,25 @@ namespace protonApp.GUI
 
         private void SportDisciplineComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            setGradeNumericUpDownBrackets();
         }
 
         private void EventTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             //selectValueComboBox.Items.AddRange(TechnicalFunctions.getSetting(selectKeyComboBox.SelectedItem.ToString()).Split(new char[] { ';' }));
             sportDisciplineComboBox.Items.Clear();
-            sportDisciplineComboBox.Items.AddRange(TechnicalFunctions.getSetting(eventTypeComboBox.SelectedItem.ToString()).Split(new char[] { ';' }));
+
+            if(getEventType() == "Organizacja" || getEventType() == "Sędziowanie")
+            {
+                List<string> toAdd = new List<string>{ "Dyscypliny indywidualne", "Dyscypliny zespołowe", "Trening", "Dyscypliny indywidualne drużynowe" };
+                toAdd.ForEach(d => sportDisciplineComboBox.Items.AddRange(TechnicalFunctions.getSetting(d).Split(new char[] { ';' })));
+            }
+            else
+                sportDisciplineComboBox.Items.AddRange(TechnicalFunctions.getSetting(eventTypeComboBox.SelectedItem.ToString()).Split(new char[] { ';' }));
+
+
             disableOtherGroupBoxes();
+            setGradeNumericUpDownBrackets();
 
         }
 
@@ -235,7 +245,7 @@ namespace protonApp.GUI
             deleteStudentButton.Enabled = false;
         }
 
-        private void StudentNameTextBox_Click_1(object sender, EventArgs e)
+        private void StudentNameTextBox_Click(object sender, EventArgs e)
         {
             if (studentNameTextBox.Text == "Wprowadź nazwisko")
                 studentNameTextBox.Text = String.Empty;
@@ -315,8 +325,8 @@ namespace protonApp.GUI
         }
 
         
+
         //getting main student info
-        
         private string getSurname()
         {
             if(studentNameTextBox.Text != "Wprowadź nazwisko")
@@ -335,7 +345,7 @@ namespace protonApp.GUI
 
         private int getPlayerPlace()
         {
-            if(getDiscipline() == "Organizacja" || getDiscipline() == "Trening" || getDiscipline() == "Sędziowanie")
+            if(getEventType() == "Organizacja" || getEventType() == "Trening" || getEventType() == "Sędziowanie")
             {
                 return 0;
             }
@@ -360,7 +370,6 @@ namespace protonApp.GUI
                 return -1;
             }
         }
-
 
         private bool getIsRelay()
         {
@@ -443,6 +452,11 @@ namespace protonApp.GUI
             return higherRankEventCheckBox.Checked;
         }
 
+        private bool getIsLogging()
+        {
+            return loggingCheckBox.Checked;
+        }
+
         private int getGradeForOrganization()
         {
             try
@@ -472,8 +486,6 @@ namespace protonApp.GUI
                 return false;
         }
 
-
-
         private string areAllEventFieldsValid()
         {
             if (eventNameTextBox.Text == "Nazwa wydarzenia" || eventNameTextBox.Text == "")
@@ -494,13 +506,6 @@ namespace protonApp.GUI
                 return "TYP MISTRZOSTW";
             return "0";
         }
-
-
-
-
-
-
-
 
         private void disableOtherGroupBoxes()
         {
@@ -543,7 +548,7 @@ namespace protonApp.GUI
                     break;
                 case "Sędziowanie":
                     individualSportsGroupBox.Enabled = false;
-                    organizationGroupBox.Enabled = false;
+                    organizationGroupBox.Enabled = true;
                     teamIndividualSportsGroupBox.Enabled = false;
                     teamSportsGroupBox.Enabled = false;
                     playerPlaceNumericUpDown.Enabled = false;
@@ -585,6 +590,75 @@ namespace protonApp.GUI
                 deleteStudentButton.Enabled = true;
             else
                 deleteStudentButton.Enabled = false;
+        }
+
+        private void LoggingCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            setGradeNumericUpDownBrackets();
+        }
+
+        private void HigherRankEventCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            setGradeNumericUpDownBrackets();
+        }
+
+        private void setGradeNumericUpDownBrackets()
+        {
+            if(getEventType() == "Sędziowanie")
+            {
+                loggingCheckBox.Enabled = true;
+                if (!getIsLogging())
+                {
+                    if (getIsHigherRankEvent()) 
+                    {
+                        
+                        gradeForOrganizationNumericUpDown.Minimum = 6;
+                        gradeForOrganizationNumericUpDown.Maximum = 12;
+                        gradeForOrganizationNumericUpDown.Value = 6;
+                    }
+                    else if(!getIsHigherRankEvent() && (getDiscipline() == "Badminton" || getDiscipline() == "Ringo" || getDiscipline() == "Ping pong"))
+                    {
+                        
+                        gradeForOrganizationNumericUpDown.Minimum = 1;
+                        gradeForOrganizationNumericUpDown.Maximum = 3;
+                        gradeForOrganizationNumericUpDown.Value = 1;
+                    }
+                    else if ((getEventType() == "Dyscypliny zespołowe" && getDiscipline() == "Badminton" && getDiscipline() == "Ringo" && getDiscipline() == "Ping pong") || getDiscipline() == "Pływanie")
+                    {
+                        
+                        gradeForOrganizationNumericUpDown.Minimum = 1;
+                        gradeForOrganizationNumericUpDown.Maximum = 6;
+                        gradeForOrganizationNumericUpDown.Value = 1;
+                    }
+                }
+                else
+                {
+                    if (getIsHigherRankEvent())
+                    {
+                        
+                        gradeForOrganizationNumericUpDown.Minimum = 1;
+                        gradeForOrganizationNumericUpDown.Maximum = 3;
+                        gradeForOrganizationNumericUpDown.Value = 1;
+                    }
+                    else
+                    {
+                        
+                        gradeForOrganizationNumericUpDown.Minimum = 3;
+                        gradeForOrganizationNumericUpDown.Maximum = 6;
+                        gradeForOrganizationNumericUpDown.Value = 3;
+                    }
+                }
+            }
+            else if(getEventType() == "Organizacja")
+            {
+                loggingCheckBox.Enabled = false;
+                
+                gradeForOrganizationNumericUpDown.Minimum = 5;
+                gradeForOrganizationNumericUpDown.Maximum = 35;
+                gradeForOrganizationNumericUpDown.Value = 5;
+            }
+
+
         }
     }
 }
