@@ -19,6 +19,8 @@ namespace protonApp.GUI
         public DirectDatabaseQueryForm()
         {
             InitializeComponent();
+            if (MessageBox.Show("Uwaga! Korzystasz z tej opcji na własną odpowiedzialność! Nie działa ona poprawnie i NIE będzie rozwijana. Prosimy mieć na względzie, iż jeden zły znak może zepsuć całą bazę! Czy na pewno chcesz przejść dalej?", "UWAGA", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
+                Application.ExitThread();
             chooseQueryMethodComboBox.Items.Add("SELECT");
             chooseQueryMethodComboBox.Items.Add("INSERT, UPDATE, DELETE");
             chooseQueryMethodComboBox.Items.Add("SELECT (*)");

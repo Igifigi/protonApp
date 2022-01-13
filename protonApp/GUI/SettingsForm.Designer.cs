@@ -116,6 +116,7 @@
             this.directDatabaseQueryButton.TabIndex = 6;
             this.directDatabaseQueryButton.Text = "Bezpośrednie zapytanie do bazy";
             this.directDatabaseQueryButton.UseVisualStyleBackColor = true;
+            this.directDatabaseQueryButton.Click += new System.EventHandler(this.DirectDatabaseQueryButton_Click);
             // 
             // label1
             // 

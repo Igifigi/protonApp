@@ -13,6 +13,8 @@ using protonApp.GUI;
 using protonApp.Model;
 using protonApp.Logic;
 using System.Text.RegularExpressions;
+using System.Reflection;
+using System.Diagnostics;
 using protonApp.Data;
 
 // Convert.ToInt32(<stringVal>)
@@ -42,14 +44,23 @@ namespace protonApp
         private void MainForm_Load(object sender, EventArgs e)
         {
             //test();
-            update();
-            versionLabel.Text = "v." + TechnicalFunctions.getSetting("version");
+            //update();
+            // versionLabel.Text = "v." + TechnicalFunctions.getSetting("version");
+            setVersion();
         }
 
         private void EventsButton_Click(object sender, EventArgs e)
         {
             EventsForm eventsForm = new EventsForm();
             eventsForm.ShowDialog();
+        }
+
+        private void setVersion()
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+            versionLabel.Text = "v." + fileVersionInfo.FileVersion.ToString();
+
         }
 
         //private void Button1_Click(object sender, EventArgs e)
@@ -88,34 +99,7 @@ namespace protonApp
         //    return klasy;
         //}
 
-        private void test()
-        {
-            //    string sAttr;
-            //    string xdw;
-
-            //    //xdw = ConfigurationManager.AppSettings.Get("TESTstring");
-            //    //int x = Convert.ToInt32(sAttr);
-            //    //x++;
-            //    List<string> k = new List<string>(ConfigurationManager.AppSettings.AllKeys);
-            //    //List<string> w = new List<string>(ConfigurationManager.AppSettings["testList"].Split(new char[] { ';' }));
-
-            //    //Console.WriteLine();
-            //    //for (int i = 0; i < w.Count; i++)
-            //    //    Console.WriteLine(w[i]);
-
-            //    Console.WriteLine();
-            //    for (int i = 0; i < k.Count; i++)
-            //        Console.WriteLine(k[i]);
-
-
-
-
-            PointsCalculator pointsCalculator = new PointsCalculator();
-            //pointsCalculator.calculatePoints(
-            //MessageBox.Show(Regex.Split("Sb27243", @"(?=[0-9]{1,4})").Aggregate((a, b) => a + "\n" + b));
-
-        }
-
+        
 
 
 

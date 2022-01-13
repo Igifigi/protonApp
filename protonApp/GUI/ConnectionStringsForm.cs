@@ -34,21 +34,29 @@ namespace protonApp.GUI
             portTextBox.Text = data[1];
             usernameTextBox.Text = data[2];
             passwordTextBox.Text = data[3];
-            initializeDisplayLabel(data);
+            //TODO
         }
-        private void initializeDisplayLabel(List<string> data)
-        {
-            displayConnectionString.Text = data.Aggregate("", (a, b) => a + "\n" + b);
-        }
+
 
         private void DataSourceTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void Button1_Click(object sender, EventArgs e)
+        private void CommitChangesButton_Click(object sender, EventArgs e)
         {
-            TechnicalFunctions.setConnectionString("dbConfig", dataSourceTextBox.Text + ";" + portTextBox.Text + ";" + usernameTextBox.Text + ";" + passwordTextBox.Text + ";database=proton;convert zero datetime=True");
+            string connection = dataSourceTextBox.Text + ";" + portTextBox.Text + ";" + usernameTextBox.Text + ";" + passwordTextBox.Text + ";database=proton;convert zero datetime=True";
+            try
+            {
+                
+                TechnicalFunctions.setConnectionString("dbConfig", connection);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            MessageBox.Show("Pomyślnie ustawiono połączenie z serwerem na " + connection, "Pomyślnie zapisano dane", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
         }
 
         //<add name = "dbConfig" connectionString="datasource=127.0.0.1;port=3306;username=root;password=;database=proton;convert zero datetime=True"/>

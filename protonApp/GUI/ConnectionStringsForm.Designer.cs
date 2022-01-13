@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConnectionStringsForm));
             this.dataSourceTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.usernameTextBox = new System.Windows.Forms.TextBox();
@@ -36,8 +37,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.displayConnectionString = new System.Windows.Forms.Label();
+            this.commitChangesButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dataSourceTextBox
@@ -113,32 +113,23 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Hasło";
             // 
-            // button1
+            // commitChangesButton
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(12, 394);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(406, 46);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Zatwierdź";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
-            // displayConnectionString
-            // 
-            this.displayConnectionString.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.displayConnectionString.Location = new System.Drawing.Point(12, 131);
-            this.displayConnectionString.Name = "displayConnectionString";
-            this.displayConnectionString.Size = new System.Drawing.Size(406, 260);
-            this.displayConnectionString.TabIndex = 9;
+            this.commitChangesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.commitChangesButton.Location = new System.Drawing.Point(12, 134);
+            this.commitChangesButton.Name = "commitChangesButton";
+            this.commitChangesButton.Size = new System.Drawing.Size(406, 55);
+            this.commitChangesButton.TabIndex = 8;
+            this.commitChangesButton.Text = "Zatwierdź";
+            this.commitChangesButton.UseVisualStyleBackColor = true;
+            this.commitChangesButton.Click += new System.EventHandler(this.CommitChangesButton_Click);
             // 
             // ConnectionStringsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 452);
-            this.Controls.Add(this.displayConnectionString);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(430, 201);
+            this.Controls.Add(this.commitChangesButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -148,6 +139,7 @@
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.dataSourceTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "ConnectionStringsForm";
             this.Text = "ConnectionStringsForm";
@@ -167,7 +159,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label displayConnectionString;
+        private System.Windows.Forms.Button commitChangesButton;
     }
 }

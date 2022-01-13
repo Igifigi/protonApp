@@ -115,5 +115,11 @@ namespace protonApp.GUI
             ConnectionStringsForm csf = new ConnectionStringsForm();
             csf.ShowDialog();
         }
+
+        private void DirectDatabaseQueryButton_Click(object sender, EventArgs e)
+        {
+            DirectDatabaseQueryForm ddqf = new DirectDatabaseQueryForm();
+            ddqf.ShowDialog();
+        }
     }
 }
