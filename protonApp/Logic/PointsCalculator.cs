@@ -116,13 +116,13 @@ namespace protonApp.Model
                         switch (championsType)
                         {
                             case "Mistrzostwa województwa":
-                                points = bonus[playerPlace - 1, 1] + 5;
+                                points = bonus[playerPlace - 1, 0] + 5;
                                 break;
                             case "Mistrzostwa Wrocławia":
-                                points = bonus[playerPlace - 1, 1];
+                                points = bonus[playerPlace - 1, 0];
                                 break;
                             case "Mistrzostwa dzielnicy":
-                                points = bonus[playerPlace - 1, 3] + 5;
+                                points = bonus[playerPlace - 1, 2] + 5;
                                 break;
                         }
                     }
