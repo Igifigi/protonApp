@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace protonApp.Data
 {
     class StaticSettingsData
@@ -20,6 +21,7 @@ namespace protonApp.Data
             new KeyValuePair<string, string>("waitAfterError", "2000"),
             new KeyValuePair<string, string>("championsType", "Mistrzostwa województwa;Mistrzostwa Wrocławia;Mistrzostwa dzielnicy"),
             new KeyValuePair<string, string>("version", "0.2.1")
+            //datasource=127.0.0.1;port=3306;username=root;password=;database=proton;convert zero datetime=True
 
         };
     }

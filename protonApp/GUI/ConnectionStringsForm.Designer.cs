@@ -38,6 +38,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.commitChangesButton = new System.Windows.Forms.Button();
+            this.fullConnectionStringTextBox = new System.Windows.Forms.RichTextBox();
+            this.commitChangesButton2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // dataSourceTextBox
@@ -124,11 +126,34 @@
             this.commitChangesButton.UseVisualStyleBackColor = true;
             this.commitChangesButton.Click += new System.EventHandler(this.CommitChangesButton_Click);
             // 
+            // fullConnectionStringTextBox
+            // 
+            this.fullConnectionStringTextBox.Location = new System.Drawing.Point(12, 195);
+            this.fullConnectionStringTextBox.Multiline = false;
+            this.fullConnectionStringTextBox.Name = "fullConnectionStringTextBox";
+            this.fullConnectionStringTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.fullConnectionStringTextBox.Size = new System.Drawing.Size(406, 98);
+            this.fullConnectionStringTextBox.TabIndex = 10;
+            this.fullConnectionStringTextBox.Text = "";
+            // 
+            // commitChangesButton2
+            // 
+            this.commitChangesButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.commitChangesButton2.Location = new System.Drawing.Point(12, 299);
+            this.commitChangesButton2.Name = "commitChangesButton2";
+            this.commitChangesButton2.Size = new System.Drawing.Size(406, 55);
+            this.commitChangesButton2.TabIndex = 11;
+            this.commitChangesButton2.Text = "Zatwierdź pełnego connection stringa";
+            this.commitChangesButton2.UseVisualStyleBackColor = true;
+            this.commitChangesButton2.Click += new System.EventHandler(this.commitChangesButton2_Click);
+            // 
             // ConnectionStringsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 201);
+            this.ClientSize = new System.Drawing.Size(430, 366);
+            this.Controls.Add(this.commitChangesButton2);
+            this.Controls.Add(this.fullConnectionStringTextBox);
             this.Controls.Add(this.commitChangesButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -160,5 +185,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button commitChangesButton;
+        private System.Windows.Forms.RichTextBox fullConnectionStringTextBox;
+        private System.Windows.Forms.Button commitChangesButton2;
     }
 }
