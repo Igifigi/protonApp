@@ -31,11 +31,13 @@ namespace protonApp.GUI
         private void initializeTextBoxes()
         {
             string read_from_memory = mm.GetConnectionString();
-            List<string> data = new List<string>(read_from_memory.Split(new char[] { ';' }));
-            dataSourceTextBox.Text = data[0];
-            portTextBox.Text = data[1];
-            usernameTextBox.Text = data[2];
-            passwordTextBox.Text = data[3];
+            //List<string> data = new List<string>(read_from_memory.Split(new char[] { ';' }));
+            //dataSourceTextBox.Text = data[0];
+            //portTextBox.Text = data[1];
+            //usernameTextBox.Text = data[2];
+            //passwordTextBox.Text = data[3];
+            if (read_from_memory == "")
+                read_from_memory = "datasource=127.0.0.1;port=3306;username=root;password=;database=proton;convert zero datetime=True";
             fullConnectionStringTextBox.Text = read_from_memory;
             //TODO
         }

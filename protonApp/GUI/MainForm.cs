@@ -16,6 +16,7 @@ using System.Text.RegularExpressions;
 using System.Reflection;
 using System.Diagnostics;
 using protonApp.Data;
+using Newtonsoft.Json;
 
 // Convert.ToInt32(<stringVal>)
 
@@ -48,6 +49,11 @@ namespace protonApp
             // versionLabel.Text = "v." + TechnicalFunctions.getSetting("version");
             setVersion();
         }
+        //private void test()
+        //{
+
+        //    Console.WriteLine(JsonConvert.SerializeObject(""));
+        //}
 
         private void EventsButton_Click(object sender, EventArgs e)
         {
