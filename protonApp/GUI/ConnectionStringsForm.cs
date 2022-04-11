@@ -16,6 +16,7 @@ namespace protonApp.GUI
     public partial class ConnectionStringsForm : Form
     {
         TechnicalFunctions tf = new TechnicalFunctions();
+        MemoryManager mm = new MemoryManager();
         public ConnectionStringsForm()
         {
             InitializeComponent();
@@ -29,7 +30,7 @@ namespace protonApp.GUI
 
         private void initializeTextBoxes()
         {
-            string read_from_memory = TechnicalFunctions.getConnectionString("dbConfig");
+            string read_from_memory = mm.GetConnectionString();
             List<string> data = new List<string>(read_from_memory.Split(new char[] { ';' }));
             dataSourceTextBox.Text = data[0];
             portTextBox.Text = data[1];
@@ -50,8 +51,8 @@ namespace protonApp.GUI
             string connection = dataSourceTextBox.Text + ";" + portTextBox.Text + ";" + usernameTextBox.Text + ";" + passwordTextBox.Text + ";database=proton;convert zero datetime=True";
             try
             {
-                
-                TechnicalFunctions.setConnectionString("dbConfig", connection);
+                mm.SetConnectionString(connection);
+                //TechnicalFunctions.setConnectionString("dbConfig", connection);
             }
             catch (Exception ex)
             {
@@ -66,7 +67,7 @@ namespace protonApp.GUI
             string conn = fullConnectionStringTextBox.Text;
             try
             {
-                TechnicalFunctions.setConnectionString("dbConfig", conn);
+                mm.SetConnectionString(conn);
             }
             catch (Exception ex)
             {

@@ -1,12 +1,13 @@
 ﻿using MySql.Data.MySqlClient;
 using System.Configuration;
+using protonApp.Data;
 
 namespace protonApp.Data
 {
     internal class DatabaseConnectionData
     {
-
-        internal static readonly string connectionData = ConfigurationManager.ConnectionStrings["dbConfig"].ConnectionString;
+        static MemoryManager m_m = new MemoryManager();
+        internal static readonly string connectionData = m_m.GetConnectionString();
 
         //internal static readonly string connectionData = "server=localhost;user=root;database=protonapp;password=;";
 
