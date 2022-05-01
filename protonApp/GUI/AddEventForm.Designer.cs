@@ -428,6 +428,7 @@
             this.addedStudentsCheckedListBox.Size = new System.Drawing.Size(300, 424);
             this.addedStudentsCheckedListBox.TabIndex = 30;
             this.addedStudentsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.AddedStudentsCheckedListBox_ItemCheck);
+            this.addedStudentsCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.addedStudentsCheckedListBox_SelectedIndexChanged);
             // 
             // deleteStudentButton
             // 

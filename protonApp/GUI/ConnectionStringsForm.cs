@@ -50,7 +50,7 @@ namespace protonApp.GUI
 
         private void CommitChangesButton_Click(object sender, EventArgs e)
         {
-            string connection = dataSourceTextBox.Text + ";" + portTextBox.Text + ";" + usernameTextBox.Text + ";" + passwordTextBox.Text + ";database=proton;convert zero datetime=True";
+            string connection = "datasource="+dataSourceTextBox.Text + ";port=" + portTextBox.Text + ";username=" + usernameTextBox.Text + ";password=" + passwordTextBox.Text + ";database=proton;convert zero datetime=True";
             try
             {
                 mm.SetConnectionString(connection);

@@ -660,5 +660,10 @@ namespace protonApp.GUI
 
 
         }
+
+        private void addedStudentsCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

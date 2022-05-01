@@ -14,6 +14,7 @@ namespace protonApp.GUI
         public StudentsListForm()
         {
             InitializeComponent();
+            RefreshList();
             Refresh();
            
         }
