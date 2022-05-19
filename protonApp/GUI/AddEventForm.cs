@@ -93,6 +93,7 @@ namespace protonApp.GUI
                 MessageBox.Show("Błąd w polu UCZNIOWIE! Musisz dodać co najmniej jednego ucznia!", "BŁAD KRYTYCZNY", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            //var _Event = new KeyValuePair<string, DateTime>()
             Event _event = new Event(dbD.GetHighestId("wydarzenia") + 1, getEventName(), getEventDate());
             try
             {
@@ -182,7 +183,7 @@ namespace protonApp.GUI
                     dbD.GetStudentIdByParameters(pair.Key.name, pair.Key.surname, pair.Key.class_id),
                     points,
                     0, //todo punkty przechodnie
-                    _event.id));
+                    dbD.GetHighestId("wydarzenia")));
                 dbD.InsertLog(logList.Last());
             }
             this.Close();
@@ -310,6 +311,7 @@ namespace protonApp.GUI
 
         private DateTime getEventDate()
         {
+            //Console.WriteLine(eventDateTimePicker.Value);
             if (eventDateTimePicker.Value != new DateTime(2000, 1, 1, 0, 0, 0))
             {
                 return eventDateTimePicker.Value;

@@ -7,13 +7,14 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using protonApp.Model;
 using protonApp.Data;
+using protonApp.Logic;
 
 namespace protonApp.Logic
 {
     class DatabaseDownloader
     {
         //MySqlConnection sqlConnection = DatabaseConnectionData.sqlConnection;
-
+        TechnicalFunctions tf = new TechnicalFunctions();
         public int GetHighestId(string table)
         {
             MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
@@ -216,24 +217,27 @@ namespace protonApp.Logic
         public void SetEvent(Event e)
         {
             MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            //TechnicalFunctions TF = new TechnicalFunctions();
             try
             {
-                int highestID = this.GetHighestId("wydarzenia");
+                //int highestID = this.GetHighestId("wydarzenia");
                 string cmd =
-                    "INSERT INTO wydarzenia (Id,Nazwa,Data) VALUES (" +
-                    (highestID + 1) +
-                    ",'" +
+                    "INSERT INTO wydarzenia (Nazwa,Data) VALUES ('" +
                     e.name +
                     "','" +
-                    e.date +
+                    tf.ConvertCSharpDateTimeToMySqlDateTime(e.date) +
                     "')";
+                Console.WriteLine(cmd);
+                Console.WriteLine(e.date);
                 sqlConnection.Open();
                 MySqlCommand sqlCommand = new MySqlCommand(cmd, sqlConnection);
                 sqlCommand.ExecuteNonQuery();
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                //MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.Message);
+                
             }
             sqlConnection.Close();
         }
@@ -355,7 +359,7 @@ namespace protonApp.Logic
             {
                 //int highestID = this.GetHighestId("wydarzenia");
                 string cmd =
-                    "INSERT INTO log (Id, Uczen_Id, Wydarzenie_Id, liczba_punktow, Przechodnie) VALUES (NULL, '" +
+                    "INSERT INTO log (Uczen_Id, Wydarzenie_Id, liczba_punktow, Przechodnie) VALUES ('" +
                     log.student_id.ToString() +
                     "','" +
                     log.event_id.ToString() +
@@ -364,6 +368,7 @@ namespace protonApp.Logic
                     "','" +
                     log.transitive_points.ToString() +
                     "')";
+                Console.WriteLine(cmd);
                 sqlConnection.Open();
                 MySqlCommand sqlCommand = new MySqlCommand(cmd, sqlConnection);
                 sqlCommand.ExecuteNonQuery();
