@@ -2,6 +2,9 @@
 import mysql.connector
 from mysql.connector import errorcode
 #region funcions and lists
+"""
+Warning! This code assumes that every female name and none male names end with a letter 'a'!
+"""
 def get_sex(name):
     char = name[len(name)-1]
     if char == 'a':
