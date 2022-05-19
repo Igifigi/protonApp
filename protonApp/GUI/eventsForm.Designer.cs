@@ -74,8 +74,10 @@
             // 
             this.eventsCheckedListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.eventsCheckedListBox.FormattingEnabled = true;
+            this.eventsCheckedListBox.HorizontalScrollbar = true;
             this.eventsCheckedListBox.Location = new System.Drawing.Point(12, 12);
             this.eventsCheckedListBox.Name = "eventsCheckedListBox";
+            this.eventsCheckedListBox.ScrollAlwaysVisible = true;
             this.eventsCheckedListBox.Size = new System.Drawing.Size(441, 697);
             this.eventsCheckedListBox.TabIndex = 5;
             this.eventsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.EventsCheckedListBox_ItemCheck);
