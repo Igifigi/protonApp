@@ -105,7 +105,7 @@ namespace protonApp.GUI
             }
             catch(Exception ex)
             {
-                
+                Console.WriteLine(ex.Message);
             }
             
         }

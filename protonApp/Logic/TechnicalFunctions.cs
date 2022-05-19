@@ -76,5 +76,9 @@ namespace protonApp.Data
         {
             return Regex.Split(s, @"()\w+").ToList();
         }
+        internal string ConvertCSharpDateTimeToMySqlDateTime(DateTime dt)
+        {
+            return dt.ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss");
+        }
     }
 }
