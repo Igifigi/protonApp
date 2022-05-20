@@ -4,7 +4,7 @@ using protonApp.Data;
 
 namespace protonApp.Data
 {
-    internal class DatabaseConnectionData
+    public class DatabaseConnectionData
     {
         static MemoryManager m_m = new MemoryManager();
         internal static readonly string connectionData = m_m.GetConnectionString();

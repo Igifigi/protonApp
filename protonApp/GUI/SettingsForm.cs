@@ -16,13 +16,15 @@ namespace protonApp.GUI
     {
         TechnicalFunctions technicalFunctions = new TechnicalFunctions();
 
+        
+
         public SettingsForm()
         {
             InitializeComponent();
-            initializeComboBoxes();
+            initializeComboBoxesAndButtons();
         }
 
-        private void initializeComboBoxes()
+        private void initializeComboBoxesAndButtons()
         {
             selectKeyComboBox.Items.AddRange((ConfigurationManager.AppSettings.AllKeys.ToArray()));
         }
@@ -120,6 +122,17 @@ namespace protonApp.GUI
         {
             DirectDatabaseQueryForm ddqf = new DirectDatabaseQueryForm();
             ddqf.ShowDialog();
+        }
+
+        private void SettingsForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void developerToolsFormButton_Click(object sender, EventArgs e)
+        {
+            DeveloperToolsForm dtF = new DeveloperToolsForm();
+            dtF.ShowDialog();
         }
     }
 }

@@ -42,6 +42,7 @@
             this.resetValueButton = new System.Windows.Forms.Button();
             this.resetValueButtonToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.connectionStringsFormButton = new System.Windows.Forms.Button();
+            this.developerToolsFormButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // selectKeyComboBox
@@ -131,13 +132,13 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(12, 44);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(363, 53);
+            this.label2.Size = new System.Drawing.Size(251, 53);
             this.label2.TabIndex = 8;
             this.label2.Text = "Nigdy nie edytuj kluczy, których przeznaczenia nie znasz!";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // resetValueButton
             // 
@@ -162,11 +163,23 @@
             this.connectionStringsFormButton.UseVisualStyleBackColor = true;
             this.connectionStringsFormButton.Click += new System.EventHandler(this.ConnectionStringsFormButton_Click);
             // 
+            // developerToolsFormButton
+            // 
+            this.developerToolsFormButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.developerToolsFormButton.Location = new System.Drawing.Point(269, 44);
+            this.developerToolsFormButton.Name = "developerToolsFormButton";
+            this.developerToolsFormButton.Size = new System.Drawing.Size(105, 53);
+            this.developerToolsFormButton.TabIndex = 11;
+            this.developerToolsFormButton.Text = "Dev Tools\r\n(nie rusz)";
+            this.developerToolsFormButton.UseVisualStyleBackColor = true;
+            this.developerToolsFormButton.Click += new System.EventHandler(this.developerToolsFormButton_Click);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(387, 240);
+            this.Controls.Add(this.developerToolsFormButton);
             this.Controls.Add(this.connectionStringsFormButton);
             this.Controls.Add(this.resetValueButton);
             this.Controls.Add(this.label2);
@@ -183,6 +196,7 @@
             this.MaximizeBox = false;
             this.Name = "SettingsForm";
             this.Text = "Ustawienia";
+            this.Load += new System.EventHandler(this.SettingsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,5 +216,6 @@
         private System.Windows.Forms.Button resetValueButton;
         private System.Windows.Forms.ToolTip resetValueButtonToolTip;
         private System.Windows.Forms.Button connectionStringsFormButton;
+        private System.Windows.Forms.Button developerToolsFormButton;
     }
 }

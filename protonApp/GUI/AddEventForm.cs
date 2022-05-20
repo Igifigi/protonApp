@@ -13,6 +13,7 @@ namespace protonApp.GUI
     public partial class AddEventForm : Form
     {
         DatabaseDownloader dbD = new DatabaseDownloader();
+        MemoryManager mm = new MemoryManager();
         PointsCalculator pc = new PointsCalculator();
         TechnicalFunctions tf = new TechnicalFunctions();
         List<KeyValuePair<Student, int>> Students = new List<KeyValuePair<Student, int>>();
@@ -77,7 +78,6 @@ namespace protonApp.GUI
 
         private void AddEventButton_Click(object sender, EventArgs e)
         {
-            
             if(areAllEventFieldsValid() != "0")
             {
                 MessageBox.Show("Błąd w polu " + areAllEventFieldsValid() + "!", "BŁAD KRYTYCZNY", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -185,6 +185,13 @@ namespace protonApp.GUI
                     0, //todo punkty przechodnie
                     dbD.GetHighestId("wydarzenia")));
                 dbD.InsertLog(logList.Last());
+
+                if(TechnicalFunctions.getSetting("saveEventsToJSON").ToString() == bool.TrueString)
+                {
+                    KeyValuePair<Event, List<Log>> inserter = new KeyValuePair<Event, List<Log>>(_event, logList);
+                    mm.WriteToFile(inserter);
+                }
+
             }
             this.Close();
         }
