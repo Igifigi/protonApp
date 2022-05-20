@@ -31,6 +31,8 @@ namespace protonApp.GUI
         private void initializeTextBoxes()
         {
             string read_from_memory = mm.GetConnectionString();
+            List<char> chars_to_remove = new List<char> { '"' };
+            chars_to_remove.ForEach(c => read_from_memory = read_from_memory.Replace(c.ToString(), String.Empty));
             //List<string> data = new List<string>(read_from_memory.Split(new char[] { ';' }));
             //dataSourceTextBox.Text = data[0];
             //portTextBox.Text = data[1];
@@ -69,7 +71,7 @@ namespace protonApp.GUI
             string conn = fullConnectionStringTextBox.Text;
             try
             {
-                mm.SetConnectionString(conn);
+                mm.SetConnectionString("\"" + conn + "\"");
             }
             catch (Exception ex)
             {
