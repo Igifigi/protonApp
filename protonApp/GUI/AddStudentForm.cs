@@ -17,6 +17,7 @@ namespace protonApp.GUI
     public partial class AddStudentForm : Form
     {
         DatabaseDownloader databaseDownloader = new DatabaseDownloader();
+        DatabaseConnectionData dbcd = new DatabaseConnectionData();
         public AddStudentForm()
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace protonApp.GUI
 
         private void InsertStudent()
         {
-            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            MySqlConnection sqlConnection = new MySqlConnection(dbcd.GetConnectionData());
             string cmd = 
                 "INSERT INTO uczniowie (Imie, Nazwisko, Plec, Klasa_Id) VALUES ('" + 
                 nameTextBox.Text + 
@@ -137,7 +138,7 @@ namespace protonApp.GUI
         }
         //private void sendDirectQuerry()
         //{
-        //    MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+        //    MySqlConnection sqlConnection = new MySqlConnection(dbcd.GetConnectionData());
         //    string cmd = "INSERT INTO uczniowie (Imie, Nazwisko, Plec, Klasa_Id) VALUES ('" + nameTextBox.Text + "', '" + surnameTextBox.Text + "', " + getSex() + ", " + 1 + ")";
         //    //MySqlCommand sendQuery = new MySqlCommand("INSERT INTO uczniowie(Imie,Nazwisko,Plec,Klasa_Id) VALUES('" + nameTextBox.Text + "', '" + surnameTextBox.Text + "', " + getSex() + ", " + 1 + ")", sqlConnection);
         //    //MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter();

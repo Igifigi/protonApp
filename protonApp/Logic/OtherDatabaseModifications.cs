@@ -8,11 +8,13 @@ using System.Threading.Tasks;
 
 namespace protonApp.Logic
 {
-    internal class OtherDatabaseModifications
+    public class OtherDatabaseModifications
     {
+
+        Data.DatabaseConnectionData dbcd = new Data.DatabaseConnectionData();
         public void sendDirectQuery(string text)
         {
-            MySqlConnection sqlConnection = DatabaseConnectionData.sqlConnection;
+            MySqlConnection sqlConnection = new MySqlConnection(dbcd.GetConnectionData());
             MySqlCommand sendQuery = new MySqlCommand(text, sqlConnection);
             //MySqlDataAdapter sqlDataAdapter = new MySqlDataAdapter();
 
@@ -34,7 +36,7 @@ namespace protonApp.Logic
             }
             sqlConnection.Close();
 
-
+            //"\"datasource=127.0.0.1;port=3306;username=root;password=;database=proton;convert zero datetime=True\""
 
 
         }

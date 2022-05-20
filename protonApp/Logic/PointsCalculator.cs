@@ -7,7 +7,7 @@ using protonApp.Data;
 
 namespace protonApp.Model
 {
-    internal class PointsCalculator
+    public class PointsCalculator
     {
         internal int calculatePoints(
             string type,

@@ -10,7 +10,7 @@ namespace protonApp.GUI
 {
     public partial class EventsForm : Form
     {
-        DatabaseConnectionData databaseConnectionData = new DatabaseConnectionData();
+        //DatabaseConnectionData databaseConnectionData = new DatabaseConnectionData();
         OtherDatabaseModifications odm = new OtherDatabaseModifications();
         DatabaseDownloader databaseDownloader = new DatabaseDownloader();
         //SELECT Nazwa FROM `wydarzenia` WHERE Nazwa LIKE '%a%'

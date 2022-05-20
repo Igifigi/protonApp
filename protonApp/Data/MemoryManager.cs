@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace protonApp.Data
 {
-    class MemoryManager
+    public class MemoryManager
     {
         static readonly string cache_directory = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData).ToString() + @"\Proton";
         readonly string connection_string_path = cache_directory + @"\connection_data.json";

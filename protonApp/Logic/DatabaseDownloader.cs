@@ -11,13 +11,15 @@ using protonApp.Logic;
 
 namespace protonApp.Logic
 {
-    class DatabaseDownloader
+    public class DatabaseDownloader
     {
         //MySqlConnection sqlConnection = DatabaseConnectionData.sqlConnection;
         TechnicalFunctions tf = new TechnicalFunctions();
-        public int GetHighestId(string table)
+        MemoryManager mm = new MemoryManager();
+        Data.DatabaseConnectionData dbcd = new Data.DatabaseConnectionData();
+        internal int GetHighestId(string table)
         {
-            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            MySqlConnection sqlConnection = new MySqlConnection(dbcd.GetConnectionData());
             
             try
             {
@@ -40,9 +42,9 @@ namespace protonApp.Logic
         }
 
 
-        public List<Student> GetStudents()
+        internal List<Student> GetStudents()
         {
-            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            MySqlConnection sqlConnection = new MySqlConnection(dbcd.GetConnectionData());
             List<Student> result = new List<Student>();
             MySqlCommand sqlCommand = new MySqlCommand("select * from uczniowie", sqlConnection);
             try
@@ -70,9 +72,14 @@ namespace protonApp.Logic
         }
 
 
-        public List<Event> GetEvents()
+        internal List<Event> GetEvents()
         {
-            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            var s = mm.GetConnectionString();
+            //Console.WriteLine(s);
+            //for (int i = 71; i < s.Length; i++)
+            //    Console.Write(s[i] + " ");
+            //Console.WriteLine(s[72]);
+            MySqlConnection sqlConnection = new MySqlConnection(s);
             List<Event> result = new List<Event>();
             MySqlCommand sqlCommand = new MySqlCommand("select * from wydarzenia", sqlConnection);
             try
@@ -99,9 +106,9 @@ namespace protonApp.Logic
         }
 
 
-        public List<Class> GetClasses()
+        internal List<Class> GetClasses()
         {
-            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            MySqlConnection sqlConnection = new MySqlConnection(dbcd.GetConnectionData());
             List<Class> result = new List<Class>();
             MySqlCommand sqlCommand = new MySqlCommand("select * from klasy", sqlConnection);
             try
@@ -127,9 +134,9 @@ namespace protonApp.Logic
         }
 
 
-        public List<Log> GetLogs()
+        internal List<Log> GetLogs()
         {
-            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            MySqlConnection sqlConnection = new MySqlConnection(dbcd.GetConnectionData());
             List<Log> result = new List<Log>();
             MySqlCommand sqlCommand = new MySqlCommand("select * from log", sqlConnection);
             try
@@ -157,10 +164,10 @@ namespace protonApp.Logic
             return result;
         }
 
-        public List<Student> GetStudentsBySurname(string surname)
+        internal List<Student> GetStudentsBySurname(string surname)
         {
             var students = new List<Student>();
-            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            MySqlConnection sqlConnection = new MySqlConnection(dbcd.GetConnectionData());
             MySqlCommand sqlCommand = new MySqlCommand("SELECT * FROM uczniowie WHERE Nazwisko LIKE '%" + surname + "%'", sqlConnection);
             try
             {
@@ -186,10 +193,10 @@ namespace protonApp.Logic
             return students;
         }
 
-        public Student GetStudentByNameAndSurname(string name, string surname)
+        internal Student GetStudentByNameAndSurname(string name, string surname)
         {
             Student student = new Student(0, "", "", 0, -1);
-            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            MySqlConnection sqlConnection = new MySqlConnection(dbcd.GetConnectionData());
             MySqlCommand sqlCommand = new MySqlCommand("SELECT * FROM uczniowie WHERE Nazwisko='" + surname + "' AND Imie='" + name + "'", sqlConnection);
             try
             {
@@ -214,9 +221,9 @@ namespace protonApp.Logic
         }
 
 
-        public void SetEvent(Event e)
+        internal void SetEvent(Event e)
         {
-            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            MySqlConnection sqlConnection = new MySqlConnection(dbcd.GetConnectionData());
             //TechnicalFunctions TF = new TechnicalFunctions();
             try
             {
@@ -241,9 +248,9 @@ namespace protonApp.Logic
             }
             sqlConnection.Close();
         }
-        public Student GetStudentById(int id)
+        internal Student GetStudentById(int id)
         {
-            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            MySqlConnection sqlConnection = new MySqlConnection(dbcd.GetConnectionData());
             MySqlCommand sqlCommand = new MySqlCommand("SELECT * FROM uczniowie WHERE id=" + id, sqlConnection);
             Student student = new Student(0,"","",0,0);
 
@@ -269,10 +276,10 @@ namespace protonApp.Logic
             sqlConnection.Close();
             return student;
         }
-    
-        public Class GetClassById(int id)
+
+        internal Class GetClassById(int id)
         {
-            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            MySqlConnection sqlConnection = new MySqlConnection(dbcd.GetConnectionData());
             MySqlCommand sqlCommand = new MySqlCommand("SELECT * FROM klasy WHERE id=" + id.ToString(), sqlConnection);
             Class klasa = new Class(0, "");
             
@@ -295,9 +302,9 @@ namespace protonApp.Logic
             sqlConnection.Close();
             return klasa;
         }
-        public int GetStudentIdByParameters(string name, string surname, int Klasa_Id)
+        internal int GetStudentIdByParameters(string name, string surname, int Klasa_Id)
         {
-            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            MySqlConnection sqlConnection = new MySqlConnection(dbcd.GetConnectionData());
             MySqlCommand sqlCommand = new MySqlCommand
                 ("SELECT * FROM uczniowie WHERE " +
                 "Imie='" + name + "' " +
@@ -325,10 +332,10 @@ namespace protonApp.Logic
             return id;
         }
 
-        public int GetClassIdByName(string name)
+        internal int GetClassIdByName(string name)
         {
 
-            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            MySqlConnection sqlConnection = new MySqlConnection(dbcd.GetConnectionData());
             MySqlCommand sqlCommand = new MySqlCommand("SELECT * FROM klasy WHERE Nazwa='" + name + "'", sqlConnection);
             int id = 0;
 
@@ -352,9 +359,9 @@ namespace protonApp.Logic
             return id;
         }
 
-        public void InsertLog(Log log)
+        internal void InsertLog(Log log)
         {
-            MySqlConnection sqlConnection = new MySqlConnection(DatabaseConnectionData.connectionData);
+            MySqlConnection sqlConnection = new MySqlConnection(dbcd.GetConnectionData());
             try
             {
                 //int highestID = this.GetHighestId("wydarzenia");
@@ -380,7 +387,7 @@ namespace protonApp.Logic
             sqlConnection.Close();
         }
 
-        public int GetEventIdByName(string name)
+        internal int GetEventIdByName(string name)
         {
             return 0;
         }

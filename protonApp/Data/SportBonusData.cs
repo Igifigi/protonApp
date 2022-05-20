@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace protonApp.Data
 {
-    internal class SportBonusData
+    public class SportBonusData
     {
         internal static readonly int[,] bonusByPlace = new int[,]
         {

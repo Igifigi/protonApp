@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace protonApp.Data
 {
-    class StaticSettingsData
+    public class StaticSettingsData
     {
         internal static readonly List<KeyValuePair<string, string>> data = new List<KeyValuePair<string, string>>()
         {

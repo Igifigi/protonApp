@@ -10,7 +10,7 @@ using protonApp.Model;
 
 namespace protonApp.Data
 {
-    class TechnicalFunctions
+    public class TechnicalFunctions
     {
         internal static void setSetting(string key, string value)
         {
