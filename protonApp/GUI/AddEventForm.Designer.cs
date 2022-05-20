@@ -41,9 +41,9 @@
             this.relayCountNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.organizationGroupBox = new System.Windows.Forms.GroupBox();
+            this.refereeingGroupBox = new System.Windows.Forms.GroupBox();
             this.loggingCheckBox = new System.Windows.Forms.CheckBox();
-            this.gradeForOrganizationNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.gradeForRefereeingNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.higherRankEventCheckBox = new System.Windows.Forms.CheckBox();
             this.teamSportsGroupBox = new System.Windows.Forms.GroupBox();
@@ -63,16 +63,29 @@
             this.deleteStudentButton = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.organizationGroupBox = new System.Windows.Forms.GroupBox();
+            this.negativePointsGroupBox = new System.Windows.Forms.GroupBox();
+            this.higherRankEventCheckBox2 = new System.Windows.Forms.CheckBox();
+            this.multiDayEventCheckBox = new System.Windows.Forms.CheckBox();
+            this.gradeForOrganizationNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.playerOnPitchNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
+            this.sportDisciplineComboBox2 = new System.Windows.Forms.ComboBox();
             this.individualSportsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.peopleCountNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.relayCountNumericUpDown)).BeginInit();
-            this.organizationGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gradeForOrganizationNumericUpDown)).BeginInit();
+            this.refereeingGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gradeForRefereeingNumericUpDown)).BeginInit();
             this.teamSportsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teamCountNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.matchCountNumericUpDown)).BeginInit();
             this.teamIndividualSportsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playerPlaceNumericUpDown)).BeginInit();
+            this.organizationGroupBox.SuspendLayout();
+            this.negativePointsGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gradeForOrganizationNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerOnPitchNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // eventDateTimePicker
@@ -215,20 +228,20 @@
             this.label1.TabIndex = 15;
             this.label1.Text = "Ilość sztafet";
             // 
-            // organizationGroupBox
+            // refereeingGroupBox
             // 
-            this.organizationGroupBox.AutoSize = true;
-            this.organizationGroupBox.Controls.Add(this.loggingCheckBox);
-            this.organizationGroupBox.Controls.Add(this.gradeForOrganizationNumericUpDown);
-            this.organizationGroupBox.Controls.Add(this.label5);
-            this.organizationGroupBox.Controls.Add(this.higherRankEventCheckBox);
-            this.organizationGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.organizationGroupBox.Location = new System.Drawing.Point(242, 281);
-            this.organizationGroupBox.Name = "organizationGroupBox";
-            this.organizationGroupBox.Size = new System.Drawing.Size(224, 131);
-            this.organizationGroupBox.TabIndex = 18;
-            this.organizationGroupBox.TabStop = false;
-            this.organizationGroupBox.Text = "Organizacja lub sędziowanie";
+            this.refereeingGroupBox.AutoSize = true;
+            this.refereeingGroupBox.Controls.Add(this.loggingCheckBox);
+            this.refereeingGroupBox.Controls.Add(this.gradeForRefereeingNumericUpDown);
+            this.refereeingGroupBox.Controls.Add(this.label5);
+            this.refereeingGroupBox.Controls.Add(this.higherRankEventCheckBox);
+            this.refereeingGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.refereeingGroupBox.Location = new System.Drawing.Point(242, 281);
+            this.refereeingGroupBox.Name = "refereeingGroupBox";
+            this.refereeingGroupBox.Size = new System.Drawing.Size(224, 131);
+            this.refereeingGroupBox.TabIndex = 18;
+            this.refereeingGroupBox.TabStop = false;
+            this.refereeingGroupBox.Text = "Sędziowanie";
             // 
             // loggingCheckBox
             // 
@@ -242,13 +255,13 @@
             this.loggingCheckBox.UseVisualStyleBackColor = true;
             this.loggingCheckBox.CheckedChanged += new System.EventHandler(this.LoggingCheckBox_CheckedChanged);
             // 
-            // gradeForOrganizationNumericUpDown
+            // gradeForRefereeingNumericUpDown
             // 
-            this.gradeForOrganizationNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.gradeForOrganizationNumericUpDown.Location = new System.Drawing.Point(68, 81);
-            this.gradeForOrganizationNumericUpDown.Name = "gradeForOrganizationNumericUpDown";
-            this.gradeForOrganizationNumericUpDown.Size = new System.Drawing.Size(150, 26);
-            this.gradeForOrganizationNumericUpDown.TabIndex = 31;
+            this.gradeForRefereeingNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.gradeForRefereeingNumericUpDown.Location = new System.Drawing.Point(68, 81);
+            this.gradeForRefereeingNumericUpDown.Name = "gradeForRefereeingNumericUpDown";
+            this.gradeForRefereeingNumericUpDown.Size = new System.Drawing.Size(150, 26);
+            this.gradeForRefereeingNumericUpDown.TabIndex = 31;
             // 
             // label5
             // 
@@ -417,7 +430,6 @@
             this.studentsToAddCheckedListBox.Size = new System.Drawing.Size(300, 424);
             this.studentsToAddCheckedListBox.TabIndex = 29;
             this.studentsToAddCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.StudentsToAddCheckedListBox_ItemCheck);
-            this.studentsToAddCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.StudentsToAddCheckedListBox_SelectedIndexChanged);
             // 
             // addedStudentsCheckedListBox
             // 
@@ -452,11 +464,118 @@
             this.label9.Text = "Dodani uczniowie";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // organizationGroupBox
+            // 
+            this.organizationGroupBox.AutoSize = true;
+            this.organizationGroupBox.Controls.Add(this.gradeForOrganizationNumericUpDown);
+            this.organizationGroupBox.Controls.Add(this.label10);
+            this.organizationGroupBox.Controls.Add(this.multiDayEventCheckBox);
+            this.organizationGroupBox.Controls.Add(this.higherRankEventCheckBox2);
+            this.organizationGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.organizationGroupBox.Location = new System.Drawing.Point(12, 418);
+            this.organizationGroupBox.Name = "organizationGroupBox";
+            this.organizationGroupBox.Size = new System.Drawing.Size(224, 131);
+            this.organizationGroupBox.TabIndex = 33;
+            this.organizationGroupBox.TabStop = false;
+            this.organizationGroupBox.Text = "Organizacja";
+            this.organizationGroupBox.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // negativePointsGroupBox
+            // 
+            this.negativePointsGroupBox.AutoSize = true;
+            this.negativePointsGroupBox.Controls.Add(this.sportDisciplineComboBox2);
+            this.negativePointsGroupBox.Controls.Add(this.playerOnPitchNumericUpDown);
+            this.negativePointsGroupBox.Controls.Add(this.label11);
+            this.negativePointsGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.negativePointsGroupBox.Location = new System.Drawing.Point(246, 418);
+            this.negativePointsGroupBox.Name = "negativePointsGroupBox";
+            this.negativePointsGroupBox.Size = new System.Drawing.Size(224, 131);
+            this.negativePointsGroupBox.TabIndex = 34;
+            this.negativePointsGroupBox.TabStop = false;
+            this.negativePointsGroupBox.Text = "Punkty ujemne";
+            // 
+            // higherRankEventCheckBox2
+            // 
+            this.higherRankEventCheckBox2.AutoSize = true;
+            this.higherRankEventCheckBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.higherRankEventCheckBox2.Location = new System.Drawing.Point(6, 20);
+            this.higherRankEventCheckBox2.Name = "higherRankEventCheckBox2";
+            this.higherRankEventCheckBox2.Size = new System.Drawing.Size(208, 24);
+            this.higherRankEventCheckBox2.TabIndex = 1;
+            this.higherRankEventCheckBox2.Text = "Wydarzenie wyższej rangi";
+            this.higherRankEventCheckBox2.UseVisualStyleBackColor = true;
+            this.higherRankEventCheckBox2.CheckedChanged += new System.EventHandler(this.higherRankEventCheckBox2_CheckedChanged);
+            // 
+            // multiDayEventCheckBox
+            // 
+            this.multiDayEventCheckBox.AutoSize = true;
+            this.multiDayEventCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.multiDayEventCheckBox.Location = new System.Drawing.Point(6, 50);
+            this.multiDayEventCheckBox.Name = "multiDayEventCheckBox";
+            this.multiDayEventCheckBox.Size = new System.Drawing.Size(200, 24);
+            this.multiDayEventCheckBox.TabIndex = 2;
+            this.multiDayEventCheckBox.Text = "Wydarzenie wielodniowe";
+            this.multiDayEventCheckBox.UseVisualStyleBackColor = true;
+            this.multiDayEventCheckBox.CheckedChanged += new System.EventHandler(this.multiDayEventCheckBox_CheckedChanged);
+            // 
+            // gradeForOrganizationNumericUpDown
+            // 
+            this.gradeForOrganizationNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.gradeForOrganizationNumericUpDown.Location = new System.Drawing.Point(68, 82);
+            this.gradeForOrganizationNumericUpDown.Name = "gradeForOrganizationNumericUpDown";
+            this.gradeForOrganizationNumericUpDown.Size = new System.Drawing.Size(150, 26);
+            this.gradeForOrganizationNumericUpDown.TabIndex = 33;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.Location = new System.Drawing.Point(6, 82);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(57, 20);
+            this.label10.TabIndex = 32;
+            this.label10.Text = "Punkty";
+            // 
+            // playerOnPitchNumericUpDown
+            // 
+            this.playerOnPitchNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.playerOnPitchNumericUpDown.Location = new System.Drawing.Point(144, 22);
+            this.playerOnPitchNumericUpDown.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.playerOnPitchNumericUpDown.Name = "playerOnPitchNumericUpDown";
+            this.playerOnPitchNumericUpDown.Size = new System.Drawing.Size(70, 26);
+            this.playerOnPitchNumericUpDown.TabIndex = 32;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label11.Location = new System.Drawing.Point(6, 24);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(132, 20);
+            this.label11.TabIndex = 31;
+            this.label11.Text = "Ilość zawodników";
+            // 
+            // sportDisciplineComboBox2
+            // 
+            this.sportDisciplineComboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.sportDisciplineComboBox2.FormattingEnabled = true;
+            this.sportDisciplineComboBox2.Location = new System.Drawing.Point(6, 54);
+            this.sportDisciplineComboBox2.Name = "sportDisciplineComboBox2";
+            this.sportDisciplineComboBox2.Size = new System.Drawing.Size(208, 28);
+            this.sportDisciplineComboBox2.TabIndex = 33;
+            this.sportDisciplineComboBox2.Text = "Wybierz dyscyplinę";
+            // 
             // AddEventForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1093, 627);
+            this.Controls.Add(this.negativePointsGroupBox);
+            this.Controls.Add(this.organizationGroupBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.deleteStudentButton);
             this.Controls.Add(this.addedStudentsCheckedListBox);
@@ -468,7 +587,7 @@
             this.Controls.Add(this.addStudentButton);
             this.Controls.Add(this.teamIndividualSportsGroupBox);
             this.Controls.Add(this.teamSportsGroupBox);
-            this.Controls.Add(this.organizationGroupBox);
+            this.Controls.Add(this.refereeingGroupBox);
             this.Controls.Add(this.individualSportsGroupBox);
             this.Controls.Add(this.addEventButton);
             this.Controls.Add(this.eventNameTextBox);
@@ -486,15 +605,21 @@
             this.individualSportsGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.peopleCountNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.relayCountNumericUpDown)).EndInit();
-            this.organizationGroupBox.ResumeLayout(false);
-            this.organizationGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gradeForOrganizationNumericUpDown)).EndInit();
+            this.refereeingGroupBox.ResumeLayout(false);
+            this.refereeingGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gradeForRefereeingNumericUpDown)).EndInit();
             this.teamSportsGroupBox.ResumeLayout(false);
             this.teamSportsGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teamCountNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.matchCountNumericUpDown)).EndInit();
             this.teamIndividualSportsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.playerPlaceNumericUpDown)).EndInit();
+            this.organizationGroupBox.ResumeLayout(false);
+            this.organizationGroupBox.PerformLayout();
+            this.negativePointsGroupBox.ResumeLayout(false);
+            this.negativePointsGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gradeForOrganizationNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.playerOnPitchNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -509,7 +634,7 @@
         private System.Windows.Forms.Button addEventButton;
         private System.Windows.Forms.CheckBox isRelayCheckBox;
         private System.Windows.Forms.GroupBox individualSportsGroupBox;
-        private System.Windows.Forms.GroupBox organizationGroupBox;
+        private System.Windows.Forms.GroupBox refereeingGroupBox;
         private System.Windows.Forms.CheckBox higherRankEventCheckBox;
         private System.Windows.Forms.GroupBox teamSportsGroupBox;
         private System.Windows.Forms.GroupBox teamIndividualSportsGroupBox;
@@ -526,7 +651,7 @@
         private System.Windows.Forms.NumericUpDown playerPlaceNumericUpDown;
         private System.Windows.Forms.NumericUpDown peopleCountNumericUpDown;
         private System.Windows.Forms.NumericUpDown relayCountNumericUpDown;
-        private System.Windows.Forms.NumericUpDown gradeForOrganizationNumericUpDown;
+        private System.Windows.Forms.NumericUpDown gradeForRefereeingNumericUpDown;
         private System.Windows.Forms.NumericUpDown teamCountNumericUpDown;
         private System.Windows.Forms.NumericUpDown matchCountNumericUpDown;
         private System.Windows.Forms.CheckedListBox studentsToAddCheckedListBox;
@@ -535,5 +660,14 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.CheckBox loggingCheckBox;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.GroupBox organizationGroupBox;
+        private System.Windows.Forms.GroupBox negativePointsGroupBox;
+        private System.Windows.Forms.NumericUpDown gradeForOrganizationNumericUpDown;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.CheckBox multiDayEventCheckBox;
+        private System.Windows.Forms.CheckBox higherRankEventCheckBox2;
+        private System.Windows.Forms.NumericUpDown playerOnPitchNumericUpDown;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox sportDisciplineComboBox2;
     }
 }

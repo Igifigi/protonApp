@@ -3,10 +3,10 @@ using protonApp.Logic;
 using protonApp.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using System.Threading;
 using System.Drawing;
+using System.Linq;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace protonApp.GUI
 {
@@ -35,15 +35,39 @@ namespace protonApp.GUI
         {
             eventTypeComboBox.Items.AddRange(TechnicalFunctions.getSetting("Typ wydarzeń").Split(new char[] { ';' }));
             championsTypeComboBox.Items.AddRange(TechnicalFunctions.getSetting("championsType").Split(new char[] { ';' }));
+            sportDisciplineComboBox2.Items.AddRange(new string[] { "Piłka nożna, piłka siatkowa", "Piłka koszykowa", "Piłka ręczna", "Streetball, ringo gra potrójna", "Badminton, tenis stołowy gry podwójne" });
             individualSportsGroupBox.Enabled = false;
-            organizationGroupBox.Enabled = false;
+            negativePointsGroupBox.Enabled = false;
+            refereeingGroupBox.Enabled = false;
             teamIndividualSportsGroupBox.Enabled = false;
             teamSportsGroupBox.Enabled = false;
+            organizationGroupBox.Enabled = false;
+            playerPlaceNumericUpDown.Enabled = false;
+            playerOnPitchNumericUpDown.Enabled = false;
+            eventDateTimePicker.Value = DateTime.Now;
+            setPointsNumericUpDownBrackets();
         }
 
         private void SportDisciplineComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setGradeNumericUpDownBrackets();
+            if (getEventType() == "Punkty ujemne")
+                switch (sportDisciplineComboBox.SelectedItem.ToString())
+                {
+                    case "Walkower w dyscyplinach zespołowych":
+                        playerOnPitchNumericUpDown.Enabled = true;
+                        sportDisciplineComboBox2.Enabled = false;
+                        break;
+                    case "Wycofanie się z rozgrywek":
+                        playerOnPitchNumericUpDown.Enabled = true;
+                        sportDisciplineComboBox2.Enabled = true;
+                        break;
+                    default:
+                        playerOnPitchNumericUpDown.Enabled = false;
+                        sportDisciplineComboBox2.Enabled = false;
+                        break;
+                }
+            else
+                setGradeNumericUpDownBrackets();
         }
 
         private void EventTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -51,11 +75,12 @@ namespace protonApp.GUI
             //selectValueComboBox.Items.AddRange(TechnicalFunctions.getSetting(selectKeyComboBox.SelectedItem.ToString()).Split(new char[] { ';' }));
             sportDisciplineComboBox.Items.Clear();
 
-            if(getEventType() == "Organizacja" || getEventType() == "Sędziowanie")
+            if (getEventType() == "Organizacja" || getEventType() == "Sędziowanie")
             {
-                List<string> toAdd = new List<string>{ "Dyscypliny indywidualne", "Dyscypliny zespołowe", "Trening", "Dyscypliny indywidualne drużynowe" };
+                List<string> toAdd = new List<string> { "Dyscypliny indywidualne", "Dyscypliny zespołowe", "Trening", "Dyscypliny indywidualne drużynowe" };
                 toAdd.ForEach(d => sportDisciplineComboBox.Items.AddRange(TechnicalFunctions.getSetting(d).Split(new char[] { ';' })));
             }
+            //else if(getEventType() == "Punkty ujemn")
             else
                 sportDisciplineComboBox.Items.AddRange(TechnicalFunctions.getSetting(eventTypeComboBox.SelectedItem.ToString()).Split(new char[] { ';' }));
 
@@ -77,8 +102,8 @@ namespace protonApp.GUI
 
         private void AddEventButton_Click(object sender, EventArgs e)
         {
-            
-            if(areAllEventFieldsValid() != "0")
+
+            if (areAllEventFieldsValid() != "0")
             {
                 MessageBox.Show("Błąd w polu " + areAllEventFieldsValid() + "!", "BŁAD KRYTYCZNY", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -107,7 +132,7 @@ namespace protonApp.GUI
 
             var logList = new List<Log>();
             //grade todo
-            foreach(KeyValuePair<Student, int> pair in Students)
+            foreach (KeyValuePair<Student, int> pair in Students)
             {
                 int points = 0;
                 switch (getEventType())
@@ -129,20 +154,11 @@ namespace protonApp.GUI
                         break;
 
                     case "Organizacja":
-                        points = pc.calculatePoints(
-                            getEventType(),
-                            false,
-                            0,
-                            0,
-                            false,
-                            0,
-                            0,
-                            getGradeForOrganization(),
-                            getIsHigherRankEvent());
+                        points = pc.calculatePoints(getEventType(), false, 0, 0, false, 0, 0, Convert.ToInt32(gradeForOrganizationNumericUpDown.Value), higherRankEventCheckBox2.Checked, 0, false, 0, "", false);
                         break;
 
                     case "Sędziowanie":
-                        //TODO
+                        points = pc.calculatePoints(getEventType(), false, 0, 0, false, 0, 0, Convert.ToInt32(gradeForRefereeingNumericUpDown.Value), false, 0, false, 0, "", false);
                         break;
 
                     case "Dyscypliny zespołowe":
@@ -177,12 +193,49 @@ namespace protonApp.GUI
                             0,
                             getChampionsType());
                         break;
+                    case "Punkty ujemne":
+                        switch (sportDisciplineComboBox.SelectedItem.ToString())
+                        {
+                            case "Walkower w dyscyplinach zespołowych":
+                                points = -5 * Convert.ToInt32(playerOnPitchNumericUpDown.Value);
+                                break;
+                            case "Walkower w dyscyplinach indywidualnych":
+                                points = -2;
+                                break;
+                            case "Niestawienie się do sędziowania":
+                                points = -5;
+                                break;
+                            case "Wycofanie się z rozgrywek":
+                                switch (sportDisciplineComboBox2.SelectedItem.ToString())
+                                {
+                                    case "Piłka nożna, piłka siatkowa":
+                                        points = -90;
+                                        break;
+                                    case "Piłka koszykowa":
+                                        points = -75;
+                                        break;
+                                    case "Piłka ręczna":
+                                        points = -105;
+                                        break;
+                                    case "Streetball, ringo gra potrójna":
+                                        points = -21;
+                                        break;
+                                    case "Badminton, tenis stołowy gry podwójne":
+                                        points = -15 * Convert.ToInt32(playerOnPitchNumericUpDown.Value);
+                                        break;
+
+                                }
+                                break;
+                        }
+                        break;
                 }
+                
+                
                 logList.Add(new Log(
                     dbD.GetHighestId("log") + 1,
                     dbD.GetStudentIdByParameters(pair.Key.name, pair.Key.surname, pair.Key.class_id),
                     points,
-                    0, //todo punkty przechodnie
+                    (getEventType() != "Sędziowanie" && getEventType() != "Organizacja") ? points : 0, 
                     dbD.GetHighestId("wydarzenia")));
                 dbD.InsertLog(logList.Last());
             }
@@ -204,7 +257,7 @@ namespace protonApp.GUI
                 if (getPlayerPlace() == -1)
                     return;
                 List<string> selected = new List<string>();
-                foreach(object itemChecked in studentsToAddCheckedListBox.CheckedItems)
+                foreach (object itemChecked in studentsToAddCheckedListBox.CheckedItems)
                     selected.Add(itemChecked.ToString());
                 string[] separated = selected[0].Split(new char[] { ' ' });
                 Student student = dbD.GetStudentByNameAndSurname(separated[0], separated[1]);
@@ -219,7 +272,7 @@ namespace protonApp.GUI
         }
 
         private void DeleteStudentButton_Click(object sender, EventArgs e)
-         {
+        {
             try
             {
                 List<string> selected = new List<string>();
@@ -233,13 +286,13 @@ namespace protonApp.GUI
                 var _students = new List<KeyValuePair<Student, int>>(Students);
                 Students.Clear();
                 Students = TechnicalFunctions.RemoveStudentFromList(_students, student);
-                
+
                 addedStudentsCheckedListBox.Items.Clear();
-                foreach(KeyValuePair<Student, int> p in Students)
+                foreach (KeyValuePair<Student, int> p in Students)
                     addedStudentsCheckedListBox.Items.Add(p.Key.name + " " + p.Key.surname + " " + dbD.GetClassById(p.Key.class_id).name);
                 //var allItems = addedStudentsCheckedListBox.Items.OfType<string>().ToList();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -264,7 +317,7 @@ namespace protonApp.GUI
         //getting main event info
         private string getEventName()
         {
-            
+
             if (eventNameTextBox.Text != "Nazwa wydarzenia" && eventNameTextBox.Text != "")
             {
                 return eventNameTextBox.Text.ToString();
@@ -281,7 +334,7 @@ namespace protonApp.GUI
 
         public string getEventType()
         {
-            if(eventTypeComboBox.SelectedIndex > -1)
+            if (eventTypeComboBox.SelectedIndex > -1)
             {
                 return eventTypeComboBox.SelectedItem.ToString();
             }
@@ -326,12 +379,12 @@ namespace protonApp.GUI
             }
         }
 
-        
+
 
         //getting main student info
         private string getSurname()
         {
-            if(studentNameTextBox.Text != "Wprowadź nazwisko")
+            if (studentNameTextBox.Text != "Wprowadź nazwisko")
             {
                 return studentNameTextBox.Text.ToString();
             }
@@ -347,11 +400,11 @@ namespace protonApp.GUI
 
         private int getPlayerPlace()
         {
-            if(getEventType() == "Organizacja" || getEventType() == "Trening" || getEventType() == "Sędziowanie")
+            if (getEventType() == "Organizacja" || getEventType() == "Trening" || getEventType() == "Sędziowanie" || getEventType() == "Punkty ujemne")
             {
                 return 0;
             }
-            else if(playerPlaceNumericUpDown.Value != 0)
+            else if (playerPlaceNumericUpDown.Value != 0)
             {
                 try
                 {
@@ -409,7 +462,7 @@ namespace protonApp.GUI
 
         private string getChampionsType()
         {
-            if(championsTypeComboBox.SelectedIndex > -1)
+            if (championsTypeComboBox.SelectedIndex > -1)
             {
                 return championsTypeComboBox.SelectedItem.ToString();
             }
@@ -463,9 +516,9 @@ namespace protonApp.GUI
         {
             try
             {
-                Convert.ToInt32(gradeForOrganizationNumericUpDown.Value);
+                Convert.ToInt32(gradeForRefereeingNumericUpDown.Value);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -494,12 +547,12 @@ namespace protonApp.GUI
                 return "NAZWA WYDARZENIA";
             else
                 if (eventTypeComboBox.SelectedIndex < 0)
-                    return "TYP WYDARZENIA";
-                else
+                return "TYP WYDARZENIA";
+            else
                     if (sportDisciplineComboBox.SelectedIndex < 0)
-                        return "DYSCYPLINA";
-                    else
-                        return "0";
+                return "DYSCYPLINA";
+            else
+                return "0";
         }
 
         private string areAllChampionsFieldsValid()
@@ -515,27 +568,35 @@ namespace protonApp.GUI
             {
                 case "Dyscypliny indywidualne":
                     individualSportsGroupBox.Enabled = true;
-                    organizationGroupBox.Enabled = false;
+                    refereeingGroupBox.Enabled = false;
                     teamIndividualSportsGroupBox.Enabled = false;
                     teamSportsGroupBox.Enabled = false;
+                    organizationGroupBox.Enabled = false;
+                    negativePointsGroupBox.Enabled = false;
                     playerPlaceNumericUpDown.Enabled = true;
                     break;
                 case "Dyscypliny zespołowe":
                     individualSportsGroupBox.Enabled = false;
+                    negativePointsGroupBox.Enabled = false;
                     organizationGroupBox.Enabled = false;
+                    refereeingGroupBox.Enabled = false;
                     teamIndividualSportsGroupBox.Enabled = false;
                     teamSportsGroupBox.Enabled = true;
                     playerPlaceNumericUpDown.Enabled = true;
                     break;
                 case "Dyscypliny indywidualne drużynowe":
                     individualSportsGroupBox.Enabled = false;
+                    negativePointsGroupBox.Enabled = false;
                     organizationGroupBox.Enabled = false;
+                    refereeingGroupBox.Enabled = false;
                     teamIndividualSportsGroupBox.Enabled = true;
                     teamSportsGroupBox.Enabled = false;
                     playerPlaceNumericUpDown.Enabled = true;
                     break;
                 case "Organizacja":
                     individualSportsGroupBox.Enabled = false;
+                    negativePointsGroupBox.Enabled = false;
+                    refereeingGroupBox.Enabled = false;
                     organizationGroupBox.Enabled = true;
                     teamIndividualSportsGroupBox.Enabled = false;
                     teamSportsGroupBox.Enabled = false;
@@ -543,6 +604,8 @@ namespace protonApp.GUI
                     break;
                 case "Trening":
                     individualSportsGroupBox.Enabled = false;
+                    negativePointsGroupBox.Enabled = false;
+                    refereeingGroupBox.Enabled = false;
                     organizationGroupBox.Enabled = false;
                     teamIndividualSportsGroupBox.Enabled = false;
                     teamSportsGroupBox.Enabled = false;
@@ -550,17 +613,30 @@ namespace protonApp.GUI
                     break;
                 case "Sędziowanie":
                     individualSportsGroupBox.Enabled = false;
-                    organizationGroupBox.Enabled = true;
+                    negativePointsGroupBox.Enabled = false;
+                    refereeingGroupBox.Enabled = true;
                     teamIndividualSportsGroupBox.Enabled = false;
                     teamSportsGroupBox.Enabled = false;
+                    organizationGroupBox.Enabled = false;
+                    playerPlaceNumericUpDown.Enabled = false;
+                    break;
+                case "Punkty ujemne":
+                    individualSportsGroupBox.Enabled = false;
+                    negativePointsGroupBox.Enabled = true;
+                    refereeingGroupBox.Enabled = false;
+                    teamIndividualSportsGroupBox.Enabled = false;
+                    teamSportsGroupBox.Enabled = false;
+                    organizationGroupBox.Enabled = false;
                     playerPlaceNumericUpDown.Enabled = false;
                     break;
                 default:
                     individualSportsGroupBox.Enabled = false;
-                    organizationGroupBox.Enabled = false;
+                    refereeingGroupBox.Enabled = false;
                     teamIndividualSportsGroupBox.Enabled = false;
                     teamSportsGroupBox.Enabled = false;
-                    playerPlaceNumericUpDown.Enabled = true;
+                    negativePointsGroupBox.Enabled = false;
+                    organizationGroupBox.Enabled = false;
+                    playerPlaceNumericUpDown.Enabled = false;
                     break;
             }
         }
@@ -573,10 +649,7 @@ namespace protonApp.GUI
                     studentsToAddCheckedListBox.SetItemChecked(i, false);
         }
 
-        private void StudentsToAddCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void AddedStudentsCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
@@ -606,66 +679,95 @@ namespace protonApp.GUI
 
         private void setGradeNumericUpDownBrackets()
         {
-            if(getEventType() == "Sędziowanie")
+            if (getEventType() == "Sędziowanie")
             {
                 loggingCheckBox.Enabled = true;
                 if (!getIsLogging())
                 {
-                    if (getIsHigherRankEvent()) 
+                    if (getIsHigherRankEvent())
                     {
-                        
-                        gradeForOrganizationNumericUpDown.Minimum = 6;
-                        gradeForOrganizationNumericUpDown.Maximum = 12;
-                        gradeForOrganizationNumericUpDown.Value = 6;
+
+                        gradeForRefereeingNumericUpDown.Minimum = 6;
+                        gradeForRefereeingNumericUpDown.Maximum = 12;
+                        gradeForRefereeingNumericUpDown.Value = 6;
                     }
-                    else if(!getIsHigherRankEvent() && (getDiscipline() == "Badminton" || getDiscipline() == "Ringo" || getDiscipline() == "Ping pong"))
+                    else if (!getIsHigherRankEvent() && (getDiscipline() == "Badminton" || getDiscipline() == "Ringo" || getDiscipline() == "Ping pong"))
                     {
-                        
-                        gradeForOrganizationNumericUpDown.Minimum = 1;
-                        gradeForOrganizationNumericUpDown.Maximum = 3;
-                        gradeForOrganizationNumericUpDown.Value = 1;
+
+                        gradeForRefereeingNumericUpDown.Minimum = 1;
+                        gradeForRefereeingNumericUpDown.Maximum = 3;
+                        gradeForRefereeingNumericUpDown.Value = 1;
                     }
                     else if ((getEventType() == "Dyscypliny zespołowe" && getDiscipline() == "Badminton" && getDiscipline() == "Ringo" && getDiscipline() == "Ping pong") || getDiscipline() == "Pływanie")
                     {
-                        
-                        gradeForOrganizationNumericUpDown.Minimum = 1;
-                        gradeForOrganizationNumericUpDown.Maximum = 6;
-                        gradeForOrganizationNumericUpDown.Value = 1;
+
+                        gradeForRefereeingNumericUpDown.Minimum = 1;
+                        gradeForRefereeingNumericUpDown.Maximum = 6;
+                        gradeForRefereeingNumericUpDown.Value = 1;
                     }
                 }
                 else
                 {
                     if (getIsHigherRankEvent())
                     {
-                        
-                        gradeForOrganizationNumericUpDown.Minimum = 1;
-                        gradeForOrganizationNumericUpDown.Maximum = 3;
-                        gradeForOrganizationNumericUpDown.Value = 1;
+
+                        gradeForRefereeingNumericUpDown.Minimum = 1;
+                        gradeForRefereeingNumericUpDown.Maximum = 3;
+                        gradeForRefereeingNumericUpDown.Value = 1;
                     }
                     else
                     {
-                        
-                        gradeForOrganizationNumericUpDown.Minimum = 3;
-                        gradeForOrganizationNumericUpDown.Maximum = 6;
-                        gradeForOrganizationNumericUpDown.Value = 3;
+
+                        gradeForRefereeingNumericUpDown.Minimum = 3;
+                        gradeForRefereeingNumericUpDown.Maximum = 6;
+                        gradeForRefereeingNumericUpDown.Value = 3;
                     }
                 }
             }
-            else if(getEventType() == "Organizacja")
+            else if (getEventType() == "Organizacja")
             {
                 loggingCheckBox.Enabled = false;
-                
-                gradeForOrganizationNumericUpDown.Minimum = 5;
-                gradeForOrganizationNumericUpDown.Maximum = 35;
-                gradeForOrganizationNumericUpDown.Value = 5;
+
+                gradeForRefereeingNumericUpDown.Minimum = 5;
+                gradeForRefereeingNumericUpDown.Maximum = 35;
+                gradeForRefereeingNumericUpDown.Value = 5;
             }
 
 
         }
 
+        private void setPointsNumericUpDownBrackets()
+        {
+            if (multiDayEventCheckBox.Checked)
+            {
+                gradeForOrganizationNumericUpDown.Minimum = 10;
+                gradeForOrganizationNumericUpDown.Maximum = 35;
+            }
+            else
+            {
+                gradeForOrganizationNumericUpDown.Minimum = 5;
+                gradeForOrganizationNumericUpDown.Maximum = 10;
+            }
+        }
+
         private void addedStudentsCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void higherRankEventCheckBox2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void multiDayEventCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            setPointsNumericUpDownBrackets();
         }
     }
 }

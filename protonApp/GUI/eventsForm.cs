@@ -26,7 +26,7 @@ namespace protonApp.GUI
             eventsCheckedListBox.Items.Clear();
 
             foreach (Event e in events)
-                eventsCheckedListBox.Items.Add(e.id + ": " + e.name + " " + e.date.Date);
+                eventsCheckedListBox.Items.Add(e.id + ": " + e.name + " " + e.date.ToString("dd/MM/yyyy"));
         }
 
         private void downloadData()
