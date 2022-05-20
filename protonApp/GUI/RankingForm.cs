@@ -109,7 +109,7 @@ namespace protonApp.GUI
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-
+            RefreshLists();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -163,6 +163,11 @@ namespace protonApp.GUI
                 doc.Save(filePath);
             
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshLists();
         }
     }
 }
