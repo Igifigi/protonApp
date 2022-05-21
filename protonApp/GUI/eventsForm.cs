@@ -29,10 +29,7 @@ namespace protonApp.GUI
                 eventsCheckedListBox.Items.Add(e.id + ": " + e.name + " " + e.date.ToString("dd/MM/yyyy"));
         }
 
-        private void downloadData()
-        {
 
-        }
 
         private void AddEventButton_Click(object sender, EventArgs e)
         {
@@ -40,10 +37,7 @@ namespace protonApp.GUI
             addEventForm.ShowDialog();
         }
 
-        private void EventsForm_Load(object sender, EventArgs e)
-        {
 
-        }
 
         private void RefreshButton_Click(object sender, EventArgs e)
         {

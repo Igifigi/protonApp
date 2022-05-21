@@ -18,6 +18,7 @@ namespace protonApp.GUI
     {
         DatabaseDownloader databaseDownloader = new DatabaseDownloader();
         DatabaseConnectionData dbcd = new DatabaseConnectionData();
+        TechnicalFunctions tf = new TechnicalFunctions();
         public AddStudentForm()
         {
             InitializeComponent();
@@ -75,8 +76,8 @@ namespace protonApp.GUI
                 surnameTextBox.Text == "" || 
                 (menRadioButton.Checked == false && womenRadioButton.Checked == false) || 
                 selectClassComboBox.SelectedItem == null ||
-                TechnicalFunctions.HaveSpace(nameTextBox.Text) ||
-                TechnicalFunctions.HaveSpace(surnameTextBox.Text)))
+                tf.HasSpace(nameTextBox.Text) ||
+                tf.HasSpace(surnameTextBox.Text)))
             {
                 InsertStudent();
                 nameTextBox.Text = "";

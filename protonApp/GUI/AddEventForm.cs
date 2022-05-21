@@ -33,8 +33,8 @@ namespace protonApp.GUI
 
         private void initializeComboBoxesAndGroupBoxes()
         {
-            eventTypeComboBox.Items.AddRange(TechnicalFunctions.getSetting("Typ wydarzeń").Split(new char[] { ';' }));
-            championsTypeComboBox.Items.AddRange(TechnicalFunctions.getSetting("championsType").Split(new char[] { ';' }));
+            eventTypeComboBox.Items.AddRange(tf.getSetting("Typ wydarzeń").Split(new char[] { ';' }));
+            championsTypeComboBox.Items.AddRange(tf.getSetting("championsType").Split(new char[] { ';' }));
             sportDisciplineComboBox2.Items.AddRange(new string[] { "Piłka nożna, piłka siatkowa", "Piłka koszykowa", "Piłka ręczna", "Streetball, ringo gra potrójna", "Badminton, tenis stołowy gry podwójne" });
             individualSportsGroupBox.Enabled = false;
             negativePointsGroupBox.Enabled = false;
@@ -78,11 +78,11 @@ namespace protonApp.GUI
             if (getEventType() == "Organizacja" || getEventType() == "Sędziowanie")
             {
                 List<string> toAdd = new List<string> { "Dyscypliny indywidualne", "Dyscypliny zespołowe", "Trening", "Dyscypliny indywidualne drużynowe" };
-                toAdd.ForEach(d => sportDisciplineComboBox.Items.AddRange(TechnicalFunctions.getSetting(d).Split(new char[] { ';' })));
+                toAdd.ForEach(d => sportDisciplineComboBox.Items.AddRange(tf.getSetting(d).Split(new char[] { ';' })));
             }
             //else if(getEventType() == "Punkty ujemn")
             else
-                sportDisciplineComboBox.Items.AddRange(TechnicalFunctions.getSetting(eventTypeComboBox.SelectedItem.ToString()).Split(new char[] { ';' }));
+                sportDisciplineComboBox.Items.AddRange(tf.getSetting(eventTypeComboBox.SelectedItem.ToString()).Split(new char[] { ';' }));
 
 
             disableOtherGroupBoxes();
@@ -282,10 +282,10 @@ namespace protonApp.GUI
                 Student student = dbD.GetStudentByNameAndSurname(separated[0], separated[1]);
                 //var s = new Student(student.id, student.name, student.surname, student.class_id, student.sex);
                 //var found = Students.Where(x => x.Key == student);
-                KeyValuePair<Student, int> pair = new KeyValuePair<Student, int>(new Student(student.id, student.name, student.surname, student.class_id, student.sex), TechnicalFunctions.GetStudentsPlaceByStudent(Students, new Student(student.id, student.name, student.surname, student.class_id, student.sex)));
+                KeyValuePair<Student, int> pair = new KeyValuePair<Student, int>(new Student(student.id, student.name, student.surname, student.class_id, student.sex), tf.GetStudentsPlaceByStudent(Students, new Student(student.id, student.name, student.surname, student.class_id, student.sex)));
                 var _students = new List<KeyValuePair<Student, int>>(Students);
                 Students.Clear();
-                Students = TechnicalFunctions.RemoveStudentFromList(_students, student);
+                Students = tf.RemoveStudentFromList(_students, student);
 
                 addedStudentsCheckedListBox.Items.Clear();
                 foreach (KeyValuePair<Student, int> p in Students)
@@ -326,7 +326,7 @@ namespace protonApp.GUI
             {
                 eventNameTextBox.BackColor = Color.Red;
                 MessageBox.Show("WPROWADŹ POPRAWNĄ NAZWĘ WYDARZENIA", "BŁĄD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Thread.Sleep(Convert.ToInt32(TechnicalFunctions.getSetting("waitAfterError")));
+                Thread.Sleep(Convert.ToInt32(tf.getSetting("waitAfterError")));
                 eventNameTextBox.BackColor = Color.Empty;
                 return "WPROWADŹ WARTOŚĆ";
             }
@@ -342,7 +342,7 @@ namespace protonApp.GUI
             {
                 eventTypeComboBox.BackColor = Color.Red;
                 MessageBox.Show("WYBIERZ POPRAWNY TYP WYDARZENIA", "BŁĄD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Thread.Sleep(Convert.ToInt32(TechnicalFunctions.getSetting("waitAfterError")));
+                Thread.Sleep(Convert.ToInt32(tf.getSetting("waitAfterError")));
                 eventTypeComboBox.BackColor = Color.Empty;
                 return "WPROWADŹ WARTOŚĆ";
             }
@@ -356,7 +356,7 @@ namespace protonApp.GUI
             {
                 //sportDisciplineComboBox.BackColor = Color.Red;
                 //MessageBox.Show("WYBIERZ POPRAWNĄ DYSCYPLINĘ", "BŁĄD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //Thread.Sleep(Convert.ToInt32(TechnicalFunctions.getSetting("waitAfterError")));
+                //Thread.Sleep(Convert.ToInt32(tf.getSetting("waitAfterError")));
                 //sportDisciplineComboBox.BackColor = Color.Empty;
                 return "WPROWADŹ WARTOŚĆ";
             }
@@ -373,7 +373,7 @@ namespace protonApp.GUI
             {
                 eventDateTimePicker.BackColor = Color.Red;
                 MessageBox.Show("WYBIERZ POPRAWNĄ DATĘ", "BŁĄD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Thread.Sleep(Convert.ToInt32(TechnicalFunctions.getSetting("waitAfterError")));
+                Thread.Sleep(Convert.ToInt32(tf.getSetting("waitAfterError")));
                 eventDateTimePicker.BackColor = Color.Empty;
                 return new DateTime(1939, 9, 1, 4, 48, 0);
             }
@@ -392,7 +392,7 @@ namespace protonApp.GUI
             {
                 studentNameTextBox.BackColor = Color.Red;
                 MessageBox.Show("WPROWADŹ POPRAWNE NAZWISKO", "BŁĄD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Thread.Sleep(Convert.ToInt32(TechnicalFunctions.getSetting("waitAfterError")));
+                Thread.Sleep(Convert.ToInt32(tf.getSetting("waitAfterError")));
                 studentNameTextBox.BackColor = Color.Empty;
                 return "WPROWADŹ WARTOŚĆ";
             }
@@ -420,7 +420,7 @@ namespace protonApp.GUI
             {
                 playerPlaceNumericUpDown.BackColor = Color.Red;
                 MessageBox.Show("WPROWADŹ POPRAWNE MIEJSCE ZAWODNIKA", "BŁĄD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Thread.Sleep(Convert.ToInt32(TechnicalFunctions.getSetting("waitAfterError")));
+                Thread.Sleep(Convert.ToInt32(tf.getSetting("waitAfterError")));
                 playerPlaceNumericUpDown.BackColor = Color.Empty;
                 return -1;
             }
@@ -470,7 +470,7 @@ namespace protonApp.GUI
             {
                 championsTypeComboBox.BackColor = Color.Red;
                 MessageBox.Show("WYBIERZ POPRAWNY TYP MISTRZOSTW", "BŁĄD", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Thread.Sleep(Convert.ToInt32(TechnicalFunctions.getSetting("waitAfterError")));
+                Thread.Sleep(Convert.ToInt32(tf.getSetting("waitAfterError")));
                 championsTypeComboBox.BackColor = Color.Empty;
                 return "WPROWADŹ WARTOŚĆ";
             }

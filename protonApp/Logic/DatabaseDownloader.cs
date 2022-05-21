@@ -17,6 +17,7 @@ namespace protonApp.Logic
         TechnicalFunctions tf = new TechnicalFunctions();
         MemoryManager mm = new MemoryManager();
         Data.DatabaseConnectionData dbcd = new Data.DatabaseConnectionData();
+        UserCommunication uc = new UserCommunication();
         internal int GetHighestId(string table)
         {
             MySqlConnection sqlConnection = new MySqlConnection(dbcd.GetConnectionData());
@@ -387,9 +388,22 @@ namespace protonApp.Logic
             sqlConnection.Close();
         }
 
-        internal int GetEventIdByName(string name)
+        internal void DeleteStudentById(int id)
         {
-            return 0;
+            MySqlConnection sqlConnection = new MySqlConnection(dbcd.GetConnectionData());
+            try
+            {
+                string cmd =
+                    "DELETE FROM uczniowie where id=" + id;
+                sqlConnection.Open();
+                MySqlCommand sqlCommand = new MySqlCommand(cmd, sqlConnection);
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                uc.ShowErrorBox(ex.Message);
+            }
+            sqlConnection.Close();
         }
     }
 }
