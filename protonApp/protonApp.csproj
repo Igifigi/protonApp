@@ -122,6 +122,12 @@
     <Compile Include="GUI\ConnectionStringsForm.Designer.cs">
       <DependentUpon>ConnectionStringsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\NewMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\NewMainForm.Designer.cs">
+      <DependentUpon>NewMainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\RankingForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,12 +180,14 @@
     <Compile Include="GUI\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logic\UserCommunication.cs" />
     <Compile Include="Model\Class.cs" />
     <Compile Include="Model\PointedClass.cs" />
     <Compile Include="Model\PointedStudent.cs" />
     <Compile Include="Model\Database.cs" />
     <Compile Include="Model\Event.cs" />
     <Compile Include="Model\Log.cs" />
+    <Compile Include="Model\Ranking.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -200,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\NewMainForm.resx">
+      <DependentUpon>NewMainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\RankingForm.resx">
       <DependentUpon>RankingForm.cs</DependentUpon>

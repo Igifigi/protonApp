@@ -14,7 +14,7 @@ namespace protonApp.GUI
 {
     public partial class SettingsForm : Form
     {
-        TechnicalFunctions technicalFunctions = new TechnicalFunctions();
+        TechnicalFunctions tf = new TechnicalFunctions();
 
         public SettingsForm()
         {
@@ -53,7 +53,7 @@ namespace protonApp.GUI
         private void SelectKeyComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectValueComboBox.Items.Clear();
-            selectValueComboBox.Items.AddRange(TechnicalFunctions.getSetting(selectKeyComboBox.SelectedItem.ToString()).Split(new char[] { ';' }));
+            selectValueComboBox.Items.AddRange(tf.getSetting(selectKeyComboBox.SelectedItem.ToString()).Split(new char[] { ';' }));
         }
 
         //TODO: add, edit i delete
@@ -71,36 +71,36 @@ namespace protonApp.GUI
             //ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).Save(ConfigurationSaveMode.Full, true);
             //ConfigurationManager.RefreshSection("appSettings");
             
-            TechnicalFunctions.setSetting(selectKeyComboBox.SelectedItem.ToString(), TechnicalFunctions.getSetting(selectKeyComboBox.SelectedItem.ToString() + ";" + insertValueTextBox.Text));
+            tf.setSetting(selectKeyComboBox.SelectedItem.ToString(), tf.getSetting(selectKeyComboBox.SelectedItem.ToString() + ";" + insertValueTextBox.Text));
         }
 
         private void EditValueButton_Click(object sender, EventArgs e)
         {
             string si = selectKeyComboBox.SelectedItem.ToString();
             string toedit = selectValueComboBox.SelectedItem.ToString();
-            string accVal = TechnicalFunctions.getSetting(si);
+            string accVal = tf.getSetting(si);
             int delCount = accVal.IndexOf(toedit);
             string value = accVal.Remove(delCount - 1, toedit.Length);
-            //TechnicalFunctions.getSetting(selectKeyComboBox.SelectedItem.ToString()).re selectValueComboBox.SelectedItem.ToString()
-            TechnicalFunctions.setSetting(si, value + ";" + insertValueTextBox.Text);
+            //tf.getSetting(selectKeyComboBox.SelectedItem.ToString()).re selectValueComboBox.SelectedItem.ToString()
+            tf.setSetting(si, value + ";" + insertValueTextBox.Text);
         }
 
         private void DeleteValueButton_Click(object sender, EventArgs e)
         {
             string si = selectKeyComboBox.SelectedItem.ToString();
             string toedit = selectValueComboBox.SelectedItem.ToString();
-            string accVal = TechnicalFunctions.getSetting(si);
+            string accVal = tf.getSetting(si);
             int delCount = accVal.IndexOf(toedit);
             string value = accVal.Remove(delCount - 1, toedit.Length);
-            //TechnicalFunctions.getSetting(selectKeyComboBox.SelectedItem.ToString()).re selectValueComboBox.SelectedItem.ToString()
-            TechnicalFunctions.setSetting(si, value);
+            //tf.getSetting(selectKeyComboBox.SelectedItem.ToString()).re selectValueComboBox.SelectedItem.ToString()
+            tf.setSetting(si, value);
         }
 
         private void ResetValueButton_Click(object sender, EventArgs e)
         {
             try
             {
-                TechnicalFunctions.setSetting(selectKeyComboBox.SelectedItem.ToString(), TechnicalFunctions.GetValueByKey(StaticSettingsData.data, selectKeyComboBox.SelectedItem.ToString()));
+                tf.setSetting(selectKeyComboBox.SelectedItem.ToString(), tf.GetValueByKey(StaticSettingsData.data, selectKeyComboBox.SelectedItem.ToString()));
                 MessageBox.Show("Pomyślnie zresetowano klucz " + selectKeyComboBox.SelectedItem.ToString(), "Proton", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception ex)

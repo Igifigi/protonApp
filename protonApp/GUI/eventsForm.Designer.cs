@@ -109,7 +109,7 @@
             this.MaximizeBox = false;
             this.Name = "EventsForm";
             this.Text = "Wydarzenia";
-            this.Load += new System.EventHandler(this.EventsForm_Load);
+            //this.Load += new System.EventHandler(this.EventsForm_Load);
             this.ResumeLayout(false);
 
         }
