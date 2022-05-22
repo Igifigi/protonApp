@@ -64,14 +64,14 @@
             this.label9 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.organizationGroupBox = new System.Windows.Forms.GroupBox();
-            this.negativePointsGroupBox = new System.Windows.Forms.GroupBox();
-            this.higherRankEventCheckBox2 = new System.Windows.Forms.CheckBox();
-            this.multiDayEventCheckBox = new System.Windows.Forms.CheckBox();
             this.gradeForOrganizationNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
+            this.multiDayEventCheckBox = new System.Windows.Forms.CheckBox();
+            this.higherRankEventCheckBox2 = new System.Windows.Forms.CheckBox();
+            this.negativePointsGroupBox = new System.Windows.Forms.GroupBox();
+            this.sportDisciplineComboBox2 = new System.Windows.Forms.ComboBox();
             this.playerOnPitchNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
-            this.sportDisciplineComboBox2 = new System.Windows.Forms.ComboBox();
             this.individualSportsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.peopleCountNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.relayCountNumericUpDown)).BeginInit();
@@ -83,8 +83,8 @@
             this.teamIndividualSportsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playerPlaceNumericUpDown)).BeginInit();
             this.organizationGroupBox.SuspendLayout();
-            this.negativePointsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gradeForOrganizationNumericUpDown)).BeginInit();
+            this.negativePointsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.playerOnPitchNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,7 +104,7 @@
             this.eventTypeComboBox.Location = new System.Drawing.Point(12, 44);
             this.eventTypeComboBox.Name = "eventTypeComboBox";
             this.eventTypeComboBox.Size = new System.Drawing.Size(454, 28);
-            this.eventTypeComboBox.TabIndex = 4;
+            this.eventTypeComboBox.TabIndex = 1;
             this.eventTypeComboBox.Text = "Typ wydarzenia";
             this.eventTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.EventTypeComboBox_SelectedIndexChanged);
             // 
@@ -115,7 +115,7 @@
             this.sportDisciplineComboBox.Location = new System.Drawing.Point(12, 78);
             this.sportDisciplineComboBox.Name = "sportDisciplineComboBox";
             this.sportDisciplineComboBox.Size = new System.Drawing.Size(454, 28);
-            this.sportDisciplineComboBox.TabIndex = 5;
+            this.sportDisciplineComboBox.TabIndex = 2;
             this.sportDisciplineComboBox.Text = "Dyscyplina";
             this.sportDisciplineComboBox.SelectedIndexChanged += new System.EventHandler(this.SportDisciplineComboBox_SelectedIndexChanged);
             // 
@@ -125,7 +125,7 @@
             this.studentNameTextBox.Location = new System.Drawing.Point(589, 12);
             this.studentNameTextBox.Name = "studentNameTextBox";
             this.studentNameTextBox.Size = new System.Drawing.Size(493, 26);
-            this.studentNameTextBox.TabIndex = 6;
+            this.studentNameTextBox.TabIndex = 4;
             this.studentNameTextBox.Text = "Wprowadź nazwisko";
             this.studentNameTextBox.Click += new System.EventHandler(this.StudentNameTextBox_Click);
             this.studentNameTextBox.TextChanged += new System.EventHandler(this.StudentNameTextBox_TextChanged);
@@ -137,7 +137,7 @@
             this.eventNameTextBox.Location = new System.Drawing.Point(12, 12);
             this.eventNameTextBox.Name = "eventNameTextBox";
             this.eventNameTextBox.Size = new System.Drawing.Size(454, 26);
-            this.eventNameTextBox.TabIndex = 8;
+            this.eventNameTextBox.TabIndex = 0;
             this.eventNameTextBox.Text = "Nazwa wydarzenia";
             this.eventNameTextBox.Click += new System.EventHandler(this.EventNameTextBox_Click);
             this.eventNameTextBox.TextChanged += new System.EventHandler(this.EventNameTextBox_TextChanged);
@@ -148,7 +148,7 @@
             this.addEventButton.Location = new System.Drawing.Point(12, 574);
             this.addEventButton.Name = "addEventButton";
             this.addEventButton.Size = new System.Drawing.Size(1070, 40);
-            this.addEventButton.TabIndex = 9;
+            this.addEventButton.TabIndex = 10;
             this.addEventButton.Text = "DODAJ WYDARZENIE";
             this.addEventButton.UseVisualStyleBackColor = true;
             this.addEventButton.Click += new System.EventHandler(this.AddEventButton_Click);
@@ -160,7 +160,7 @@
             this.isRelayCheckBox.Location = new System.Drawing.Point(6, 21);
             this.isRelayCheckBox.Name = "isRelayCheckBox";
             this.isRelayCheckBox.Size = new System.Drawing.Size(89, 24);
-            this.isRelayCheckBox.TabIndex = 12;
+            this.isRelayCheckBox.TabIndex = 0;
             this.isRelayCheckBox.Text = "Sztafeta";
             this.isRelayCheckBox.UseVisualStyleBackColor = true;
             this.isRelayCheckBox.CheckedChanged += new System.EventHandler(this.IsRelayCheckBox_CheckedChanged);
@@ -192,7 +192,7 @@
             0});
             this.peopleCountNumericUpDown.Name = "peopleCountNumericUpDown";
             this.peopleCountNumericUpDown.Size = new System.Drawing.Size(111, 26);
-            this.peopleCountNumericUpDown.TabIndex = 30;
+            this.peopleCountNumericUpDown.TabIndex = 2;
             // 
             // relayCountNumericUpDown
             // 
@@ -206,7 +206,7 @@
             0});
             this.relayCountNumericUpDown.Name = "relayCountNumericUpDown";
             this.relayCountNumericUpDown.Size = new System.Drawing.Size(111, 26);
-            this.relayCountNumericUpDown.TabIndex = 29;
+            this.relayCountNumericUpDown.TabIndex = 1;
             // 
             // label2
             // 
@@ -250,7 +250,7 @@
             this.loggingCheckBox.Location = new System.Drawing.Point(10, 51);
             this.loggingCheckBox.Name = "loggingCheckBox";
             this.loggingCheckBox.Size = new System.Drawing.Size(137, 24);
-            this.loggingCheckBox.TabIndex = 32;
+            this.loggingCheckBox.TabIndex = 1;
             this.loggingCheckBox.Text = "Protokołowanie";
             this.loggingCheckBox.UseVisualStyleBackColor = true;
             this.loggingCheckBox.CheckedChanged += new System.EventHandler(this.LoggingCheckBox_CheckedChanged);
@@ -261,7 +261,7 @@
             this.gradeForRefereeingNumericUpDown.Location = new System.Drawing.Point(68, 81);
             this.gradeForRefereeingNumericUpDown.Name = "gradeForRefereeingNumericUpDown";
             this.gradeForRefereeingNumericUpDown.Size = new System.Drawing.Size(150, 26);
-            this.gradeForRefereeingNumericUpDown.TabIndex = 31;
+            this.gradeForRefereeingNumericUpDown.TabIndex = 2;
             // 
             // label5
             // 
@@ -311,7 +311,7 @@
             0});
             this.teamCountNumericUpDown.Name = "teamCountNumericUpDown";
             this.teamCountNumericUpDown.Size = new System.Drawing.Size(113, 26);
-            this.teamCountNumericUpDown.TabIndex = 33;
+            this.teamCountNumericUpDown.TabIndex = 1;
             // 
             // matchCountNumericUpDown
             // 
@@ -324,7 +324,7 @@
             0});
             this.matchCountNumericUpDown.Name = "matchCountNumericUpDown";
             this.matchCountNumericUpDown.Size = new System.Drawing.Size(113, 26);
-            this.matchCountNumericUpDown.TabIndex = 32;
+            this.matchCountNumericUpDown.TabIndex = 0;
             // 
             // label4
             // 
@@ -373,7 +373,7 @@
             this.addStudentButton.Location = new System.Drawing.Point(476, 77);
             this.addStudentButton.Name = "addStudentButton";
             this.addStudentButton.Size = new System.Drawing.Size(300, 28);
-            this.addStudentButton.TabIndex = 24;
+            this.addStudentButton.TabIndex = 6;
             this.addStudentButton.Text = "Dodaj ucznia";
             this.addStudentButton.UseVisualStyleBackColor = true;
             this.addStudentButton.Click += new System.EventHandler(this.AddStudentButton_Click);
@@ -419,7 +419,7 @@
             0});
             this.playerPlaceNumericUpDown.Name = "playerPlaceNumericUpDown";
             this.playerPlaceNumericUpDown.Size = new System.Drawing.Size(493, 26);
-            this.playerPlaceNumericUpDown.TabIndex = 28;
+            this.playerPlaceNumericUpDown.TabIndex = 5;
             // 
             // studentsToAddCheckedListBox
             // 
@@ -428,7 +428,7 @@
             this.studentsToAddCheckedListBox.Location = new System.Drawing.Point(476, 144);
             this.studentsToAddCheckedListBox.Name = "studentsToAddCheckedListBox";
             this.studentsToAddCheckedListBox.Size = new System.Drawing.Size(300, 424);
-            this.studentsToAddCheckedListBox.TabIndex = 29;
+            this.studentsToAddCheckedListBox.TabIndex = 7;
             this.studentsToAddCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.StudentsToAddCheckedListBox_ItemCheck);
             // 
             // addedStudentsCheckedListBox
@@ -438,7 +438,7 @@
             this.addedStudentsCheckedListBox.Location = new System.Drawing.Point(782, 144);
             this.addedStudentsCheckedListBox.Name = "addedStudentsCheckedListBox";
             this.addedStudentsCheckedListBox.Size = new System.Drawing.Size(300, 424);
-            this.addedStudentsCheckedListBox.TabIndex = 30;
+            this.addedStudentsCheckedListBox.TabIndex = 9;
             this.addedStudentsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.AddedStudentsCheckedListBox_ItemCheck);
             this.addedStudentsCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.addedStudentsCheckedListBox_SelectedIndexChanged);
             // 
@@ -449,7 +449,7 @@
             this.deleteStudentButton.Location = new System.Drawing.Point(782, 77);
             this.deleteStudentButton.Name = "deleteStudentButton";
             this.deleteStudentButton.Size = new System.Drawing.Size(300, 28);
-            this.deleteStudentButton.TabIndex = 31;
+            this.deleteStudentButton.TabIndex = 8;
             this.deleteStudentButton.Text = "Usuń ucznia";
             this.deleteStudentButton.UseVisualStyleBackColor = true;
             this.deleteStudentButton.Click += new System.EventHandler(this.DeleteStudentButton_Click);
@@ -480,6 +480,48 @@
             this.organizationGroupBox.Text = "Organizacja";
             this.organizationGroupBox.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // gradeForOrganizationNumericUpDown
+            // 
+            this.gradeForOrganizationNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.gradeForOrganizationNumericUpDown.Location = new System.Drawing.Point(68, 82);
+            this.gradeForOrganizationNumericUpDown.Name = "gradeForOrganizationNumericUpDown";
+            this.gradeForOrganizationNumericUpDown.Size = new System.Drawing.Size(150, 26);
+            this.gradeForOrganizationNumericUpDown.TabIndex = 2;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.Location = new System.Drawing.Point(6, 82);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(57, 20);
+            this.label10.TabIndex = 32;
+            this.label10.Text = "Punkty";
+            // 
+            // multiDayEventCheckBox
+            // 
+            this.multiDayEventCheckBox.AutoSize = true;
+            this.multiDayEventCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.multiDayEventCheckBox.Location = new System.Drawing.Point(6, 50);
+            this.multiDayEventCheckBox.Name = "multiDayEventCheckBox";
+            this.multiDayEventCheckBox.Size = new System.Drawing.Size(200, 24);
+            this.multiDayEventCheckBox.TabIndex = 1;
+            this.multiDayEventCheckBox.Text = "Wydarzenie wielodniowe";
+            this.multiDayEventCheckBox.UseVisualStyleBackColor = true;
+            this.multiDayEventCheckBox.CheckedChanged += new System.EventHandler(this.multiDayEventCheckBox_CheckedChanged);
+            // 
+            // higherRankEventCheckBox2
+            // 
+            this.higherRankEventCheckBox2.AutoSize = true;
+            this.higherRankEventCheckBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.higherRankEventCheckBox2.Location = new System.Drawing.Point(6, 20);
+            this.higherRankEventCheckBox2.Name = "higherRankEventCheckBox2";
+            this.higherRankEventCheckBox2.Size = new System.Drawing.Size(208, 24);
+            this.higherRankEventCheckBox2.TabIndex = 0;
+            this.higherRankEventCheckBox2.Text = "Wydarzenie wyższej rangi";
+            this.higherRankEventCheckBox2.UseVisualStyleBackColor = true;
+            this.higherRankEventCheckBox2.CheckedChanged += new System.EventHandler(this.higherRankEventCheckBox2_CheckedChanged);
+            // 
             // negativePointsGroupBox
             // 
             this.negativePointsGroupBox.AutoSize = true;
@@ -494,47 +536,15 @@
             this.negativePointsGroupBox.TabStop = false;
             this.negativePointsGroupBox.Text = "Punkty ujemne";
             // 
-            // higherRankEventCheckBox2
+            // sportDisciplineComboBox2
             // 
-            this.higherRankEventCheckBox2.AutoSize = true;
-            this.higherRankEventCheckBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.higherRankEventCheckBox2.Location = new System.Drawing.Point(6, 20);
-            this.higherRankEventCheckBox2.Name = "higherRankEventCheckBox2";
-            this.higherRankEventCheckBox2.Size = new System.Drawing.Size(208, 24);
-            this.higherRankEventCheckBox2.TabIndex = 1;
-            this.higherRankEventCheckBox2.Text = "Wydarzenie wyższej rangi";
-            this.higherRankEventCheckBox2.UseVisualStyleBackColor = true;
-            this.higherRankEventCheckBox2.CheckedChanged += new System.EventHandler(this.higherRankEventCheckBox2_CheckedChanged);
-            // 
-            // multiDayEventCheckBox
-            // 
-            this.multiDayEventCheckBox.AutoSize = true;
-            this.multiDayEventCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.multiDayEventCheckBox.Location = new System.Drawing.Point(6, 50);
-            this.multiDayEventCheckBox.Name = "multiDayEventCheckBox";
-            this.multiDayEventCheckBox.Size = new System.Drawing.Size(200, 24);
-            this.multiDayEventCheckBox.TabIndex = 2;
-            this.multiDayEventCheckBox.Text = "Wydarzenie wielodniowe";
-            this.multiDayEventCheckBox.UseVisualStyleBackColor = true;
-            this.multiDayEventCheckBox.CheckedChanged += new System.EventHandler(this.multiDayEventCheckBox_CheckedChanged);
-            // 
-            // gradeForOrganizationNumericUpDown
-            // 
-            this.gradeForOrganizationNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.gradeForOrganizationNumericUpDown.Location = new System.Drawing.Point(68, 82);
-            this.gradeForOrganizationNumericUpDown.Name = "gradeForOrganizationNumericUpDown";
-            this.gradeForOrganizationNumericUpDown.Size = new System.Drawing.Size(150, 26);
-            this.gradeForOrganizationNumericUpDown.TabIndex = 33;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.Location = new System.Drawing.Point(6, 82);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(57, 20);
-            this.label10.TabIndex = 32;
-            this.label10.Text = "Punkty";
+            this.sportDisciplineComboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.sportDisciplineComboBox2.FormattingEnabled = true;
+            this.sportDisciplineComboBox2.Location = new System.Drawing.Point(6, 54);
+            this.sportDisciplineComboBox2.Name = "sportDisciplineComboBox2";
+            this.sportDisciplineComboBox2.Size = new System.Drawing.Size(208, 28);
+            this.sportDisciplineComboBox2.TabIndex = 1;
+            this.sportDisciplineComboBox2.Text = "Wybierz dyscyplinę";
             // 
             // playerOnPitchNumericUpDown
             // 
@@ -547,7 +557,7 @@
             0});
             this.playerOnPitchNumericUpDown.Name = "playerOnPitchNumericUpDown";
             this.playerOnPitchNumericUpDown.Size = new System.Drawing.Size(70, 26);
-            this.playerOnPitchNumericUpDown.TabIndex = 32;
+            this.playerOnPitchNumericUpDown.TabIndex = 0;
             // 
             // label11
             // 
@@ -558,16 +568,6 @@
             this.label11.Size = new System.Drawing.Size(132, 20);
             this.label11.TabIndex = 31;
             this.label11.Text = "Ilość zawodników";
-            // 
-            // sportDisciplineComboBox2
-            // 
-            this.sportDisciplineComboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.sportDisciplineComboBox2.FormattingEnabled = true;
-            this.sportDisciplineComboBox2.Location = new System.Drawing.Point(6, 54);
-            this.sportDisciplineComboBox2.Name = "sportDisciplineComboBox2";
-            this.sportDisciplineComboBox2.Size = new System.Drawing.Size(208, 28);
-            this.sportDisciplineComboBox2.TabIndex = 33;
-            this.sportDisciplineComboBox2.Text = "Wybierz dyscyplinę";
             // 
             // AddEventForm
             // 
@@ -616,9 +616,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.playerPlaceNumericUpDown)).EndInit();
             this.organizationGroupBox.ResumeLayout(false);
             this.organizationGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gradeForOrganizationNumericUpDown)).EndInit();
             this.negativePointsGroupBox.ResumeLayout(false);
             this.negativePointsGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gradeForOrganizationNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.playerOnPitchNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

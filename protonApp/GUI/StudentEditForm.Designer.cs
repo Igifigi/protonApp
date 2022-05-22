@@ -47,7 +47,7 @@
             this.editStudent.Location = new System.Drawing.Point(12, 140);
             this.editStudent.Name = "editStudent";
             this.editStudent.Size = new System.Drawing.Size(303, 90);
-            this.editStudent.TabIndex = 19;
+            this.editStudent.TabIndex = 5;
             this.editStudent.Text = "EDYTUJ UCZNIA";
             this.editStudent.UseVisualStyleBackColor = true;
             this.editStudent.Click += new System.EventHandler(this.editStudent_Click);
@@ -69,7 +69,7 @@
             this.selectClassComboBox.Location = new System.Drawing.Point(94, 106);
             this.selectClassComboBox.Name = "selectClassComboBox";
             this.selectClassComboBox.Size = new System.Drawing.Size(221, 28);
-            this.selectClassComboBox.TabIndex = 17;
+            this.selectClassComboBox.TabIndex = 4;
             this.selectClassComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // womenRadioButton
@@ -79,7 +79,7 @@
             this.womenRadioButton.Location = new System.Drawing.Point(234, 76);
             this.womenRadioButton.Name = "womenRadioButton";
             this.womenRadioButton.Size = new System.Drawing.Size(81, 24);
-            this.womenRadioButton.TabIndex = 16;
+            this.womenRadioButton.TabIndex = 3;
             this.womenRadioButton.TabStop = true;
             this.womenRadioButton.Text = "Kobieta";
             this.womenRadioButton.UseVisualStyleBackColor = true;
@@ -92,7 +92,7 @@
             this.menRadioButton.Location = new System.Drawing.Point(94, 76);
             this.menRadioButton.Name = "menRadioButton";
             this.menRadioButton.Size = new System.Drawing.Size(106, 24);
-            this.menRadioButton.TabIndex = 15;
+            this.menRadioButton.TabIndex = 2;
             this.menRadioButton.TabStop = true;
             this.menRadioButton.Text = "Mężczyzna";
             this.menRadioButton.UseVisualStyleBackColor = true;
@@ -114,7 +114,7 @@
             this.textBox2.Location = new System.Drawing.Point(94, 44);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(221, 26);
-            this.textBox2.TabIndex = 13;
+            this.textBox2.TabIndex = 1;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label2
@@ -133,7 +133,7 @@
             this.textBox1.Location = new System.Drawing.Point(94, 12);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(221, 26);
-            this.textBox1.TabIndex = 11;
+            this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1

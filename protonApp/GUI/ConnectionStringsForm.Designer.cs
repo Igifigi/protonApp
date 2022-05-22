@@ -57,7 +57,7 @@
             this.passwordTextBox.Location = new System.Drawing.Point(161, 102);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(257, 26);
-            this.passwordTextBox.TabIndex = 1;
+            this.passwordTextBox.TabIndex = 3;
             // 
             // usernameTextBox
             // 
@@ -73,7 +73,7 @@
             this.portTextBox.Location = new System.Drawing.Point(161, 38);
             this.portTextBox.Name = "portTextBox";
             this.portTextBox.Size = new System.Drawing.Size(257, 26);
-            this.portTextBox.TabIndex = 3;
+            this.portTextBox.TabIndex = 1;
             // 
             // label1
             // 
@@ -121,7 +121,7 @@
             this.commitChangesButton.Location = new System.Drawing.Point(12, 134);
             this.commitChangesButton.Name = "commitChangesButton";
             this.commitChangesButton.Size = new System.Drawing.Size(406, 55);
-            this.commitChangesButton.TabIndex = 8;
+            this.commitChangesButton.TabIndex = 4;
             this.commitChangesButton.Text = "Zatwierdź";
             this.commitChangesButton.UseVisualStyleBackColor = true;
             this.commitChangesButton.Click += new System.EventHandler(this.CommitChangesButton_Click);
@@ -133,7 +133,7 @@
             this.fullConnectionStringTextBox.Name = "fullConnectionStringTextBox";
             this.fullConnectionStringTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.fullConnectionStringTextBox.Size = new System.Drawing.Size(406, 98);
-            this.fullConnectionStringTextBox.TabIndex = 10;
+            this.fullConnectionStringTextBox.TabIndex = 5;
             this.fullConnectionStringTextBox.Text = "";
             // 
             // commitChangesButton2
@@ -142,7 +142,7 @@
             this.commitChangesButton2.Location = new System.Drawing.Point(12, 299);
             this.commitChangesButton2.Name = "commitChangesButton2";
             this.commitChangesButton2.Size = new System.Drawing.Size(406, 55);
-            this.commitChangesButton2.TabIndex = 11;
+            this.commitChangesButton2.TabIndex = 6;
             this.commitChangesButton2.Text = "Zatwierdź pełnego connection stringa";
             this.commitChangesButton2.UseVisualStyleBackColor = true;
             this.commitChangesButton2.Click += new System.EventHandler(this.commitChangesButton2_Click);

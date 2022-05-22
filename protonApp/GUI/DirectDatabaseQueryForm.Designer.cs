@@ -41,7 +41,7 @@
             this.queryTextbox.Multiline = true;
             this.queryTextbox.Name = "queryTextbox";
             this.queryTextbox.Size = new System.Drawing.Size(776, 169);
-            this.queryTextbox.TabIndex = 0;
+            this.queryTextbox.TabIndex = 1;
             // 
             // goButton
             // 
@@ -49,7 +49,7 @@
             this.goButton.Location = new System.Drawing.Point(12, 226);
             this.goButton.Name = "goButton";
             this.goButton.Size = new System.Drawing.Size(776, 65);
-            this.goButton.TabIndex = 1;
+            this.goButton.TabIndex = 2;
             this.goButton.Text = "ZATWIERDŹ";
             this.goButton.UseVisualStyleBackColor = true;
             this.goButton.Click += new System.EventHandler(this.GoButton_Click);
@@ -61,7 +61,7 @@
             this.chooseQueryMethodComboBox.Location = new System.Drawing.Point(12, 12);
             this.chooseQueryMethodComboBox.Name = "chooseQueryMethodComboBox";
             this.chooseQueryMethodComboBox.Size = new System.Drawing.Size(776, 33);
-            this.chooseQueryMethodComboBox.TabIndex = 2;
+            this.chooseQueryMethodComboBox.TabIndex = 0;
             this.chooseQueryMethodComboBox.Text = "Wybierz typ zapytania";
             // 
             // DirectDatabaseQueryForm

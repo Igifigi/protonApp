@@ -29,6 +29,7 @@ namespace protonApp.GUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewMainForm));
             this.MainTabControl = new System.Windows.Forms.TabControl();
             this.MainPage = new System.Windows.Forms.TabPage();
@@ -85,6 +86,8 @@ namespace protonApp.GUI
             this.AddValueButton = new System.Windows.Forms.Button();
             this.InsertValueTextBox = new System.Windows.Forms.TextBox();
             this.SelectKeyComboBox = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.ShortcutsToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.MainTabControl.SuspendLayout();
             this.MainPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -109,7 +112,6 @@ namespace protonApp.GUI
             this.MainTabControl.Size = new System.Drawing.Size(908, 756);
             this.MainTabControl.TabIndex = 0;
             this.MainTabControl.SelectedIndexChanged += new System.EventHandler(this.MainTabControl_SelectedIndexChanged);
-            //this.MainTabControl.TabIndexChanged += new System.EventHandler(this.MainTabControl_TabIndexChanged);
             // 
             // MainPage
             // 
@@ -163,7 +165,7 @@ namespace protonApp.GUI
             this.HelpButton.Location = new System.Drawing.Point(638, 268);
             this.HelpButton.Name = "HelpButton";
             this.HelpButton.Size = new System.Drawing.Size(256, 57);
-            this.HelpButton.TabIndex = 18;
+            this.HelpButton.TabIndex = 1;
             this.HelpButton.Text = "Pomoc";
             this.HelpButton.UseVisualStyleBackColor = true;
             this.HelpButton.Click += new System.EventHandler(this.HelpButton_Click);
@@ -174,7 +176,7 @@ namespace protonApp.GUI
             this.SubmitIssueButton.Location = new System.Drawing.Point(638, 331);
             this.SubmitIssueButton.Name = "SubmitIssueButton";
             this.SubmitIssueButton.Size = new System.Drawing.Size(256, 57);
-            this.SubmitIssueButton.TabIndex = 17;
+            this.SubmitIssueButton.TabIndex = 2;
             this.SubmitIssueButton.Text = "Zgłoś błąd";
             this.SubmitIssueButton.UseVisualStyleBackColor = true;
             this.SubmitIssueButton.Click += new System.EventHandler(this.SubmitIssueButton_Click);
@@ -232,7 +234,7 @@ namespace protonApp.GUI
             this.DeleteEventButton.Location = new System.Drawing.Point(725, 358);
             this.DeleteEventButton.Name = "DeleteEventButton";
             this.DeleteEventButton.Size = new System.Drawing.Size(172, 169);
-            this.DeleteEventButton.TabIndex = 25;
+            this.DeleteEventButton.TabIndex = 3;
             this.DeleteEventButton.Text = "Usuń wydarzenie";
             this.DeleteEventButton.UseVisualStyleBackColor = true;
             this.DeleteEventButton.Click += new System.EventHandler(this.DeleteEventButton_Click);
@@ -244,7 +246,7 @@ namespace protonApp.GUI
             this.EditEventButton.Location = new System.Drawing.Point(725, 182);
             this.EditEventButton.Name = "EditEventButton";
             this.EditEventButton.Size = new System.Drawing.Size(172, 170);
-            this.EditEventButton.TabIndex = 24;
+            this.EditEventButton.TabIndex = 2;
             this.EditEventButton.Text = "Edytuj wydarzenie";
             this.EditEventButton.UseVisualStyleBackColor = true;
             this.EditEventButton.Click += new System.EventHandler(this.EditEventButton_Click);
@@ -255,7 +257,7 @@ namespace protonApp.GUI
             this.RefreshEventsButton.Location = new System.Drawing.Point(725, 533);
             this.RefreshEventsButton.Name = "RefreshEventsButton";
             this.RefreshEventsButton.Size = new System.Drawing.Size(172, 170);
-            this.RefreshEventsButton.TabIndex = 23;
+            this.RefreshEventsButton.TabIndex = 4;
             this.RefreshEventsButton.Text = "Odśwież";
             this.RefreshEventsButton.UseVisualStyleBackColor = true;
             this.RefreshEventsButton.Click += new System.EventHandler(this.RefreshEventsButton_Click);
@@ -266,7 +268,7 @@ namespace protonApp.GUI
             this.AddEventButton.Location = new System.Drawing.Point(725, 6);
             this.AddEventButton.Name = "AddEventButton";
             this.AddEventButton.Size = new System.Drawing.Size(172, 170);
-            this.AddEventButton.TabIndex = 22;
+            this.AddEventButton.TabIndex = 1;
             this.AddEventButton.Text = "Dodaj wydarzenie";
             this.AddEventButton.UseVisualStyleBackColor = true;
             this.AddEventButton.Click += new System.EventHandler(this.AddEventButton_Click);
@@ -280,7 +282,7 @@ namespace protonApp.GUI
             this.EventsCheckedListBox.Name = "EventsCheckedListBox";
             this.EventsCheckedListBox.ScrollAlwaysVisible = true;
             this.EventsCheckedListBox.Size = new System.Drawing.Size(713, 697);
-            this.EventsCheckedListBox.TabIndex = 10;
+            this.EventsCheckedListBox.TabIndex = 0;
             this.EventsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.EventsCheckedListBox_ItemCheck);
             // 
             // StudentsPage
@@ -305,7 +307,7 @@ namespace protonApp.GUI
             this.DeleteStudentButton.Location = new System.Drawing.Point(725, 358);
             this.DeleteStudentButton.Name = "DeleteStudentButton";
             this.DeleteStudentButton.Size = new System.Drawing.Size(172, 169);
-            this.DeleteStudentButton.TabIndex = 21;
+            this.DeleteStudentButton.TabIndex = 3;
             this.DeleteStudentButton.Text = "Usuń ucznia";
             this.DeleteStudentButton.UseVisualStyleBackColor = true;
             this.DeleteStudentButton.Click += new System.EventHandler(this.DeleteStudentButton_Click);
@@ -319,9 +321,9 @@ namespace protonApp.GUI
             this.StudentsCheckedListBox.Name = "StudentsCheckedListBox";
             this.StudentsCheckedListBox.ScrollAlwaysVisible = true;
             this.StudentsCheckedListBox.Size = new System.Drawing.Size(713, 697);
-            this.StudentsCheckedListBox.TabIndex = 20;
+            this.StudentsCheckedListBox.TabIndex = 0;
             this.StudentsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.StudentsCheckedListBox_ItemCheck);
-            this.StudentsCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.StudentsCheckedListBox_SelectedIndexChanged);
+            //this.StudentsCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.StudentsCheckedListBox_SelectedIndexChanged);
             // 
             // EditStudentButton
             // 
@@ -330,7 +332,7 @@ namespace protonApp.GUI
             this.EditStudentButton.Location = new System.Drawing.Point(725, 182);
             this.EditStudentButton.Name = "EditStudentButton";
             this.EditStudentButton.Size = new System.Drawing.Size(172, 170);
-            this.EditStudentButton.TabIndex = 19;
+            this.EditStudentButton.TabIndex = 2;
             this.EditStudentButton.Text = "Edytuj ucznia";
             this.EditStudentButton.UseVisualStyleBackColor = true;
             this.EditStudentButton.Click += new System.EventHandler(this.EditStudentButton_Click);
@@ -341,7 +343,7 @@ namespace protonApp.GUI
             this.RefreshStudentsButton.Location = new System.Drawing.Point(725, 533);
             this.RefreshStudentsButton.Name = "RefreshStudentsButton";
             this.RefreshStudentsButton.Size = new System.Drawing.Size(172, 170);
-            this.RefreshStudentsButton.TabIndex = 18;
+            this.RefreshStudentsButton.TabIndex = 4;
             this.RefreshStudentsButton.Text = "Odśwież";
             this.RefreshStudentsButton.UseVisualStyleBackColor = true;
             this.RefreshStudentsButton.Click += new System.EventHandler(this.RefreshStudentsButton_Click);
@@ -352,7 +354,7 @@ namespace protonApp.GUI
             this.AddStudentButton.Location = new System.Drawing.Point(725, 6);
             this.AddStudentButton.Name = "AddStudentButton";
             this.AddStudentButton.Size = new System.Drawing.Size(172, 170);
-            this.AddStudentButton.TabIndex = 17;
+            this.AddStudentButton.TabIndex = 1;
             this.AddStudentButton.Text = "Dodaj ucznia";
             this.AddStudentButton.UseVisualStyleBackColor = true;
             this.AddStudentButton.Click += new System.EventHandler(this.AddStudentButton_Click);
@@ -383,7 +385,7 @@ namespace protonApp.GUI
             this.RefreshRankingButton.Location = new System.Drawing.Point(3, 3);
             this.RefreshRankingButton.Name = "RefreshRankingButton";
             this.RefreshRankingButton.Size = new System.Drawing.Size(172, 40);
-            this.RefreshRankingButton.TabIndex = 38;
+            this.RefreshRankingButton.TabIndex = 0;
             this.RefreshRankingButton.Text = "Odśwież";
             this.RefreshRankingButton.UseVisualStyleBackColor = true;
             this.RefreshRankingButton.Click += new System.EventHandler(this.RefreshRankingButton_Click);
@@ -394,7 +396,7 @@ namespace protonApp.GUI
             this.CreateRankingPDFButton.Location = new System.Drawing.Point(725, 3);
             this.CreateRankingPDFButton.Name = "CreateRankingPDFButton";
             this.CreateRankingPDFButton.Size = new System.Drawing.Size(172, 40);
-            this.CreateRankingPDFButton.TabIndex = 37;
+            this.CreateRankingPDFButton.TabIndex = 3;
             this.CreateRankingPDFButton.Text = "Utwórz PDF";
             this.CreateRankingPDFButton.UseVisualStyleBackColor = true;
             this.CreateRankingPDFButton.Click += new System.EventHandler(this.CreateRankingPDFButton_Click);
@@ -420,7 +422,7 @@ namespace protonApp.GUI
             this.SelectSexComboBox.Location = new System.Drawing.Point(503, 9);
             this.SelectSexComboBox.Name = "SelectSexComboBox";
             this.SelectSexComboBox.Size = new System.Drawing.Size(216, 28);
-            this.SelectSexComboBox.TabIndex = 35;
+            this.SelectSexComboBox.TabIndex = 2;
             this.SelectSexComboBox.SelectedIndexChanged += new System.EventHandler(this.SelectSexComboBox_SelectedIndexChanged);
             // 
             // label4
@@ -439,7 +441,7 @@ namespace protonApp.GUI
             this.NumberOfStudentsToDisplayNumericUpDown.Location = new System.Drawing.Point(398, 10);
             this.NumberOfStudentsToDisplayNumericUpDown.Name = "NumberOfStudentsToDisplayNumericUpDown";
             this.NumberOfStudentsToDisplayNumericUpDown.Size = new System.Drawing.Size(49, 26);
-            this.NumberOfStudentsToDisplayNumericUpDown.TabIndex = 33;
+            this.NumberOfStudentsToDisplayNumericUpDown.TabIndex = 1;
             this.NumberOfStudentsToDisplayNumericUpDown.Value = new decimal(new int[] {
             20,
             0,
@@ -455,7 +457,7 @@ namespace protonApp.GUI
             this.ClassRankingListBox.Location = new System.Drawing.Point(453, 86);
             this.ClassRankingListBox.Name = "ClassRankingListBox";
             this.ClassRankingListBox.Size = new System.Drawing.Size(444, 624);
-            this.ClassRankingListBox.TabIndex = 32;
+            this.ClassRankingListBox.TabIndex = 5;
             // 
             // label2
             // 
@@ -475,7 +477,7 @@ namespace protonApp.GUI
             this.IndividualRankingListBox.Location = new System.Drawing.Point(3, 86);
             this.IndividualRankingListBox.Name = "IndividualRankingListBox";
             this.IndividualRankingListBox.Size = new System.Drawing.Size(444, 624);
-            this.IndividualRankingListBox.TabIndex = 30;
+            this.IndividualRankingListBox.TabIndex = 4;
             // 
             // label1
             // 
@@ -524,7 +526,7 @@ namespace protonApp.GUI
             this.CommitConnectionStringButton.Location = new System.Drawing.Point(3, 656);
             this.CommitConnectionStringButton.Name = "CommitConnectionStringButton";
             this.CommitConnectionStringButton.Size = new System.Drawing.Size(894, 55);
-            this.CommitConnectionStringButton.TabIndex = 30;
+            this.CommitConnectionStringButton.TabIndex = 14;
             this.CommitConnectionStringButton.Text = "Zatwierdź pełnego connection stringa";
             this.CommitConnectionStringButton.UseVisualStyleBackColor = true;
             this.CommitConnectionStringButton.Click += new System.EventHandler(this.CommitConnectionStringButton_Click);
@@ -536,7 +538,7 @@ namespace protonApp.GUI
             this.FullConnectionStringTextBox.Name = "FullConnectionStringTextBox";
             this.FullConnectionStringTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.FullConnectionStringTextBox.Size = new System.Drawing.Size(894, 187);
-            this.FullConnectionStringTextBox.TabIndex = 29;
+            this.FullConnectionStringTextBox.TabIndex = 7;
             this.FullConnectionStringTextBox.Text = "";
             // 
             // ConfirmChangesButton
@@ -545,7 +547,7 @@ namespace protonApp.GUI
             this.ConfirmChangesButton.Location = new System.Drawing.Point(3, 402);
             this.ConfirmChangesButton.Name = "ConfirmChangesButton";
             this.ConfirmChangesButton.Size = new System.Drawing.Size(894, 55);
-            this.ConfirmChangesButton.TabIndex = 28;
+            this.ConfirmChangesButton.TabIndex = 13;
             this.ConfirmChangesButton.Text = "Zatwierdź";
             this.ConfirmChangesButton.UseVisualStyleBackColor = true;
             this.ConfirmChangesButton.Click += new System.EventHandler(this.ConfirmChangesButton_Click);
@@ -596,7 +598,7 @@ namespace protonApp.GUI
             this.PortTextBox.Location = new System.Drawing.Point(156, 306);
             this.PortTextBox.Name = "PortTextBox";
             this.PortTextBox.Size = new System.Drawing.Size(741, 26);
-            this.PortTextBox.TabIndex = 23;
+            this.PortTextBox.TabIndex = 4;
             // 
             // UsernameTextBox
             // 
@@ -604,7 +606,7 @@ namespace protonApp.GUI
             this.UsernameTextBox.Location = new System.Drawing.Point(156, 338);
             this.UsernameTextBox.Name = "UsernameTextBox";
             this.UsernameTextBox.Size = new System.Drawing.Size(741, 26);
-            this.UsernameTextBox.TabIndex = 22;
+            this.UsernameTextBox.TabIndex = 5;
             // 
             // PasswordTextBox
             // 
@@ -612,7 +614,7 @@ namespace protonApp.GUI
             this.PasswordTextBox.Location = new System.Drawing.Point(156, 370);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.Size = new System.Drawing.Size(741, 26);
-            this.PasswordTextBox.TabIndex = 21;
+            this.PasswordTextBox.TabIndex = 6;
             // 
             // DataSourceTextBox
             // 
@@ -620,7 +622,7 @@ namespace protonApp.GUI
             this.DataSourceTextBox.Location = new System.Drawing.Point(156, 274);
             this.DataSourceTextBox.Name = "DataSourceTextBox";
             this.DataSourceTextBox.Size = new System.Drawing.Size(741, 26);
-            this.DataSourceTextBox.TabIndex = 20;
+            this.DataSourceTextBox.TabIndex = 3;
             // 
             // label6
             // 
@@ -649,7 +651,7 @@ namespace protonApp.GUI
             this.ResetValueButton.Location = new System.Drawing.Point(725, 240);
             this.ResetValueButton.Name = "ResetValueButton";
             this.ResetValueButton.Size = new System.Drawing.Size(172, 28);
-            this.ResetValueButton.TabIndex = 17;
+            this.ResetValueButton.TabIndex = 11;
             this.ResetValueButton.Text = "Resetuj";
             this.ResetValueButton.UseVisualStyleBackColor = true;
             this.ResetValueButton.Click += new System.EventHandler(this.ResetValueButton_Click);
@@ -660,7 +662,7 @@ namespace protonApp.GUI
             this.DirectDatabaseQueryButton.Location = new System.Drawing.Point(3, 241);
             this.DirectDatabaseQueryButton.Name = "DirectDatabaseQueryButton";
             this.DirectDatabaseQueryButton.Size = new System.Drawing.Size(716, 28);
-            this.DirectDatabaseQueryButton.TabIndex = 16;
+            this.DirectDatabaseQueryButton.TabIndex = 12;
             this.DirectDatabaseQueryButton.Text = "Bezpośrednie zapytanie do bazy (DEV)";
             this.DirectDatabaseQueryButton.UseVisualStyleBackColor = true;
             this.DirectDatabaseQueryButton.Click += new System.EventHandler(this.DirectDatabaseQueryButton_Click);
@@ -671,7 +673,7 @@ namespace protonApp.GUI
             this.DeleteValueButton.Location = new System.Drawing.Point(725, 206);
             this.DeleteValueButton.Name = "DeleteValueButton";
             this.DeleteValueButton.Size = new System.Drawing.Size(172, 28);
-            this.DeleteValueButton.TabIndex = 15;
+            this.DeleteValueButton.TabIndex = 10;
             this.DeleteValueButton.Text = "Usuń";
             this.DeleteValueButton.UseVisualStyleBackColor = true;
             this.DeleteValueButton.Click += new System.EventHandler(this.DeleteValueButton_Click);
@@ -683,7 +685,7 @@ namespace protonApp.GUI
             this.SelectValueComboBox.Location = new System.Drawing.Point(3, 172);
             this.SelectValueComboBox.Name = "SelectValueComboBox";
             this.SelectValueComboBox.Size = new System.Drawing.Size(716, 28);
-            this.SelectValueComboBox.TabIndex = 14;
+            this.SelectValueComboBox.TabIndex = 1;
             this.SelectValueComboBox.Text = "Wybierz wartość";
             // 
             // EditValueButton
@@ -692,7 +694,7 @@ namespace protonApp.GUI
             this.EditValueButton.Location = new System.Drawing.Point(725, 171);
             this.EditValueButton.Name = "EditValueButton";
             this.EditValueButton.Size = new System.Drawing.Size(172, 28);
-            this.EditValueButton.TabIndex = 13;
+            this.EditValueButton.TabIndex = 9;
             this.EditValueButton.Text = "Edytuj";
             this.EditValueButton.UseVisualStyleBackColor = true;
             this.EditValueButton.Click += new System.EventHandler(this.EditValueButton_Click);
@@ -703,7 +705,7 @@ namespace protonApp.GUI
             this.AddValueButton.Location = new System.Drawing.Point(725, 137);
             this.AddValueButton.Name = "AddValueButton";
             this.AddValueButton.Size = new System.Drawing.Size(172, 28);
-            this.AddValueButton.TabIndex = 12;
+            this.AddValueButton.TabIndex = 8;
             this.AddValueButton.Text = "Dodaj";
             this.AddValueButton.UseVisualStyleBackColor = true;
             this.AddValueButton.Click += new System.EventHandler(this.AddValueButton_Click);
@@ -714,7 +716,7 @@ namespace protonApp.GUI
             this.InsertValueTextBox.Location = new System.Drawing.Point(3, 206);
             this.InsertValueTextBox.Name = "InsertValueTextBox";
             this.InsertValueTextBox.Size = new System.Drawing.Size(716, 26);
-            this.InsertValueTextBox.TabIndex = 11;
+            this.InsertValueTextBox.TabIndex = 2;
             this.InsertValueTextBox.Text = "Wprowadź wartość";
             // 
             // SelectKeyComboBox
@@ -724,21 +726,40 @@ namespace protonApp.GUI
             this.SelectKeyComboBox.Location = new System.Drawing.Point(3, 138);
             this.SelectKeyComboBox.Name = "SelectKeyComboBox";
             this.SelectKeyComboBox.Size = new System.Drawing.Size(716, 28);
-            this.SelectKeyComboBox.TabIndex = 10;
+            this.SelectKeyComboBox.TabIndex = 0;
             this.SelectKeyComboBox.Text = "Wybierz klucz";
             this.SelectKeyComboBox.SelectedIndexChanged += new System.EventHandler(this.SelectKeyComboBox_SelectedIndexChanged);
+            // 
+            // label13
+            // 
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label13.Location = new System.Drawing.Point(724, 12);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(192, 35);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Skróty klawiszowe";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ShortcutsToolTip.SetToolTip(this.label13, "CTRL + 1 - Strona główna\r\nCTRL + 2 - Wydarzenia\r\nCTRL + 3 - Uczniowie\r\nCTRL + 4 -" +
+        " Ranking\r\nCTRL + 5 - Ustawienia\r\nCTRL + RIGHT - Następna karta\r\nCTRL + LEFT - Po" +
+        "przednia karta\r\n");
+            // 
+            // ShortcutsToolTip
+            // 
+            this.ShortcutsToolTip.ToolTipTitle = "Skróty";
             // 
             // NewMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(932, 794);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.MainTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "NewMainForm";
             this.Text = "Proton";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NewMainForm_KeyDown);
             this.MainTabControl.ResumeLayout(false);
             this.MainPage.ResumeLayout(false);
             this.MainPage.PerformLayout();
@@ -811,5 +832,7 @@ namespace protonApp.GUI
         private System.Windows.Forms.Label VersionLabel;
         private System.Windows.Forms.Button HelpButton;
         private System.Windows.Forms.Button SubmitIssueButton;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ToolTip ShortcutsToolTip;
     }
 }

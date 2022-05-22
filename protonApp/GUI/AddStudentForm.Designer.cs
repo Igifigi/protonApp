@@ -58,7 +58,7 @@
             this.nameTextBox.Location = new System.Drawing.Point(94, 12);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(221, 26);
-            this.nameTextBox.TabIndex = 1;
+            this.nameTextBox.TabIndex = 0;
             this.nameTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // surnameTextBox
@@ -67,7 +67,7 @@
             this.surnameTextBox.Location = new System.Drawing.Point(94, 44);
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.Size = new System.Drawing.Size(221, 26);
-            this.surnameTextBox.TabIndex = 3;
+            this.surnameTextBox.TabIndex = 1;
             this.surnameTextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label2
@@ -99,7 +99,7 @@
             this.menRadioButton.Location = new System.Drawing.Point(94, 76);
             this.menRadioButton.Name = "menRadioButton";
             this.menRadioButton.Size = new System.Drawing.Size(106, 24);
-            this.menRadioButton.TabIndex = 5;
+            this.menRadioButton.TabIndex = 2;
             this.menRadioButton.TabStop = true;
             this.menRadioButton.Text = "Mężczyzna";
             this.menRadioButton.UseVisualStyleBackColor = true;
@@ -112,7 +112,7 @@
             this.womenRadioButton.Location = new System.Drawing.Point(234, 76);
             this.womenRadioButton.Name = "womenRadioButton";
             this.womenRadioButton.Size = new System.Drawing.Size(81, 24);
-            this.womenRadioButton.TabIndex = 6;
+            this.womenRadioButton.TabIndex = 3;
             this.womenRadioButton.TabStop = true;
             this.womenRadioButton.Text = "Kobieta";
             this.womenRadioButton.UseVisualStyleBackColor = true;
@@ -125,7 +125,7 @@
             this.selectClassComboBox.Location = new System.Drawing.Point(94, 106);
             this.selectClassComboBox.Name = "selectClassComboBox";
             this.selectClassComboBox.Size = new System.Drawing.Size(221, 28);
-            this.selectClassComboBox.TabIndex = 7;
+            this.selectClassComboBox.TabIndex = 4;
             this.selectClassComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label4
@@ -145,7 +145,7 @@
             this.addStudentButton.Location = new System.Drawing.Point(12, 140);
             this.addStudentButton.Name = "addStudentButton";
             this.addStudentButton.Size = new System.Drawing.Size(303, 90);
-            this.addStudentButton.TabIndex = 9;
+            this.addStudentButton.TabIndex = 5;
             this.addStudentButton.Text = "DODAJ UCZNIA";
             this.addStudentButton.UseVisualStyleBackColor = true;
             this.addStudentButton.Click += new System.EventHandler(this.addStudent_Click);

@@ -61,7 +61,7 @@
             this.insertValueTextBox.Location = new System.Drawing.Point(11, 168);
             this.insertValueTextBox.Name = "insertValueTextBox";
             this.insertValueTextBox.Size = new System.Drawing.Size(252, 26);
-            this.insertValueTextBox.TabIndex = 1;
+            this.insertValueTextBox.TabIndex = 2;
             this.insertValueTextBox.Text = "Wprowadź wartość";
             // 
             // addValueButton
@@ -70,7 +70,7 @@
             this.addValueButton.Location = new System.Drawing.Point(269, 100);
             this.addValueButton.Name = "addValueButton";
             this.addValueButton.Size = new System.Drawing.Size(105, 28);
-            this.addValueButton.TabIndex = 2;
+            this.addValueButton.TabIndex = 3;
             this.addValueButton.Text = "Dodaj";
             this.addValueButton.UseVisualStyleBackColor = true;
             this.addValueButton.Click += new System.EventHandler(this.AddValueButton_Click);
@@ -81,7 +81,7 @@
             this.editValueButton.Location = new System.Drawing.Point(269, 134);
             this.editValueButton.Name = "editValueButton";
             this.editValueButton.Size = new System.Drawing.Size(105, 28);
-            this.editValueButton.TabIndex = 3;
+            this.editValueButton.TabIndex = 4;
             this.editValueButton.Text = "Edytuj";
             this.editValueButton.UseVisualStyleBackColor = true;
             this.editValueButton.Click += new System.EventHandler(this.EditValueButton_Click);
@@ -93,7 +93,7 @@
             this.selectValueComboBox.Location = new System.Drawing.Point(11, 134);
             this.selectValueComboBox.Name = "selectValueComboBox";
             this.selectValueComboBox.Size = new System.Drawing.Size(252, 28);
-            this.selectValueComboBox.TabIndex = 4;
+            this.selectValueComboBox.TabIndex = 1;
             this.selectValueComboBox.Text = "Wybierz wartość";
             // 
             // deleteValueButton
@@ -113,7 +113,7 @@
             this.directDatabaseQueryButton.Location = new System.Drawing.Point(12, 200);
             this.directDatabaseQueryButton.Name = "directDatabaseQueryButton";
             this.directDatabaseQueryButton.Size = new System.Drawing.Size(251, 28);
-            this.directDatabaseQueryButton.TabIndex = 6;
+            this.directDatabaseQueryButton.TabIndex = 7;
             this.directDatabaseQueryButton.Text = "Bezpośrednie zapytanie do bazy";
             this.directDatabaseQueryButton.UseVisualStyleBackColor = true;
             this.directDatabaseQueryButton.Click += new System.EventHandler(this.DirectDatabaseQueryButton_Click);
@@ -145,7 +145,7 @@
             this.resetValueButton.Location = new System.Drawing.Point(269, 200);
             this.resetValueButton.Name = "resetValueButton";
             this.resetValueButton.Size = new System.Drawing.Size(105, 28);
-            this.resetValueButton.TabIndex = 9;
+            this.resetValueButton.TabIndex = 6;
             this.resetValueButton.Text = "Resetuj";
             this.resetValueButtonToolTip.SetToolTip(this.resetValueButton, "Przywróć do ustawień domyślnych");
             this.resetValueButton.UseVisualStyleBackColor = true;
@@ -157,7 +157,7 @@
             this.connectionStringsFormButton.Location = new System.Drawing.Point(269, 12);
             this.connectionStringsFormButton.Name = "connectionStringsFormButton";
             this.connectionStringsFormButton.Size = new System.Drawing.Size(105, 28);
-            this.connectionStringsFormButton.TabIndex = 10;
+            this.connectionStringsFormButton.TabIndex = 8;
             this.connectionStringsFormButton.Text = "Serwer";
             this.connectionStringsFormButton.UseVisualStyleBackColor = true;
             this.connectionStringsFormButton.Click += new System.EventHandler(this.ConnectionStringsFormButton_Click);

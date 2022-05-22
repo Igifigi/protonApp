@@ -15,6 +15,7 @@ using protonApp.Logic;
 using System.Text.RegularExpressions;
 using System.Reflection;
 using System.Diagnostics;
+using System.Threading;
 using PdfSharp.Pdf;
 using PdfSharp.Drawing;
 using protonApp.Data;
@@ -24,19 +25,23 @@ namespace protonApp.GUI
 {
     public partial class NewMainForm : Form
     {
+        #region Instances
         OtherDatabaseModifications odm = new OtherDatabaseModifications();
         DatabaseDownloader dd = new DatabaseDownloader();
         UserCommunication uc = new UserCommunication();
         TechnicalFunctions tf = new TechnicalFunctions();
         MemoryManager mm = new MemoryManager();
+        #endregion
 
         public NewMainForm()
         {
             InitializeComponent();
             SetVersion();
             SetDefaultSex();
+            KeyPreview = true;
         }
 
+        #region Tabs managment
         private void MainTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (MainTabControl.SelectedTab.ToString().Remove(0, 10))
@@ -61,7 +66,24 @@ namespace protonApp.GUI
                     break;
             }
         }
+        private void NewMainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.D1)
+                MainTabControl.SelectedTab = MainPage;
+            if (e.Control && e.KeyCode == Keys.D2)
+                MainTabControl.SelectedTab = EventPage;
+            if (e.Control && e.KeyCode == Keys.D3)
+                MainTabControl.SelectedTab = StudentsPage;
+            if (e.Control && e.KeyCode == Keys.D4)
+                MainTabControl.SelectedTab = RankingPage;
+            if (e.Control && e.KeyCode == Keys.D5)
+                MainTabControl.SelectedTab = SettingsPage;
+            if (e.Control && e.KeyCode == Keys.Right && MainTabControl.SelectedIndex < MainTabControl.TabCount - 1)
+                MainTabControl.SelectedIndex++;
+            if (e.Control && e.KeyCode == Keys.Left && MainTabControl.SelectedIndex > 0)
+                MainTabControl.SelectedIndex--;
 
+        }
         private void MainTab()
         {
             SetVersion();
@@ -82,6 +104,7 @@ namespace protonApp.GUI
         {
             RefreshSettings();
         }
+        #endregion
 
         #region Main Page
 
@@ -216,21 +239,20 @@ namespace protonApp.GUI
 
         private void StudentsCheckedListBox_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+
             for (int i = 0; i < StudentsCheckedListBox.Items.Count; i++)
                 if (i != e.Index)
                     StudentsCheckedListBox.SetItemChecked(i, false);
-        }
-
-        private void StudentsCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
             if (StudentsCheckedListBox.CheckedItems.Count != 1)
-                EditStudentButton.Enabled = false;
-            else
+            {
                 EditStudentButton.Enabled = true;
-            if (StudentsCheckedListBox.CheckedItems.Count != 0)
-                DeleteStudentButton.Enabled = false;
-            else
                 DeleteStudentButton.Enabled = true;
+            }
+            else
+            {
+                EditStudentButton.Enabled = false;
+                DeleteStudentButton.Enabled = false;
+            }
         }
 
         #endregion
@@ -263,6 +285,7 @@ namespace protonApp.GUI
                     ranking.classes[i].points + "pkt"
                     );
         }
+
         private Ranking CreateRanking()
         {
             List<Log> logs = dd.GetLogs();
@@ -277,6 +300,7 @@ namespace protonApp.GUI
                 {
                     case "Obie":
                         PointedStudent pointed_student = new PointedStudent(student.id, student.name, student.surname, student.class_id, student.sex, 0);
+                        students.Add(pointed_student);
                         break;
                     case "Dziewczyny":
                         PointedStudent female_pointed_student = new PointedStudent(student.id, student.name, student.surname, student.class_id, student.sex, 0);
@@ -475,8 +499,7 @@ namespace protonApp.GUI
             }
         }
 
+
         #endregion
-
-
     }
 }
