@@ -6,6 +6,8 @@
 * [Version naming](#version-naming)
 * [Setup](#setup)
 * [Screenshots](#screenshots)
+* [License and credits](#license-and-credits)
+* [Contributing](#contributing)
 
 ## General info
 Proton is an application that allows you to easily and quickly calculate the school sports ranking. It was designed to support the Secondary School No. 3 in Wrocław (and their sports rules), but after changing the method of calculating points, it can be used in any educational institution. The advantages of the application include:
@@ -37,3 +39,10 @@ All you have to do is download the latest 'proton.msi' installer ([see Releases]
 ![Zrzut ekranu 2022-05-22 o 11 45 55](https://user-images.githubusercontent.com/44808028/169689544-8023c25a-7560-461d-853e-93511e64525c.png)
 ![Zrzut ekranu 2022-05-22 o 11 46 24](https://user-images.githubusercontent.com/44808028/169689546-74df395f-0c6a-40b5-b413-0f1d259de595.png)
 ![Zrzut ekranu 2022-05-22 o 11 46 39](https://user-images.githubusercontent.com/44808028/169689547-00b0a1c6-5572-4bc1-adfa-68d5b6c35002.png)
+
+## License and credits
+This project is licensed uner AGPLv3.
+The fonts used are the property of Microsoft®.
+
+## Contributing
+See CONTRIBUTING.md
