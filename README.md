@@ -1,4 +1,5 @@
 # Proton
+![logo — kopia](https://user-images.githubusercontent.com/44808028/169690395-be83ebad-8032-4846-a91d-f7516556f5db.png)
 ### Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
