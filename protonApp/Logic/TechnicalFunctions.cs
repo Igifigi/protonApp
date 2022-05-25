@@ -7,11 +7,14 @@ using System.Configuration;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using protonApp.Model;
+using protonApp.Logic;
 
 namespace protonApp.Data
 {
     public class TechnicalFunctions
     {
+        //DatabaseDownloader dd = new DatabaseDownloader();
+
         internal  void setSetting(string key, string value)
         {
             Configuration config = ConfigurationManager.OpenExeConfiguration(Application.ExecutablePath);
@@ -88,5 +91,7 @@ namespace protonApp.Data
                 result.Add(item.ToString());
             return result;
         }
+
+
     }
 }

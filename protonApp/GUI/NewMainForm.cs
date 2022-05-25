@@ -78,10 +78,10 @@ namespace protonApp.GUI
                 MainTabControl.SelectedTab = RankingPage;
             if (e.Control && e.KeyCode == Keys.D5)
                 MainTabControl.SelectedTab = SettingsPage;
-            if (e.Control && e.KeyCode == Keys.Right && MainTabControl.SelectedIndex < MainTabControl.TabCount - 1)
-                MainTabControl.SelectedIndex++;
-            if (e.Control && e.KeyCode == Keys.Left && MainTabControl.SelectedIndex > 0)
-                MainTabControl.SelectedIndex--;
+            //if (e.Control && e.Alt && e.KeyCode == Keys.Right && MainTabControl.SelectedIndex < MainTabControl.TabCount - 1)
+            //    MainTabControl.SelectedIndex++;
+            //if (e.Control && e.Alt && e.KeyCode == Keys.Left && MainTabControl.SelectedIndex > 0)
+            //    MainTabControl.SelectedIndex--;
 
         }
         private void MainTab()
@@ -204,11 +204,8 @@ namespace protonApp.GUI
         private int GetSelectedStudentId()
         {
             string selected_student = StudentsCheckedListBox.CheckedItems[0].ToString();
-            List<string> separated_values = selected_student.Split(' ').ToList();
-            string _name = separated_values[0];
-            string _surname = separated_values[1];
-            string _class = separated_values[2];
-            return dd.GetStudentIdByParameters(_name, _surname, dd.GetClassIdByName(_class));
+            var separated = new List<string>(dd.SplitStringIntoStudentsParameteres(selected_student));
+            return dd.GetStudentIdByParameters(separated[0], separated[1], dd.GetClassIdByName(separated[2]));
         }
 
         //EVENT HANDLERS

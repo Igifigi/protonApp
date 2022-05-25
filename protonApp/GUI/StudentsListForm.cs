@@ -27,14 +27,12 @@ namespace protonApp.GUI
 
         private void editStudent_Click(object sender, EventArgs e)
         {
-            string ItemChecked = StudentsCheckedListBox.CheckedItems[0].ToString();
-            string name = ItemChecked.ToString().Split(' ')[0];
-            string surname = ItemChecked.ToString().Split(' ')[1];
-            string klasa = ItemChecked.ToString().Split(' ')[2];
-            editStudentButton.Enabled = false;
-            id = dl.GetStudentIdByParameters(name, surname, dl.GetClassIdByName(klasa));
-            StudentEditForm studentEditForm = new StudentEditForm(id);
-            studentEditForm.ShowDialog();
+            //string ItemChecked = StudentsCheckedListBox.CheckedItems[0].ToString();
+            //var separated = new List<string>(TechnicalFunctions.SplitStringIntoStudentsParameteres(selected_student));
+            //editStudentButton.Enabled = false;
+            //id = dl.GetStudentIdByParameters(name, surname, dl.GetClassIdByName(klasa));
+            //StudentEditForm studentEditForm = new StudentEditForm(id);
+            //studentEditForm.ShowDialog();
 
         }
 
@@ -72,14 +70,12 @@ namespace protonApp.GUI
         }
         private void deleteCheckedStudents()
         {
-            foreach (object itemChecked in StudentsCheckedListBox.CheckedItems)
-            {
-                string name = itemChecked.ToString().Split(' ')[0];
-                string surname = itemChecked.ToString().Split(' ')[1];
-                string klasa = itemChecked.ToString().Split(' ')[2];
-                string Text = "DELETE FROM uczniowie where id=" + dl.GetStudentIdByParameters(name, surname, dl.GetClassIdByName(klasa));
-                md.sendDirectQuery(Text);
-            }
+            //foreach (object itemChecked in StudentsCheckedListBox.CheckedItems)
+            //{
+            //    var separated = new List<string>(tf.SplitStringIntoStudentsParameteres(selected_student));
+            //    string Text = "DELETE FROM uczniowie where id=" + dl.GetStudentIdByParameters(name, surname, dl.GetClassIdByName(klasa));
+            //    md.sendDirectQuery(Text);
+            //}
         }
     }
 }

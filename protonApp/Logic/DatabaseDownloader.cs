@@ -235,8 +235,8 @@ namespace protonApp.Logic
                     "','" +
                     tf.ConvertCSharpDateTimeToMySqlDateTime(e.date) +
                     "')";
-                Console.WriteLine(cmd);
-                Console.WriteLine(e.date);
+                //Console.WriteLine(cmd);
+                //Console.WriteLine(e.date);
                 sqlConnection.Open();
                 MySqlCommand sqlCommand = new MySqlCommand(cmd, sqlConnection);
                 sqlCommand.ExecuteNonQuery();
@@ -244,7 +244,7 @@ namespace protonApp.Logic
             catch(Exception ex)
             {
                 //MessageBox.Show(ex.Message);
-                Console.WriteLine(ex.Message);
+                //Console.WriteLine(ex.Message);
                 
             }
             sqlConnection.Close();
@@ -404,6 +404,23 @@ namespace protonApp.Logic
                 uc.ShowErrorBox(ex.Message);
             }
             sqlConnection.Close();
+        }
+
+        internal List<string> SplitStringIntoStudentsParameteres(string student)
+        {
+            var result = new List<string>();
+            var separated = student.Split(new char[] { ' ' });
+            var students = GetStudents();
+            var names = new List<string>();
+            students.ForEach(s => names.Add(s.name));
+            if (separated.Length > 3)
+                if (names.Contains(separated[1]))
+                    result.AddRange(new string[] { separated[0] + " " + separated[1], separated[2], separated[3] });
+                else
+                    result.AddRange(new string[] { separated[0], separated[1] + " " + separated[2], separated[3] });
+            else
+                result = separated.ToList();
+            return result;
         }
     }
 }

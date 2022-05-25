@@ -323,7 +323,6 @@ namespace protonApp.GUI
             this.StudentsCheckedListBox.Size = new System.Drawing.Size(713, 697);
             this.StudentsCheckedListBox.TabIndex = 0;
             this.StudentsCheckedListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.StudentsCheckedListBox_ItemCheck);
-            //this.StudentsCheckedListBox.SelectedIndexChanged += new System.EventHandler(this.StudentsCheckedListBox_SelectedIndexChanged);
             // 
             // EditStudentButton
             // 
@@ -740,8 +739,7 @@ namespace protonApp.GUI
             this.label13.Text = "Skróty klawiszowe";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.ShortcutsToolTip.SetToolTip(this.label13, "CTRL + 1 - Strona główna\r\nCTRL + 2 - Wydarzenia\r\nCTRL + 3 - Uczniowie\r\nCTRL + 4 -" +
-        " Ranking\r\nCTRL + 5 - Ustawienia\r\nCTRL + RIGHT - Następna karta\r\nCTRL + LEFT - Po" +
-        "przednia karta\r\n");
+        " Ranking\r\nCTRL + 5 - Ustawienia\r\n");
             // 
             // ShortcutsToolTip
             // 

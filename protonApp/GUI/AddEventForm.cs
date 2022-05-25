@@ -12,7 +12,7 @@ namespace protonApp.GUI
 {
     public partial class AddEventForm : Form
     {
-        DatabaseDownloader dbD = new DatabaseDownloader();
+        DatabaseDownloader dd = new DatabaseDownloader();
         PointsCalculator pc = new PointsCalculator();
         TechnicalFunctions tf = new TechnicalFunctions();
         List<KeyValuePair<Student, int>> Students = new List<KeyValuePair<Student, int>>();
@@ -119,10 +119,10 @@ namespace protonApp.GUI
                 return;
             }
             //var _Event = new KeyValuePair<string, DateTime>()
-            Event _event = new Event(dbD.GetHighestId("wydarzenia") + 1, getEventName(), getEventDate());
+            Event _event = new Event(dd.GetHighestId("wydarzenia") + 1, getEventName(), getEventDate());
             try
             {
-                dbD.SetEvent(_event);
+                dd.SetEvent(_event);
                 MessageBox.Show("Pomyślnie dodano wydarzenie " + _event.name + " o id " + _event.id + " i dacie " + _event.date, "DODANO WYDARZENIE", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -232,12 +232,12 @@ namespace protonApp.GUI
                 
                 
                 logList.Add(new Log(
-                    dbD.GetHighestId("log") + 1,
-                    dbD.GetStudentIdByParameters(pair.Key.name, pair.Key.surname, pair.Key.class_id),
+                    dd.GetHighestId("log") + 1,
+                    dd.GetStudentIdByParameters(pair.Key.name, pair.Key.surname, pair.Key.class_id),
                     points,
                     (getEventType() != "Sędziowanie" && getEventType() != "Organizacja") ? points : 0, 
-                    dbD.GetHighestId("wydarzenia")));
-                dbD.InsertLog(logList.Last());
+                    dd.GetHighestId("wydarzenia")));
+                dd.InsertLog(logList.Last());
             }
             this.Close();
         }
@@ -245,9 +245,9 @@ namespace protonApp.GUI
         private void StudentNameTextBox_TextChanged(object sender, EventArgs e)
         {
             studentsToAddCheckedListBox.Items.Clear();
-            var students = dbD.GetStudentsBySurname(getSurname());
+            var students = dd.GetStudentsBySurname(getSurname());
             foreach (Student student in students)
-                studentsToAddCheckedListBox.Items.Add(student.name + " " + student.surname + " " + dbD.GetClassById(student.class_id).name);
+                studentsToAddCheckedListBox.Items.Add(student.name + " " + student.surname + " " + dd.GetClassById(student.class_id).name);
         }
 
         private void AddStudentButton_Click(object sender, EventArgs e)
@@ -259,10 +259,10 @@ namespace protonApp.GUI
                 List<string> selected = new List<string>();
                 foreach (object itemChecked in studentsToAddCheckedListBox.CheckedItems)
                     selected.Add(itemChecked.ToString());
-                string[] separated = selected[0].Split(new char[] { ' ' });
-                Student student = dbD.GetStudentByNameAndSurname(separated[0], separated[1]);
+                var separated = new List<string>(dd.SplitStringIntoStudentsParameteres(selected[0]));
+                Student student = dd.GetStudentByNameAndSurname(separated[0], separated[1]);
                 Students.Add(new KeyValuePair<Student, int>(student, getPlayerPlace()));
-                addedStudentsCheckedListBox.Items.Add(student.name + " " + student.surname + " " + dbD.GetClassById(student.class_id).name);
+                addedStudentsCheckedListBox.Items.Add(student.name + " " + student.surname + " " + dd.GetClassById(student.class_id).name);
             }
             catch (Exception ex)
             {
@@ -278,8 +278,8 @@ namespace protonApp.GUI
                 List<string> selected = new List<string>();
                 foreach (object itemChecked in addedStudentsCheckedListBox.CheckedItems)
                     selected.Add(itemChecked.ToString());
-                string[] separated = selected[0].Split(new char[] { ' ' });
-                Student student = dbD.GetStudentByNameAndSurname(separated[0], separated[1]);
+                var separated = new List<string>(dd.SplitStringIntoStudentsParameteres(selected[0]));
+                Student student = dd.GetStudentByNameAndSurname(separated[0], separated[1]);
                 //var s = new Student(student.id, student.name, student.surname, student.class_id, student.sex);
                 //var found = Students.Where(x => x.Key == student);
                 KeyValuePair<Student, int> pair = new KeyValuePair<Student, int>(new Student(student.id, student.name, student.surname, student.class_id, student.sex), tf.GetStudentsPlaceByStudent(Students, new Student(student.id, student.name, student.surname, student.class_id, student.sex)));
@@ -289,7 +289,7 @@ namespace protonApp.GUI
 
                 addedStudentsCheckedListBox.Items.Clear();
                 foreach (KeyValuePair<Student, int> p in Students)
-                    addedStudentsCheckedListBox.Items.Add(p.Key.name + " " + p.Key.surname + " " + dbD.GetClassById(p.Key.class_id).name);
+                    addedStudentsCheckedListBox.Items.Add(p.Key.name + " " + p.Key.surname + " " + dd.GetClassById(p.Key.class_id).name);
                 //var allItems = addedStudentsCheckedListBox.Items.OfType<string>().ToList();
             }
             catch (Exception ex)
