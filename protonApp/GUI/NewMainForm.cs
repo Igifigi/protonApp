@@ -32,7 +32,7 @@ namespace protonApp.GUI
         TechnicalFunctions tf = new TechnicalFunctions();
         MemoryManager mm = new MemoryManager();
         #endregion
-
+         
         public NewMainForm()
         {
             InitializeComponent();
@@ -498,5 +498,11 @@ namespace protonApp.GUI
 
 
         #endregion
+
+        private void AddPointsManuallyButton_Click(object sender, EventArgs e)
+        {
+            AddPointsManually apmF = new AddPointsManually();
+            apmF.ShowDialog();
+        }
     }
 }

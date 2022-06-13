@@ -88,6 +88,7 @@ namespace protonApp.GUI
             this.SelectKeyComboBox = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.ShortcutsToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.AddPointsManuallyButton = new System.Windows.Forms.Button();
             this.MainTabControl.SuspendLayout();
             this.MainPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -213,6 +214,7 @@ namespace protonApp.GUI
             // 
             // EventPage
             // 
+            this.EventPage.Controls.Add(this.AddPointsManuallyButton);
             this.EventPage.Controls.Add(this.DeleteEventButton);
             this.EventPage.Controls.Add(this.EditEventButton);
             this.EventPage.Controls.Add(this.RefreshEventsButton);
@@ -256,7 +258,7 @@ namespace protonApp.GUI
             this.RefreshEventsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.RefreshEventsButton.Location = new System.Drawing.Point(725, 533);
             this.RefreshEventsButton.Name = "RefreshEventsButton";
-            this.RefreshEventsButton.Size = new System.Drawing.Size(172, 170);
+            this.RefreshEventsButton.Size = new System.Drawing.Size(172, 82);
             this.RefreshEventsButton.TabIndex = 4;
             this.RefreshEventsButton.Text = "Odśwież";
             this.RefreshEventsButton.UseVisualStyleBackColor = true;
@@ -745,6 +747,17 @@ namespace protonApp.GUI
             // 
             this.ShortcutsToolTip.ToolTipTitle = "Skróty";
             // 
+            // AddPointsManuallyButton
+            // 
+            this.AddPointsManuallyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AddPointsManuallyButton.Location = new System.Drawing.Point(725, 621);
+            this.AddPointsManuallyButton.Name = "AddPointsManuallyButton";
+            this.AddPointsManuallyButton.Size = new System.Drawing.Size(172, 82);
+            this.AddPointsManuallyButton.TabIndex = 5;
+            this.AddPointsManuallyButton.Text = "Dodaj punkty ręcznie";
+            this.AddPointsManuallyButton.UseVisualStyleBackColor = true;
+            this.AddPointsManuallyButton.Click += new System.EventHandler(this.AddPointsManuallyButton_Click);
+            // 
             // NewMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -832,5 +845,6 @@ namespace protonApp.GUI
         private System.Windows.Forms.Button SubmitIssueButton;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ToolTip ShortcutsToolTip;
+        private System.Windows.Forms.Button AddPointsManuallyButton;
     }
 }

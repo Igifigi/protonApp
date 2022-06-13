@@ -126,6 +126,12 @@
     <Compile Include="Data\MemoryManager.cs" />
     <Compile Include="Data\SportBonusData.cs" />
     <Compile Include="Data\StaticSettingsData.cs" />
+    <Compile Include="GUI\AddPointsManually.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\AddPointsManually.Designer.cs">
+      <DependentUpon>AddPointsManually.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\AddStudentForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +215,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\AddEventForm.resx">
       <DependentUpon>AddEventForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\AddPointsManually.resx">
+      <DependentUpon>AddPointsManually.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\AddStudentForm.resx">
       <DependentUpon>AddStudentForm.cs</DependentUpon>
